@@ -1,1 +1,14 @@
 <h1>Products</h1>
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <p><%= product.name %></p>
+      <p><%= image_tag product.photo_url, width: 175 %></p>
+      <p><b></b>Description:</b> <%= product.description %></p>
+      <p><b>Daily Price:</b> <%= product.daily_price %></p>
+      <p><b>Weekly Price:</b> <%= product.weekly_price %></p>
+      <p><b>Monthly Price:</b> <%= product.monthly_price %></p>
+    </li>
+    <hr>
+  <% end %>
+</ul>

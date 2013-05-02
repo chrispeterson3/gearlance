@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 categories = [
-  { name: "Camera", slug: "cameras" },
-  { name: "Lens", slug: "lenses" }
+  { name: "Cameras", slug: "cameras" },
+  { name: "Lenses", slug: "lenses" }
 ]
 
 products = [
@@ -34,8 +34,8 @@ products.shuffle.each do |product|
   p.name = product[:name]
   p.photo_url = product[:photo_url]
   p.description = product[:description]
-  p.weekly_price = product[:weekly_price]
   p.daily_price = product[:daily_price]
+  p.weekly_price = product[:weekly_price]
   p.monthly_price = product[:monthly_price]
   p.save
 end
