@@ -4,8 +4,11 @@
 
 <%= form_tag product_url(@product.id), method: "put" do %>
 
-  <%= label_tag "category_id", "Category:" %>
-  <%= text_field_tag "category_id", @product.category_id %><br>
+  <%= radio_button_tag :category_id, @product.category_id %>
+  <%= label_tag :category_id, "Camera" %>
+
+  <%= radio_button_tag :category_id, @product.category_id %>
+  <%= label_tag :category_id, "Lens" %>
 
   <%= label_tag "name", "Product Title:" %>
   <%= text_field_tag "name", @product.name %><br>

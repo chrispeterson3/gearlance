@@ -2,8 +2,11 @@
 
 <%= form_tag products_url, method: "post" do %>
 
-  <%= label_tag "category_id", "Category:" %>
-  <%= text_field_tag "category_id" %><br>
+  <%= radio_button_tag :category_id, 1 %>
+  <%= label_tag :category_id, "Camera" %>
+
+  <%= radio_button_tag :category_id, 2 %>
+  <%= label_tag :category_id, "Lens" %>
 
   <%= label_tag "name", "Product Title:" %>
   <%= text_field_tag "name" %><br>
