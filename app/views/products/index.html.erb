@@ -1,5 +1,5 @@
 <h1>Products</h1><br>
-<%= link_to "Add Product", products_url %><br><br>
+<%= link_to "Add Product", new_product_url, class: "btn btn-success" %><br><br>
 <ul>
   <% @products.each do |product| %>
     <li>
@@ -10,7 +10,8 @@
       <p><b>Weekly Price:</b> <%= product.weekly_price %></p>
       <p><b>Monthly Price:</b> <%= product.monthly_price %></p>
       <p><b>Category ID:</b> <%= product.category_id %></p>
-      <p><%= link_to "View", product_url(product.id), class: "btn" %></p>
+      <p><%= link_to "View", product_url(product.id), class: "btn btn-info" %> &nbsp;|&nbsp;
+      <%= link_to "86 This", product_url(product.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %></p>
     </li>
     <hr>
   <% end %>

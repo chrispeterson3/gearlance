@@ -43,4 +43,11 @@ class ProductsController < ApplicationController
 
     redirect_to product_url(p)
   end
+
+  def destroy
+    p = Product.find_by_id(params[:id])
+    p.destroy
+
+    redirect_to products_url
+  end
 end
