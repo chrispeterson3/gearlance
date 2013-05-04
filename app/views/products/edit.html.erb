@@ -1,5 +1,7 @@
 <h1>Edit <%= @product.name %></h1><br>
 
+<%= link_to raw("&laquo; Back"), product_url(@product.id), class: "btn btn-primary" %><br><br>
+
 <%= form_tag product_url(@product.id), method: "put" do %>
 
   <%= label_tag "category_id", "Category:" %>
