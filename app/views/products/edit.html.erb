@@ -1,0 +1,27 @@
+<h1>Edit <%= @product.name %></h1><br>
+
+<%= form_tag product_url(@product.id), method: "put" do %>
+
+  <%= label_tag "category_id", "Category:" %>
+  <%= text_field_tag "category_id", @product.category_id %><br>
+
+  <%= label_tag "name", "Product Title:" %>
+  <%= text_field_tag "name", @product.name %><br>
+
+  <%= label_tag "photo_url", "Photo URL" %>
+  <%= text_field_tag "photo_url", @product.photo_url %><br>
+
+  <%= label_tag "description", "Description" %>
+  <%= text_area_tag "description", @product.description %><br>
+
+  <%= label_tag "daily_price", "Daily Price" %>
+  <%= text_field_tag "daily_price", @product.daily_price %><br>
+
+  <%= label_tag "weekly_price", "Weekly Price" %>
+  <%= text_field_tag "weekly_price", @product.weekly_price %><br>
+
+  <%= label_tag "monthly_price", "Monthly Price" %>
+  <%= text_field_tag "monthly_price", @product.monthly_price %><br><br>
+
+  <%= submit_tag "Add Product" %>
+<% end %>

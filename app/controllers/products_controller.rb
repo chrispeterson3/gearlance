@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def create
     p = Product.new
+
     p.category_id = params[:category_id]
     p.name = params[:name]
     p.photo_url = params[:photo_url]
@@ -22,5 +23,24 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by_id(params[:id])
+  end
+
+  def edit
+    @product = Product.find_by_id(params[:id])
+  end
+
+  def update
+    p = Product.find_by_id(params[:id])
+
+    p.category_id = params[:category_id]
+    p.name = params[:name]
+    p.photo_url = params[:photo_url]
+    p.description = params[:description]
+    p.daily_price = params[:daily_price]
+    p.weekly_price = params[:weekly_price]
+    p.monthly_price = params[:monthly_price]
+    p.save
+
+    redirect_to product_url(p)
   end
 end

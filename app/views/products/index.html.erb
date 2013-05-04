@@ -3,14 +3,14 @@
 <ul>
   <% @products.each do |product| %>
     <li>
-      <p><%= product.name %></p>
+      <h3><%= product.name %></h3>
       <%= link_to image_tag(product.photo_url, width: 175), product_url(product.id) %>
       <p><b>Description:</b> <%= product.description %></p>
       <p><b>Daily Price:</b> <%= product.daily_price %></p>
       <p><b>Weekly Price:</b> <%= product.weekly_price %></p>
       <p><b>Monthly Price:</b> <%= product.monthly_price %></p>
       <p><b>Category ID:</b> <%= product.category_id %></p>
-      <p><%= link_to ":- View -:", product_url(product.id) %></p>
+      <p><%= link_to "View", product_url(product.id), class: "btn" %></p>
     </li>
     <hr>
   <% end %>
