@@ -4,12 +4,13 @@
   <% @products.each do |product| %>
     <li>
       <p><%= product.name %></p>
-      <p><%= image_tag product.photo_url, width: 175 %></p>
-      <p><b></b>Description:</b> <%= product.description %></p>
+      <%= link_to image_tag(product.photo_url, width: 175), product_url(product.id) %>
+      <p><b>Description:</b> <%= product.description %></p>
       <p><b>Daily Price:</b> <%= product.daily_price %></p>
       <p><b>Weekly Price:</b> <%= product.weekly_price %></p>
       <p><b>Monthly Price:</b> <%= product.monthly_price %></p>
       <p><b>Category ID:</b> <%= product.category_id %></p>
+      <p><%= link_to ":- View -:", product_url(product.id) %></p>
     </li>
     <hr>
   <% end %>

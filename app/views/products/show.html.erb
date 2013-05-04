@@ -1,0 +1,11 @@
+<h1><%= @product.name %></h1><br>
+
+<%= image_tag @product.photo_url, width: 300 %>
+
+<p><b>Description:</b> <%= @product.description %></p>
+<p><b>Daily Price:</b> <%= @product.daily_price %></p>
+<p><b>Weekly Price:</b> <%= @product.weekly_price %></p>
+<p><b>Monthly Price:</b> <%= @product.monthly_price %></p>
+<p><b>Category ID:</b> <%= @product.category_id %></p>
+
+<%= link_to raw("&laquo; Products"), products_url %>&nbsp; | &nbsp; <%= link_to "Edit Product", edit_product_url %>

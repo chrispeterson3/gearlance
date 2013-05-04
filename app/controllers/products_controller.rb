@@ -1,8 +1,4 @@
 class ProductsController < ApplicationController
-  def index
-    @products = Product.all
-  end
-
   def new
 
   end
@@ -18,5 +14,13 @@ class ProductsController < ApplicationController
     p.monthly_price = params[:monthly_price]
     p.save
     redirect_to products_url
+  end
+
+  def index
+    @products = Product.all
+  end
+
+  def show
+    @product = Product.find_by_id(params[:id])
   end
 end
