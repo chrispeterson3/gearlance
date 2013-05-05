@@ -1,2 +1,21 @@
 <h3><%= @category.slug.capitalize %></h3>
 
+<ul>
+  <% @products.all.each do |product| %>
+    <li>
+      <h3><%= product.name %></h3>
+      <%= link_to image_tag(product.photo_url, width: 175), product_url(product.id) %>
+      <p><b>Description:</b> <%= product.description %></p>
+      <p><b>Daily Price:</b> <%= product.daily_price %></p>
+      <p><b>Weekly Price:</b> <%= product.weekly_price %></p>
+      <p><b>Monthly Price:</b> <%= product.monthly_price %></p>
+      <p><b>Category:</b> <%= product.category.name %></p>
+      <p>
+        <%= link_to "View", product_url(product.id), class: "btn" %> &nbsp;|&nbsp;
+        <%= link_to "Edit", edit_product_url(product.id), class: "btn" %> &nbsp;|&nbsp;
+        <%= link_to "86 This", product_url(product.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+      </p>
+    </li>
+    <hr>
+  <% end %>
+</ul>
