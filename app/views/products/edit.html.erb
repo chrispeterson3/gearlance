@@ -1,13 +1,13 @@
 <h1>Edit <%= @product.name %></h1><br>
 
-<%= link_to raw("&laquo; Back"), product_url(@product.id), class: "btn btn-primary" %><br><br>
+<%= link_to raw("&laquo; Back"), product_url(@product.id), class: "btn" %><br><br>
 
 <%= form_tag product_url(@product.id), method: "put" do %>
 
-  <%= radio_button_tag :category_id, @product.category_id %>
+  <%= radio_button_tag :category_id, 1 %>
   <%= label_tag :category_id, "Camera" %>
 
-  <%= radio_button_tag :category_id, @product.category_id %>
+  <%= radio_button_tag :category_id, 2 %>
   <%= label_tag :category_id, "Lens" %>
 
   <%= label_tag "name", "Product Title:" %>
@@ -28,5 +28,5 @@
   <%= label_tag "monthly_price", "Monthly Price" %>
   <%= text_field_tag "monthly_price", @product.monthly_price %><br><br>
 
-  <%= submit_tag "Add Product" %>
+  <%= submit_tag "Update Product" %>
 <% end %>
