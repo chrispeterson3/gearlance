@@ -1,4 +1,8 @@
-<h1>Products</h1><br>
+<h3>Categories</h3>
+<%= link_to "Cameras", category_url("cameras") %><br>
+<%= link_to "Lenses", category_url("lenses") %>
+
+<h3>List of All Products</h3><br>
 <%= link_to "Add Product", new_product_url, class: "btn btn-success" %><br><br>
 <ul>
   <% @products.each do |product| %>
