@@ -1,7 +1,13 @@
-<h3><%= @category.slug.capitalize %></h3>
+<h3>Categories (secondary nav?)</h3>
+<%= link_to "Cameras", category_url("cameras") %><br>
+<%= link_to "Lenses", category_url("lenses") %>
 
+<br><br>
+
+<h3>All items / Featured items?</h3>
+<%= link_to "Add Item", new_item_url, class: "btn btn-success" %><br><br>
 <ul>
-  <% @items.all.each do |item| %>
+  <% @items.each do |item| %>
     <li>
       <h3><%= item.name %></h3>
       <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>

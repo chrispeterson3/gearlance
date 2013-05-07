@@ -1,0 +1,32 @@
+<h1>Edit <%= @item.name %></h1><br>
+
+<%= link_to raw("&laquo; Back"), item_url(@item.id), class: "btn" %><br><br>
+
+<%= form_tag item_url(@item.id), method: "put" do %>
+
+  <%= radio_button_tag :category_id, 1 %>
+  <%= label_tag :category_id, "Camera" %>
+
+  <%= radio_button_tag :category_id, 2 %>
+  <%= label_tag :category_id, "Lens" %>
+
+  <%= label_tag "name", "item Title:" %>
+  <%= text_field_tag "name", @item.name %><br>
+
+  <%= label_tag "photo_url", "Photo URL:" %>
+  <%= text_field_tag "photo_url", @item.photo_url %><br>
+
+  <%= label_tag "description", "Description:" %>
+  <%= text_area_tag "description", @item.description %><br>
+
+  <%= label_tag "daily_price", "Daily Price:" %>
+  <%= number_field_tag "daily_price", @item.daily_price, placeholder: "Enter a value" %><br>
+
+  <%= label_tag "weekly_price", "Weekly Price:" %>
+  <%= number_field_tag "weekly_price", @item.weekly_price, placeholder: "Enter a value" %><br>
+
+  <%= label_tag "monthly_price", "Monthly Price:" %>
+  <%= number_field_tag "monthly_price", @item.monthly_price, placeholder: "Enter a value" %><br><br>
+
+  <%= submit_tag "Update Item" %>
+<% end %>

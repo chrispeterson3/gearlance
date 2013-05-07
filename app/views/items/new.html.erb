@@ -1,0 +1,32 @@
+<h1>New Item</h1><br>
+
+<%= link_to raw("&laquo; Back"), items_url, class: "btn" %><br><br>
+
+<%= form_tag items_url, method: "post" do %>
+
+  <%= radio_button_tag :category_id, 1 %>
+  <%= label_tag :category_id, "Camera" %>
+
+  <%= radio_button_tag :category_id, 2 %>
+  <%= label_tag :category_id, "Lens" %>
+
+  <%= label_tag "name", "Item Title:" %>
+  <%= text_field_tag "name" %><br>
+
+  <%= label_tag "photo_url", "Photo URL:" %>
+  <%= text_field_tag "photo_url" %><br>
+
+  <%= label_tag "description", "Description:" %>
+  <%= text_area_tag "description" %><br>
+
+  <%= label_tag "daily_price", "Daily Price:" %>
+  <%= number_field_tag "daily_price", nil, placeholder: "Enter a value" %><br>
+
+  <%= label_tag "weekly_price", "Weekly Price:" %>
+  <%= number_field_tag "weekly_price", nil, placeholder: "Enter a value" %><br>
+
+  <%= label_tag "monthly_price", "Monthly Price:" %>
+  <%= number_field_tag "monthly_price", nil, placeholder: "Enter a value" %><br><br>
+
+  <%= submit_tag "Add Item" %>
+<% end %>
