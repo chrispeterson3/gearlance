@@ -30,15 +30,17 @@ ActiveRecord::Schema.define(:version => 20130507043013) do
   end
 
   create_table "users", :force => true do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "email"
-    t.string  "avatar"
-    t.string  "address_1"
-    t.string  "address_2"
-    t.string  "city"
-    t.integer "zip"
-    t.integer "phone"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "avatar"
+    t.string "phone"
+    t.string "address_1"
+    t.string "address_2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.string "country"
   end
 
 end
