@@ -4,11 +4,7 @@
 
 <%= form_tag item_url(@item.id), method: "put" do %>
 
-  <%= radio_button_tag :category_id, 1 %>
-  <%= label_tag :category_id, "Camera" %>
-
-  <%= radio_button_tag :category_id, 2 %>
-  <%= label_tag :category_id, "Lens" %>
+  <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name", @item.category_id) %>
 
   <%= label_tag "name", "item Title:" %>
   <%= text_field_tag "name", @item.name %><br>

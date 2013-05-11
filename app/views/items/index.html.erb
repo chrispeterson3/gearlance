@@ -1,10 +1,12 @@
-<h3>Categories (secondary nav?)</h3>
-<%= link_to "Cameras", category_url("cameras") %><br>
-<%= link_to "Lenses", category_url("lenses") %>
+<h3>Categories</h3>
 
-<br><br>
+<% @categories.each do |category| %>
+  <%= link_to category.slug.capitalize, category_url(category.slug) %><br>
+<% end %>
 
-<h3>All items / Featured items?</h3>
+<hr>
+
+<h3>Items:</h3>
 <%= link_to "Add Item", new_item_url, class: "btn btn-success" %><br><br>
 <ul>
   <% @items.each do |item| %>

@@ -1,6 +1,5 @@
-<h1>Categories</h1>
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= category.name %></li>
-  <% end %>
-</ul>
+<h1>List of Categories:</h1>
+
+<% @categories.each do |category| %>
+  <%= link_to category.slug.capitalize, category_url(category.slug) %><br>
+<% end %>

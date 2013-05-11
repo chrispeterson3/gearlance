@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def new
-
+    @categories = Category.all
   end
 
   def create
@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @categories = Category.all
   end
 
   def show
@@ -27,6 +28,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find_by_id(params[:id])
+
+    @categories = Category.all
   end
 
   def update
