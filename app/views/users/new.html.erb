@@ -1,0 +1,14 @@
+<h1>Add New User</h1><br>
+
+<%= form_tag users_url, method: :post do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email %>
+
+  <%= label_tag :first_name %>
+  <%= text_field_tag :first_name %>
+
+  <%= label_tag :last_name %>
+  <%= text_field_tag :last_name %><br>
+
+  <%= submit_tag "Sign Up!", class: "btn" %>
+<% end %>

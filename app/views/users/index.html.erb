@@ -1,1 +1,12 @@
-<h1>Users</h1>
+<h1>Users</h1><br>
+
+<% @user.each do |user| %>
+  <ul>
+    <li>
+      <p><b>First Name:</b> <%= user.first_name %></p>
+      <p><b>Last Name:</b> <%= user.last_name %></p>
+      <p><b>Email:</b> <%= user.email %></p>
+    </li>
+  </ul>
+  
+<% end %>
