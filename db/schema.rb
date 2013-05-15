@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130507043013) do
+ActiveRecord::Schema.define(:version => 20130515034947) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130507043013) do
     t.string "state"
     t.string "zip"
     t.string "country"
+    t.string "password_digest"
   end
 
 end
