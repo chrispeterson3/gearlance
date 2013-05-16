@@ -1,20 +1,25 @@
 <h1>Add New User</h1><br>
 
+<% @user.errors.full_messages.each do |error| %>
+  <p><%= error %></p>
+<% end %>
+<br>
+
 <%= form_tag users_url, method: :post do %>
   <%= label_tag :email %>
-  <%= text_field_tag :email %>
+  <%= text_field_tag "user[email]", @user.email %>
 
   <%= label_tag :first_name, "First Name" %>
-  <%= text_field_tag :first_name %>
+  <%= text_field_tag "user[first_name]", @user.first_name %>
 
   <%= label_tag :last_name, "Last Name" %>
-  <%= text_field_tag :last_name %>
+  <%= text_field_tag "user[last_name]", @user.last_name %>
 
   <%= label_tag :password %>
-  <%= password_field_tag :password %>
+  <%= password_field_tag "user[password]" %>
 
   <%= label_tag :password_confirmation, "Password Confirmation" %>
-  <%= password_field_tag :password_confirmation %><br>
+  <%= password_field_tag "user[password_confirmation]" %><br>
 
   <%= submit_tag "Sign Up!", class: "btn" %>
 <% end %>

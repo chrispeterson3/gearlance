@@ -1,5 +1,9 @@
 <h1>Users</h1><br>
 
+<% if notice %>
+  <p><%= notice %></p><br>
+<% end %>
+
 <% @user.each do |user| %>
   <ul>
     <li>
