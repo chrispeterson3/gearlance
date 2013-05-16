@@ -9,14 +9,14 @@
 <body>
   <br>
   <nav>
-    <%= link_to "Items", items_url %> | <%= link_to "Categories", categories_url %> | <%= link_to "Users", users_url %> | <%= link_to "Sign Up", new_user_url %> | 
+    <%= link_to "Items", items_url %> | <%= link_to "Categories", categories_url %> | <%= link_to "Users", users_url %><br><br>
     <% if signed_in? %>
-    <%= link_to "Profile", users_url %> | 
-    <%= link_to "Log Out", session_url, method: "delete" %>
+      <%= link_to "Profile", users_url %> | 
+      <%= link_to "Log Out", session_url, method: "delete" %>
     <% else %>
-    <%= link_to "Log In", new_session_url %>
+      <%= link_to "Sign Up", new_user_url %> | 
+      <%= link_to "Log In", new_session_url %>
    <% end %>
-
   </nav>
 
 
