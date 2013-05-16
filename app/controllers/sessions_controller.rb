@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
     end 
   end
 
-  def delete
+  def destroy
     reset_session
-    redirect_to new_session_url, notice: "logged out"
+    redirect_to new_session_url, notice: "Successfully logged out!"
   end
 end
