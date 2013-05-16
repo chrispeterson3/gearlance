@@ -1,1 +1,11 @@
-<h1>Log In</h1>
+<h1>Log In</h1><br>
+
+<%= form_tag session_url, method: :post do %>
+  <%= label_tag :email, "Email" %>
+  <%= text_field_tag :email %><br><br>
+
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %><br>
+
+  <%= submit_tag "Log In", class: "btn" %>
+<% end %>
