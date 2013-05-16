@@ -1,9 +1,10 @@
 <h1>Add New User</h1><br>
 
-<% @user.errors.full_messages.each do |error| %>
-  <p><%= error %></p>
+<% if @user.errors.present? %>
+  <% @user.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %><br>
 <% end %>
-<br>
 
 <%= form_tag users_url, method: :post do %>
   <%= label_tag :email %>

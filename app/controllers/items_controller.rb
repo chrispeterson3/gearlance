@@ -4,16 +4,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    i = Item.new
-
-    i.category_id = params[:category_id]
-    i.name = params[:name]
-    i.photo_url = params[:photo_url]
-    i.description = params[:description]
-    i.daily_price = params[:daily_price]
-    i.weekly_price = params[:weekly_price]
-    i.monthly_price = params[:monthly_price]
-    i.save
+    @item = Item.new(params[:item])
+    @item.save
     redirect_to items_url
   end
 
