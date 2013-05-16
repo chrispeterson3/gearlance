@@ -7,7 +7,7 @@
 <% @user.each do |user| %>
   <ul>
     <li>
-      <p><b>First Name:</b> <%= user.first_name %></p>
+      <p><b>First Name:</b> <%= link_to user.first_name, user_url(user.id) %></p>
       <p><b>Last Name:</b> <%= user.last_name %></p>
       <p><b>Email:</b> <%= user.email %></p>
     </li>
