@@ -1,5 +1,9 @@
 <h1>Log In</h1><br>
 
+<% if notice %>
+  <p><%= notice %></p><br>
+<% end %>
+
 <%= form_tag session_url, method: :post do %>
   <%= label_tag :email, "Email" %>
   <%= text_field_tag :email %><br><br>
