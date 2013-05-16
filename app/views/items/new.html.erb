@@ -3,7 +3,8 @@
 <%= link_to raw("&laquo; Back"), items_url, class: "btn" %><br><br>
 
 <%= form_tag items_url, method: "post" do %>
-
+  
+  <%= label_tag "item[category_id]", "Select a Category" %>
   <%= select_tag "item[category_id]", options_for_select([["[Select a Category]", nil]]) + options_from_collection_for_select(@categories, "id", "name") %>
 
   <%= label_tag :name, "Item Title:" %>
