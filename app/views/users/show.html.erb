@@ -1,2 +1,20 @@
-<h1>Hello, <%= @user.first_name %></h1>
-<h3>This is your profile page with all your information.</h3>
+<br><% if notice %>
+  <p><%= notice %></p>
+<% end %>
+
+<%= link_to "Edit my profile", edit_user_url(@user.id) %>
+
+<h1>Welcome back, <%= @user.first_name %></h1>
+
+<ul>
+  <li><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></li>
+  <li><b>Email:</b> <%= @user.email %></li>
+  <li><b>Avatar Photo:</b> <%= @user.avatar %></li>
+  <li><b>Phone:</b> <%= @user.phone %></li>
+  <li><b>Address:</b> <%= @user.address_1 %></li>
+  <li><b>Address 2:</b> <%= @user.address_2 %></li>
+  <li><b>City:</b> <%= @user.city %></li>
+  <li><b>State:</b> <%= @user.state %></li>
+  <li><b>Zip:</b> <%= @user.zip %></li>
+  <li><b>Country:</b> <%= @user.country %></li>
+</ul>
