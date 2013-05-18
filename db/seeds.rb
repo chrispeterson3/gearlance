@@ -8,7 +8,8 @@
 
 categories = [
   { name: "Camera", slug: "cameras" },
-  { name: "Lens", slug: "lenses" }
+  { name: "Lens", slug: "lenses" },
+  { name: "Lights", slug: "lights" }
 ]
 
 items = [
@@ -18,7 +19,8 @@ items = [
   { category_id: 1, name: "Lomokino Super 35mm", photo_url: "http://www.ubergizmo.com/wp-content/uploads/2011/11/17-LomoKino-Super-35.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100 },
   { category_id: 2, name: "Canon 85mm Lens", photo_url: "http://ec1.images-amazon.com/images/I/41FER7HPR7L.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100 },
   { category_id: 2, name: "Canon 35mm Lens", photo_url: "http://images04.olx.in/ui/13/04/88/1360851377_482469688_1-Pictures-of--Canon-DSLR-Lens-18-55mm.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100 },
-  { category_id: 2, name: "Fake Lens", photo_url: "http://2.bp.blogspot.com/-MwIlpDCqbX0/TmIjim9nYjI/AAAAAAAAACo/PDIpIiFqzEM/s1600/camera-lens-icon.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100 }
+  { category_id: 2, name: "Fake Lens", photo_url: "http://2.bp.blogspot.com/-MwIlpDCqbX0/TmIjim9nYjI/AAAAAAAAACo/PDIpIiFqzEM/s1600/camera-lens-icon.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100 },
+  { category_id: 2, name: "Zoidberg", photo_url: "http://images2.fanpop.com/images/photos/3100000/Zoidberg-futurama-3153999-1024-768.jpg", description: "This is NOT a piece of equipment.", daily_price: 10, weekly_price: 40, monthly_price: 100 }
 ]
 
 categories.each do |category|
