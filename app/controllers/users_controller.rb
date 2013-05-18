@@ -1,8 +1,19 @@
 class UsersController < ApplicationController
-  before_filter :authorize_user
+  before_filter :authorized_to_view_user, only: [:show]
+  before_filter :no_one_authorized, only: [:index]
 
-  def authorize_user
-   # redirect_to :status => 404 # Double check this. This might now be how to lock down the /users route
+  def authorized_to_view_user
+    if !signed_in?
+      redirect_to new_session_url,
+      notice: "
+      <p>You need to be logged in to view this user.</p>
+      <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
+      ".html_safe
+    end
+  end
+
+  def no_one_authorized
+   redirect_to :status => 404 # Double check this. This might now be how to lock down the /users route
   end
 
   def index
