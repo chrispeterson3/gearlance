@@ -1,5 +1,10 @@
 <h1>Add New User</h1><br>
 
+<% if notice %>
+  <p><%= notice %></p><br>
+<% end %>
+
+
 <% if @user.errors.present? %>
   <% @user.errors.full_messages.each do |error| %>
     <p><%= error %></p>
