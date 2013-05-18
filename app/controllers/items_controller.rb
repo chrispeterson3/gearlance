@@ -2,9 +2,7 @@ class ItemsController < ApplicationController
   before_filter :authorize_user, only: [:new, :edit, :destroy]
 
   def authorize_user
-    @user = User.find_by_id(session[:user_id])
-
-    if !@user.present?
+    if !signed_in?
       redirect_to new_session_url, 
       notice: "
       <p>You need to be logged in to add a new item.</p>
