@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :authorize_user
+
+  def authorize_user
+   redirect_to :status => 404 # Double check this. This might now be how to lock down the /users route
+  end
+
   def index
     @user = User.all
   end
