@@ -1,14 +1,14 @@
-<h1>Add New User</h1><br>
+<h1>Add New User</h1>
 
 <% if notice %>
-  <p><%= notice %></p><br>
+  <p><%= notice %></p>
 <% end %>
 
 
 <% if @user.errors.present? %>
   <% @user.errors.full_messages.each do |error| %>
     <p><%= error %></p>
-  <% end %><br>
+  <% end %>
 <% end %>
 
 <%= form_tag users_url, method: :post do %>
@@ -25,7 +25,7 @@
   <%= password_field_tag "user[password]" %>
 
   <%= label_tag :password_confirmation, "Password Confirmation" %>
-  <%= password_field_tag "user[password_confirmation]" %><br>
+  <%= password_field_tag "user[password_confirmation]" %>
 
-  <%= submit_tag "Sign Up!", class: "btn" %>
+  <br><%= submit_tag "Sign Up!", class: "btn" %>
 <% end %>

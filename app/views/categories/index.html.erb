@@ -1,5 +1,7 @@
 <h1>List of Categories:</h1>
 
 <% @categories.each do |category| %>
-  <%= link_to category.slug.capitalize, category_url(category.slug) %><br>
+  <ul>
+    <li><%= link_to category.slug.capitalize, category_url(category.slug) %></li>
+  </ul>
 <% end %>

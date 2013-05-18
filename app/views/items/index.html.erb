@@ -1,13 +1,15 @@
 <h3>Categories</h3>
 
 <% @categories.each do |category| %>
-  <%= link_to category.slug.capitalize, category_url(category.slug) %><br>
+<ul>
+  <li><%= link_to category.slug.capitalize, category_url(category.slug) %></li>
+</ul>
 <% end %>
 
 <hr>
 
 <h3>Items:</h3>
-<%= link_to "Add Item", new_item_url, class: "btn btn-success" %><br><br>
+<%= link_to "Add Item", new_item_url, class: "btn btn-success" %>
 <ul>
   <% @items.each do |item| %>
     <li>

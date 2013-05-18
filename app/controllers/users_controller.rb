@@ -28,7 +28,8 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to users_url, notice: "Thank you for signing up!"
+      session[:user_id] = @user.id
+      redirect_to user_url(@user.id), notice: "Thank you for signing up!"
     else
       render "new"
     end

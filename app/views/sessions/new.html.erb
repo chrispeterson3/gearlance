@@ -1,4 +1,4 @@
-<h1>Log In</h1><br>
+<h1>Log In</h1>
 
 <% if notice %>
   <p><%= notice %></p><br>
@@ -6,10 +6,10 @@
 
 <%= form_tag session_url, method: :post do %>
   <%= label_tag :email, "Email" %>
-  <%= text_field_tag :email %><br><br>
+  <%= text_field_tag :email %>
 
   <%= label_tag :password, "Password" %>
-  <%= password_field_tag :password %><br>
+  <%= password_field_tag :password %>
 
-  <%= submit_tag "Log In", class: "btn" %>
+  <br><%= submit_tag "Log In", class: "btn" %>
 <% end %>
