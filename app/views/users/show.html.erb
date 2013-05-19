@@ -2,12 +2,12 @@
   <p><%= notice %></p>
 <% end %>
 
-  <% if @user.id == session[:user_id] %>
-    <%= link_to "Edit my profile", edit_user_url(@user.id) %>
-    <h1>Welcome back, <%= @user.first_name %></h1>
-  <% else %>
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-  <% end %>
+<% if @user.id == session[:user_id] %>
+  <%= link_to "Edit my profile", edit_user_url(@user.id) %>
+  <h1>Welcome back, <%= @user.first_name %></h1>
+<% else %>
+  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<% end %>
 
 <ul>
   <li><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></li>
