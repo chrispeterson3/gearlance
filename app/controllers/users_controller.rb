@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+#  try again
 
   before_filter :authorized_to_view_user, only: [:show]
   before_filter :no_one_authorized, only: [:index]
