@@ -35,6 +35,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by_id(session[:user_id])
+  end
+
+  def update
+    redirect_to user_url(session[:user_id])
+  end
+
   def show
     @user = User.find_by_id(params[:id])
   end
