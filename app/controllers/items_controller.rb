@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
 
   def new
     @categories = Category.all
+    @item = Item.new
   end
 
   def create
@@ -26,8 +27,11 @@ class ItemsController < ApplicationController
       @item.category_id = c.id
     end
 
-    @item.save
-    redirect_to items_url
+    if @item.save
+      redirect_to items_url, notice: "You added an item!"
+    else
+      render "new"
+    end
   end
 
   def index

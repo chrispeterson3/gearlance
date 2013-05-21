@@ -2,6 +2,12 @@
 
 <br><h1>New Item</h1><br>
 
+<% if @item.errors.present? %>
+  <% @item.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
 <%= form_tag items_url, method: "post" do %>
   
   <div class="category_id">
