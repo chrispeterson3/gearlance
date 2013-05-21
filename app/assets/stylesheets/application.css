@@ -15,3 +15,18 @@
 body {
   padding:0 15px;
 }
+
+nav .gravatar {
+  float:right;
+}
+
+.add_category {
+  font-size:12px;
+  color:#08c;
+  font-style:italic;
+  cursor:pointer;
+}
+
+.category_slug {
+  display:none;
+}

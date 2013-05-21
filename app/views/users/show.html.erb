@@ -6,7 +6,7 @@
   <%= link_to "Edit my profile", edit_user_url(@user.id) %>
 
   <h1>
-    <%= gravatar_for @user %><br>
+    <%= gravatar_for @user, 250 %><br>
     Welcome back, <%= @user.first_name %>
   </h1>
 <% else %>

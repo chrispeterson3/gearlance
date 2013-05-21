@@ -16,11 +16,18 @@
     <% else %>
       | <%= link_to "Sign Up", new_user_url %> | 
       <%= link_to "Log In", new_session_url %>
-   <% end %>
+    <% end %>
   </nav>
   <br>
 
 <%= yield %>
 
+<script>
+  $(".add_category").click(function() {
+    $(".category_id").slideUp(200);
+    $(".category_slug").slideDown(200);
+    $(this).hide
+  });
+</script>
 </body>
 </html>
