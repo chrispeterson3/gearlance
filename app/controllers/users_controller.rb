@@ -18,9 +18,7 @@ class UsersController < ApplicationController
    redirect_to :status => 404 # Double check this. This might now be how to lock down the /users route
   end
 
-  def index
-    @user = User.all
-  end
+  # Create #####################
 
   def new
     @user = User.new
@@ -37,6 +35,18 @@ class UsersController < ApplicationController
     end
   end
 
+  # Read #################
+
+  def index
+    @user = User.all
+  end
+
+  def show
+    @user = User.find_by_id(params[:id])
+  end
+
+  # Update #################
+
   def edit
     @user = User.find_by_id(session[:user_id])
   end
@@ -45,7 +55,12 @@ class UsersController < ApplicationController
     redirect_to user_url(session[:user_id])
   end
 
-  def show
-    @user = User.find_by_id(params[:id])
+  # Destroy ###############
+
+  def destroy
+    user = User.find_by_id(session[:user_id])
+    user.destroy
+
+    redirect_to users_url
   end
 end
