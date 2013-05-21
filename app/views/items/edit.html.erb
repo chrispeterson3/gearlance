@@ -1,6 +1,6 @@
 <h1>Edit <%= @item.name %></h1>
 
-<%= link_to raw("&laquo; Back"), item_url(@item.id), class: "btn" %>
+<%= link_to raw("&laquo; Back"), item_url(@item.id), class: "btn" %><br><br>
 
 <%= form_tag item_url(@item.id), method: "put" do %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515034947) do
+ActiveRecord::Schema.define(:version => 20130521004244) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130515034947) do
     t.integer "daily_price"
     t.integer "weekly_price"
     t.integer "monthly_price"
+    t.string  "category_slug"
   end
 
   create_table "users", :force => true do |t|

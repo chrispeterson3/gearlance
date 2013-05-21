@@ -17,6 +17,15 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+
+    if @item.category_slug != ""
+      c = Category.new
+      c.name = @item.category_slug
+      c.slug = @item.category_slug
+      c.save
+      @item.category_id = c.id
+    end
+
     @item.save
     redirect_to items_url
   end

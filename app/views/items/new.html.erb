@@ -7,22 +7,25 @@
   <%= label_tag "item[category_id]", "Select a Category" %>
   <%= select_tag "item[category_id]", options_for_select([["[Select a Category]", nil]]) + options_from_collection_for_select(@categories, "id", "name") %>
 
-  <%= label_tag :name, "Item Title:" %>
+  <%= label_tag "item[category_slug]", "Other Category:" %>
+  <%= text_field_tag "item[category_slug]" %>
+
+  <%= label_tag "item[name]", "Item Title:" %>
   <%= text_field_tag "item[name]" %>
 
-  <%= label_tag :photo_url, "Photo URL:" %>
+  <%= label_tag "item[photo_url]", "Photo URL:" %>
   <%= text_field_tag "item[photo_url]" %>
 
-  <%= label_tag :description, "Description:" %>
+  <%= label_tag "item[description]", "Description:" %>
   <%= text_area_tag "item[description]" %>
 
-  <%= label_tag :daily_price, "Daily Price:" %>
+  <%= label_tag "item[daily_price]", "Daily Price:" %>
   <%= number_field_tag "item[daily_price]", nil, placeholder: "Enter a value" %>
 
-  <%= label_tag :weekly_price, "Weekly Price:" %>
+  <%= label_tag "item[weekly_price]", "Weekly Price:" %>
   <%= number_field_tag "item[weekly_price]", nil, placeholder: "Enter a value" %>
 
-  <%= label_tag :monthly_price, "Monthly Price:" %>
+  <%= label_tag "item[monthly_price]", "Monthly Price:" %>
   <%= number_field_tag "item[monthly_price]", nil, placeholder: "Enter a value" %>
 
   <br><%= submit_tag "Add Item", class: "btn" %>
