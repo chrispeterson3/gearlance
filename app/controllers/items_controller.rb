@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   def authorize_user
     if !signed_in?
-      redirect_to new_session_url, 
+      redirect_to new_session_url,
       notice: "
       <p>You need to be logged in to add a new item.</p>
       <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
@@ -17,6 +17,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    @item.user_id = session[:user_id]
 
     if @item.category_slug != ""
       c = Category.new
