@@ -9,7 +9,8 @@
 <% end %>
 
 <%= form_tag items_url, method: "post" do %>
-  
+
+
   <div class="category_id">
     <%= label_tag "item[category_id]", "Select a Category<br><span class='add_category'>Don't see your category?</span>".html_safe %>
     <%= select_tag "item[category_id]", options_for_select([["[Select a Category]", nil]]) + options_from_collection_for_select(@categories, "id", "name") %>

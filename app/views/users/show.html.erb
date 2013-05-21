@@ -19,9 +19,52 @@
   <li><b>Avatar Photo:</b> <%= @user.avatar %></li>
   <li><b>Phone:</b> <%= @user.phone %></li>
   <li><b>Address:</b> <%= @user.address_1 %></li>
-  <li><b>Address 2:</b> <%= @user.address_2 %></li>
+  <li><b>Address:</b> <%= @user.address_2 %></li>
   <li><b>City:</b> <%= @user.city %></li>
   <li><b>State:</b> <%= @user.state %></li>
   <li><b>Zip:</b> <%= @user.zip %></li>
   <li><b>Country:</b> <%= @user.country %></li>
 </ul>
+
+<h1>My Items</h1>
+<!--   <ul>
+    <li><% @user.items.each do |item| %>
+          <%= item.name %>
+        <% end %>
+    </li>
+  </ul>
+ -->
+ <table>
+<thead>
+    <tr>
+      <th>Image</th>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Daily Price</th>
+      <th>Weekly Price</th>
+      <th>Monthly Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @user.items.each do |item| %>
+    <tr>
+      <td><%= image_tag item.photo_url %></td>
+      <td><%= item.category_id %></td>
+      <td><%= item.name %></td>
+      <td><%= item.description %></td>
+      <td>$<%= item.daily_price %></td>
+      <td>$<%= item.weekly_price %></td>
+      <td>$<%= item.monthly_price %></td>
+      <td><%= link_to 'Show', item, class: 'btn btn-primary' %></td>
+      <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
+      <td><%= link_to '86 for life', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
