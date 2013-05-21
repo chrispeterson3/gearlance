@@ -4,11 +4,15 @@
 
 <%= form_tag items_url, method: "post" do %>
   
-  <%= label_tag "item[category_id]", "Select a Category" %>
-  <%= select_tag "item[category_id]", options_for_select([["[Select a Category]", nil]]) + options_from_collection_for_select(@categories, "id", "name") %>
+  <div class="category_id">
+    <%= label_tag "item[category_id]", "Select a Category<br><span class='add_category'>Don't see your category?</span>".html_safe %>
+    <%= select_tag "item[category_id]", options_for_select([["[Select a Category]", nil]]) + options_from_collection_for_select(@categories, "id", "name") %>
+  </div><!-- end category_id -->
 
-  <%= label_tag "item[category_slug]", "Other Category:" %>
-  <%= text_field_tag "item[category_slug]" %>
+  <div class="category_slug">
+    <%= label_tag "item[category_slug]", "Other Category:" %>
+    <%= text_field_tag "item[category_slug]" %>
+  </div><!-- end category_slug -->
 
   <%= label_tag "item[name]", "Item Title:" %>
   <%= text_field_tag "item[name]" %>
