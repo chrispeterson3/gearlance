@@ -16,5 +16,30 @@
   <%= label_tag :password_confirmation, "Password Confirmation" %>
   <%= password_field_tag "user[password_confirmation]" %>
 
+  <%= label_tag :avatar, "Avatar Photo" %>
+  <%= text_field_tag "user[avatar]", @user.avatar %>
+
+  <%= label_tag :phone, "Phone" %>
+  <%= text_field_tag "user[phone]", @user.phone %>
+
+  <%= label_tag :address_1, "Address" %>
+  <%= text_field_tag "user[address_1]", @user.address_1 %>
+
+  <%= label_tag :address_2, "Address" %>
+  <%= text_field_tag "user[address_2]", @user.address_2 %>
+
+  <%= label_tag :city, "City" %>
+  <%= text_field_tag "user[city]", @user.city %>
+
+  <%= label_tag :state, "State" %>
+  <%= text_field_tag "user[state]", @user.state %>
+
+  <%= label_tag :zip, "Zip" %>
+  <%= text_field_tag "user[zip]", @user.zip %>
+
+  <%= label_tag :country, "Country" %>
+  <%= text_field_tag "user[country]", @user.country %>
+
   <br><%= submit_tag "Update Profile", class: "btn" %>
 <% end %>
+
