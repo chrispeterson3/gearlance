@@ -1,5 +1,6 @@
 Gearlance::Application.routes.draw do
-  root :to => 'items#index'
+  root :to => 'featured#index'
+  resources :featured, :only => [:index]
   resources :categories
   resources :items
   resources :users
