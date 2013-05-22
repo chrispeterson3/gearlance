@@ -2,7 +2,15 @@
 
 <%= link_to raw("&laquo; Back"), items_url, class: "btn" %> &nbsp; | &nbsp; <%= link_to "Edit", edit_item_url, class: "btn" %><br><br>
 
-<%= image_tag @item.photo_url, width: 300 %>
+<p>
+  <b>Photo:</b>
+  <% if @item.image_content_type.present?  %>
+    <%= image_tag @item.image.url(:small) %>
+  <% else %>
+    <%= image_tag @item.photo_url, width: 300 %>
+  <% end %>
+</p>
+
 
 <p><b>Description:</b> <%= @item.description %></p>
 <p><b>Daily Price:</b> $<%= @item.daily_price %></p>

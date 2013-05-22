@@ -16,7 +16,11 @@
   <% @items.each do |item| %>
     <li>
       <h3><%= item.name %></h3>
-      <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>
+      <% if item.image_content_type.present?  %>
+        <%= image_tag item.image.url(:small) %>
+      <% else %>
+        <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>
+      <% end %>
       <p><b>Description:</b> <%= item.description %></p>
       <p><b>Daily Price:</b> $<%= item.daily_price %></p>
       <p><b>Weekly Price:</b> $<%= item.weekly_price %></p>
