@@ -47,7 +47,12 @@
   <tbody>
   <% @user.items.each do |item| %>
     <tr>
-      <td><%= image_tag item.photo_url %></td>
+      <td><% if item.image_content_type.present?  %>
+            <%= image_tag item.image.url(:small) %>
+          <% else %>
+            <%= image_tag item.photo_url %>
+          <% end %>
+    </td>
       <td><%= item.category_id %></td>
       <td><%= item.name %></td>
       <td><%= item.description %></td>
