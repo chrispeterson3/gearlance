@@ -4,7 +4,7 @@
 
 <% if @user.id == session[:user_id] %>
   <%= link_to "Edit my profile", edit_user_url(@user.id) %>
-
+  <%= link_to "Delete my profile", user_url(@user.id), method: :delete, confirm: "Sure?" %>
   <h1>
     <%= gravatar_for @user, 250 %><br>
     Welcome back, <%= @user.first_name %>
@@ -27,14 +27,8 @@
 </ul>
 
 <h1>My Items</h1>
-<!--   <ul>
-    <li><% @user.items.each do |item| %>
-          <%= item.name %>
-        <% end %>
-    </li>
-  </ul>
- -->
- <table>
+
+<table>
 <thead>
     <tr>
       <th>Image</th>

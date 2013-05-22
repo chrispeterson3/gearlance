@@ -11,21 +11,21 @@
   <% end %>
 <% end %>
 
-<%= form_tag users_url, method: :post do %>
-  <%= label_tag :email %>
-  <%= text_field_tag "user[email]", @user.email %>
+<%= form_for @user do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
 
-  <%= label_tag :first_name, "First Name" %>
-  <%= text_field_tag "user[first_name]", @user.first_name %>
+  <%= f.label :first_name, "First Name" %>
+  <%= f.text_field :first_name %>
 
-  <%= label_tag :last_name, "Last Name" %>
-  <%= text_field_tag "user[last_name]", @user.last_name %>
+  <%= f.label :last_name, "Last Name" %>
+  <%= f.text_field :last_name %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag "user[password]" %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-  <%= label_tag :password_confirmation, "Password Confirmation" %>
-  <%= password_field_tag "user[password_confirmation]" %>
+  <%= f.label :password_confirmation, "Password Confirmation" %>
+  <%= f.password_field :password_confirmation %>
 
-  <br><%= submit_tag "Sign Up!", class: "btn" %>
+  <br><%= f.submit "Sign Up!", class: "btn" %>
 <% end %>
