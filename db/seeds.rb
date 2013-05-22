@@ -10,7 +10,8 @@ Category.destroy_all
 categories = [
   { name: "Camera", slug: "cameras" },
   { name: "Lens", slug: "lenses" },
-  { name: "Lights", slug: "lights" }
+  { name: "Lights", slug: "lights" },
+  { name: "Other", slug: "Other" }
 ]
 
 categories.each do |category|

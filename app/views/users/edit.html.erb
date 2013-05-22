@@ -1,45 +1,49 @@
 <h1>Edit Your Profile</h1>
+<% if @user.errors.full_messages.present?  %>
+  <%= @user.errors.full_messages %>
+<% end %>
 
-<%= form_tag user_url(session[:user_id]), method: :put do %>
-  <%= label_tag :email %>
-  <%= text_field_tag "user[email]", @user.email %>
+<%= form_for @user do |f| %>
 
-  <%= label_tag :first_name, "First Name" %>
-  <%= text_field_tag "user[first_name]", @user.first_name %>
+  <%= f.label :first_name, "First Name" %>
+  <%= f.text_field :first_name %>
 
-  <%= label_tag :last_name, "Last Name" %>
-  <%= text_field_tag "user[last_name]", @user.last_name %>
+  <%= f.label :last_name, "Last Name" %>
+  <%= f.text_field :last_name %>
 
-  <%= label_tag :password, "New Password" %>
-  <%= password_field_tag "user[password]" %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
 
-  <%= label_tag :password_confirmation, "Password Confirmation" %>
-  <%= password_field_tag "user[password_confirmation]" %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
 
-  <%= label_tag :avatar, "Avatar Photo" %>
-  <%= text_field_tag "user[avatar]", @user.avatar %>
+  <%= f.label :password_confirmation, "Password Confirmation" %>
+  <%= f.password_field :password_confirmation %>
 
-  <%= label_tag :phone, "Phone" %>
-  <%= text_field_tag "user[phone]", @user.phone %>
+  <%= f.label :avatar, "Avatar Photo" %>
+  <%= f.text_field :avatar %>
 
-  <%= label_tag :address_1, "Address" %>
-  <%= text_field_tag "user[address_1]", @user.address_1 %>
+  <%= f.label :phone, "Phone" %>
+  <%= f.text_field :phone %>
 
-  <%= label_tag :address_2, "Address" %>
-  <%= text_field_tag "user[address_2]", @user.address_2 %>
+  <%= f.label :address_1, "Address" %>
+  <%= f.text_field :address_1 %>
 
-  <%= label_tag :city, "City" %>
-  <%= text_field_tag "user[city]", @user.city %>
+  <%= f.label :address_2, "Address" %>
+  <%= f.text_field :address_2 %>
 
-  <%= label_tag :state, "State" %>
-  <%= text_field_tag "user[state]", @user.state %>
+  <%= f.label :city, "City" %>
+  <%= f.text_field :city %>
 
-  <%= label_tag :zip, "Zip" %>
-  <%= text_field_tag "user[zip]", @user.zip %>
+  <%= f.label :state, "State" %>
+  <%= f.text_field :state %>
 
-  <%= label_tag :country, "Country" %>
-  <%= text_field_tag "user[country]", @user.country %>
+  <%= f.label :zip, "Zip" %>
+  <%= f.text_field :zip %>
 
-  <br><%= submit_tag "Update Profile", class: "btn" %>
+  <%= f.label :country, "Country" %>
+  <%= f.text_field :country %>
+
+  <br><%= f.submit "Update Profile", class: "btn" %>
 <% end %>
 

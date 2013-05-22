@@ -2,27 +2,28 @@
 
 <%= link_to raw("&laquo; Back"), item_url(@item.id), class: "btn" %><br><br>
 
-<%= form_tag item_url(@item.id), method: "put" do %>
+<%= form_for @item do |f| %>
 
-  <%= select_tag :category_id, options_from_collection_for_select(@categories, "id", "name", @item.category_id) %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
 
-  <%= label_tag "name", "item Title:" %>
-  <%= text_field_tag "name", @item.name %>
+  <%= f.label :name, "item Title:" %>
+  <%= f.text_field :name %>
 
-  <%= label_tag "photo_url", "Photo URL:" %>
-  <%= text_field_tag "photo_url", @item.photo_url %>
+  <%= f.label :photo_url, "Photo URL:" %>
+  <%= f.text_field :photo_url %>
 
-  <%= label_tag "description", "Description:" %>
-  <%= text_area_tag "description", @item.description %>
+  <%= f.label :description, "Description:" %>
+  <%= f.text_area :description %>
 
-  <%= label_tag "daily_price", "Daily Price:" %>
-  <%= number_field_tag "daily_price", @item.daily_price, placeholder: "Enter a value" %>
+  <%= f.label :daily_price, "Daily Price:" %>
+  <%= f.number_field :daily_price, placeholder: "Enter a value" %>
 
-  <%= label_tag "weekly_price", "Weekly Price:" %>
-  <%= number_field_tag "weekly_price", @item.weekly_price, placeholder: "Enter a value" %>
+  <%= f.label :weekly_price, "Weekly Price:" %>
+  <%= f.number_field :weekly_price, placeholder: "Enter a value" %>
 
-  <%= label_tag "monthly_price", "Monthly Price:" %>
-  <%= number_field_tag "monthly_price", @item.monthly_price, placeholder: "Enter a value" %>
+  <%= f.label :monthly_price, "Monthly Price:" %>
+  <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
 
-  <%= submit_tag "Update Item" %>
+  <%= f.submit "Update Item" %>
+
 <% end %>

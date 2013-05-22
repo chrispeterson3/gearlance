@@ -52,13 +52,7 @@ class ItemsController < ApplicationController
 
   def update
     i = Item.find_by_id(params[:id])
-    i.category_id = params[:category_id]
-    i.name = params[:name]
-    i.photo_url = params[:photo_url]
-    i.description = params[:description]
-    i.daily_price = params[:daily_price]
-    i.weekly_price = params[:weekly_price]
-    i.monthly_price = params[:monthly_price]
+    i.update_attributes(params[:item])
     i.save
 
     redirect_to item_url(i)

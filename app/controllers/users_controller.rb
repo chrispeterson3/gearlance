@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authorized_to_view_user, only: [:show]
+  # before_filter :authorized_to_view_user, only: [:show]
   # before_filter :no_one_authorized, only: [:index]
 
   def authorized_to_view_user
@@ -51,10 +51,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by_id(session[:user_id])
-    user.update_attributes(params[:user])
-    if user.save
-      redirect_to users_url(session[:user_id])
+    @user = User.find_by_id(session[:user_id])
+    @user.update_attributes(params[:user])
+
+    if @user.save
+      redirect_to user_url(session[:user_id])
     else
       render 'edit'
     end
@@ -63,8 +64,8 @@ class UsersController < ApplicationController
   # Destroy ###############
 
   def destroy
-    user = User.find_by_id(session[:user_id])
-    user.destroy
+    @user = User.find_by_id(session[:user_id])
+    @user.destroy
 
     redirect_to users_url
   end

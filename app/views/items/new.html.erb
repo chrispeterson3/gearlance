@@ -8,36 +8,35 @@
   <% end %>
 <% end %>
 
-<%= form_tag items_url, method: "post" do %>
-
+<%= form_for @item do |f| %>
 
   <div class="category_id">
-    <%= label_tag "item[category_id]", "Select a Category<br><span class='add_category'>Don't see your category?</span>".html_safe %>
-    <%= select_tag "item[category_id]", options_for_select([["[Select a Category]", nil]]) + options_from_collection_for_select(@categories, "id", "name") %>
+    <%= f.label :category_id, "Select a Category<br><span class='add_category'>Don't see your category?</span>".html_safe %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name) %>
   </div><!-- end category_id -->
 
   <div class="category_slug">
-    <%= label_tag "item[category_slug]", "Other Category:" %>
-    <%= text_field_tag "item[category_slug]" %>
+    <%= f.label :category_slug, "Other Category:" %>
+    <%= f.text_field :category_slug %>
   </div><!-- end category_slug -->
 
-  <%= label_tag "item[name]", "Item Title:" %>
-  <%= text_field_tag "item[name]" %>
+  <%= f.label :name, "Item Title:" %>
+  <%= f.text_field :name %>
 
-  <%= label_tag "item[photo_url]", "Photo URL:" %>
-  <%= text_field_tag "item[photo_url]" %>
+  <%= f.label :photo_url, "Photo URL:" %>
+  <%= f.text_field :photo_url %>
 
-  <%= label_tag "item[description]", "Description:" %>
-  <%= text_area_tag "item[description]" %>
+  <%= f.label :description, "Description:" %>
+  <%= f.text_area :description %>
 
-  <%= label_tag "item[daily_price]", "Daily Price:" %>
-  <%= number_field_tag "item[daily_price]", nil, placeholder: "Enter a value" %>
+  <%= f.label :daily_price, "Daily Price:" %>
+  <%= f.number_field :daily_price, placeholder: "Enter a value" %>
 
-  <%= label_tag "item[weekly_price]", "Weekly Price:" %>
-  <%= number_field_tag "item[weekly_price]", nil, placeholder: "Enter a value" %>
+  <%= f.label :weekly_price, "Weekly Price:" %>
+  <%= f.number_field :weekly_price, placeholder: "Enter a value" %>
 
-  <%= label_tag "item[monthly_price]", "Monthly Price:" %>
-  <%= number_field_tag "item[monthly_price]", nil, placeholder: "Enter a value" %>
+  <%= f.label :monthly_price, "Monthly Price:" %>
+  <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
 
-  <br><%= submit_tag "Add Item", class: "btn" %>
+  <br><%= f.submit "Add Item", class: "btn" %>
 <% end %>
