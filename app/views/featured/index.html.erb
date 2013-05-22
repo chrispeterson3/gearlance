@@ -1,3 +1,5 @@
 <h1>Featured Home Page</h1>
 
-This will be the homepage!
+<% @items.shuffle.each do |item| %>
+  <p><%= item.name %></p>
+<% end %>
