@@ -2,9 +2,14 @@
 
 <ul>
 <% @items.shuffle.each do |item| %>
-  <li><%= image_tag item.photo_url, width: 200 %></li>
+  <li><% if item.image_content_type.present?  %>
+        <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
+      <% else %>
+        <%= link_to image_tag(item.photo_url, width: 200), item_url(item.id) %>
+      <% end %></li>
   <li><%= item.name %></li>
   <li>$ <%= item.weekly_price %></li>
   <li><%= link_to "Reserve Now", item_url(item.id) %></li><br>
 <% end %>
 </ul>
+

@@ -6,7 +6,7 @@
       <h3><%= item.name %></h3>
 
       <% if item.image_content_type.present?  %>
-        <%= image_tag item.image.url(:small) %>
+        <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
       <% else %>
         <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>
       <% end %>
