@@ -8,7 +8,7 @@
   <% end %>
 <% end %>
 
-<%= form_for @item do |f| %>
+<%= form_for @item, :html => { :multipart => true } do |f| %>
 
   <div class="category_id">
     <%= f.label :category_id, "Select a Category<br><span class='add_category'>Don't see your category?</span>".html_safe %>
@@ -26,6 +26,10 @@
   <%= f.label :photo_url, "Photo URL:" %>
   <%= f.text_field :photo_url %>
 
+  <div>
+    <%= f.file_field :image %>
+  </div>
+
   <%= f.label :description, "Description:" %>
   <%= f.text_area :description %>
 
@@ -37,6 +41,8 @@
 
   <%= f.label :monthly_price, "Monthly Price:" %>
   <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
+
+
 
   <br><%= f.submit "Add Item", class: "btn" %>
 <% end %>

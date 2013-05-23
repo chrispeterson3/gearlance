@@ -2,7 +2,7 @@
 
 <%= link_to raw("&laquo; Back"), item_url(@item.id), class: "btn" %><br><br>
 
-<%= form_for @item do |f| %>
+<%= form_for @item, :html => { :multipart => true } do |f| %>
 
   <%= f.collection_select(:category_id, Category.all, :id, :name) %>
 
@@ -11,6 +11,10 @@
 
   <%= f.label :photo_url, "Photo URL:" %>
   <%= f.text_field :photo_url %>
+
+  <div>
+    <%= f.file_field :image %>
+  </div>
 
   <%= f.label :description, "Description:" %>
   <%= f.text_area :description %>
@@ -23,6 +27,8 @@
 
   <%= f.label :monthly_price, "Monthly Price:" %>
   <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
+
+
 
   <%= f.submit "Update Item" %>
 
