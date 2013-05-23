@@ -11,22 +11,24 @@ class ItemsController < ApplicationController
     end
   end
 
+  def featured
+    @items = Item.all
+  end
+
   def new
     @categories = Category.all
     @item = Item.new
   end
 
   def create
+    if params[:category_name].present? # pull out params() to a variable and work with it
+      name = params[:category_name]
+      c = Category.create(name: name.singularize, slug: name.downcase.pluralize)
+      params[:item][:category_id] = c.id
+    end
+
     @item = Item.new(params[:item])
     @item.user_id = session[:user_id]
-
-    if @item.category_slug != ""
-      c = Category.new
-      c.name = @item.category_slug
-      c.slug = @item.category_slug
-      c.save
-      @item.category_id = c.id
-    end
 
     if @item.save
       redirect_to items_url, notice: "You added an item!"

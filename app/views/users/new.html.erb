@@ -4,16 +4,12 @@
   <p><%= notice %></p>
 <% end %>
 
-
-<% if @user.errors.present? %>
-  <% @user.errors.full_messages.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-<% end %>
-
 <%= form_for @user do |f| %>
   <%= f.label :email %>
   <%= f.text_field :email %>
+  <% if @user.errors[:email].any? %>
+    <span>required</span>
+  <% end %>
 
   <%= f.label :first_name, "First Name" %>
   <%= f.text_field :first_name %>

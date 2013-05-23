@@ -4,5 +4,5 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
-  validates :name, presence: true
+  validates :name, :photo_url, presence: true
 end
