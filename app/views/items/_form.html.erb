@@ -1,7 +1,9 @@
+<%= notice %>
+
 <%= form_for @item, :html => { :multipart => true } do |f| %>
   
   <%= f.label :category_id, "Select a Category" %>
-  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "[Select One]") %>
 
   <%= f.label :name, "item Title:" %>
   <%= f.text_field :name %>
