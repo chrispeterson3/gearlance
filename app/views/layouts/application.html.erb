@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gearlance</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gearlance</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+   <!--  <link href="assets/bootstrap-responsive.css" rel="stylesheet" media="screen"> -->
+  </head>
+
 <body>
-  <br>
-  <nav>
-    <%= link_to "Items", items_url %> | <%= link_to "Categories", categories_url %> | <%= link_to "Users", users_url %>
-    <% if signed_in? %> | 
-      <%= link_to "My Profile", user_url(session[:user_id]) %> | 
-      <%= link_to "Log Out", session_url, method: "delete" %>
-    <% else %>
-      | <%= link_to "Sign Up", new_user_url %> | 
-      <%= link_to "Log In", new_session_url %>
-    <% end %>
-  </nav>
-  <br>
+  <div class="container"><!-- primary container -->
+    <header class="row">
+      <div class="span12">
+        <div class="navbar navbar">
+          <div class="navbar-inner">
+            <div class="container" style="width: auto;">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="/">Gearlance</a>
+              <div class="nav-collapse">
+                <ul class="nav pull-right">
+                  <li><%= link_to "Browse", items_url %></li>
+                  <li><%= link_to "List Your Gear", new_item_url %></li>               
+                  <% if signed_in? %> 
+                  <li><%= link_to "My Profile", user_url(session[:user_id]) %></li>
+                  <li><%= link_to "Log Out", session_url, method: "delete" %></li>
+                  <% else %>
+                  <li><%= link_to "Sign Up", new_user_url %></li>
+                  <li><%= link_to "Log In", new_session_url %></li>
+                  <% end %> 
+                </ul>
+              </div><!-- /.nav-collapse -->
+        </div>
+      </div><!-- /navbar-inner -->
+    </div><!-- /navbar -->
+    </div>
+    </header>
 
-<%= yield %>
-
+  <%= yield %>
+  </div><!-- /primary container -->
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
 </body>
 </html>
