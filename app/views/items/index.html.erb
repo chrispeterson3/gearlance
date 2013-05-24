@@ -11,7 +11,9 @@
 <hr>
 
 <h3>Items:</h3>
-<%= link_to "Add Item", new_item_url, class: "btn btn-success" %>
+<% if signed_in? %>
+  <%= link_to "Post a New Item", new_item_url, class: "btn btn-success" %>
+<% end %>
 <ul>
   <% @items.each do |item| %>
     <li>
