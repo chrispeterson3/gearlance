@@ -8,15 +8,11 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require bootstrap.min
  *= require bootstrap-responsive
+  *= require_self
  *= require_tree .
  */
-
-body {
-  padding:0 15px;
-}
 
 nav .gravatar {
   float:right;
@@ -30,5 +26,30 @@ nav .gravatar {
 }
 
 .category_slug {
-  display:none;
+  	display:none;
 }
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 28px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 13px;
+}
+
+.withsubhead {
+	line-height: .3;
+}
+
