@@ -52,7 +52,24 @@ h5 {
 	width: 125px;
 	height: 31px;
 }
-  .navbar .brand {
+
+.navbar .brand {
     padding: 0;
     margin: 10px 0 0 10px;
-  }
+}
+
+.browse h3 {
+	margin: 0;
+}
+
+.browse p {
+	margin: 0;
+}
+
+#footer .links a {
+	margin-right: 20px;
+}
+
+
+
+
