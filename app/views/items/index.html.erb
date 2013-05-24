@@ -29,7 +29,7 @@
                 <% end %>
               </div>
               <div class="span8">
-                <h3><%= item.name %></h3>
+                <h3><%= link_to item.name, item_url(item.id) %></h3>
                 <p><%= item.description %></p>
                 <p><b>Daily Price:</b> $<%= item.daily_price %></p>
                 <p><b>Weekly Price:</b> $<%= item.weekly_price %></p>
