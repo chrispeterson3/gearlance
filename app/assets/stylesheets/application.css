@@ -53,3 +53,11 @@ h5 {
 	line-height: .3;
 }
 
+.item-list {
+	border: 1px solid gray;
+	border-radius: 5px;
+	list-style: none;
+	padding: 5px 20px;
+
+}
+

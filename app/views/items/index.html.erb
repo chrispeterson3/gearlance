@@ -1,5 +1,7 @@
-    <h1 class="withsubhead">Browse Gear.</h1>
-    <h3>Try out gear from people like you.</h3>
+<div class="row-fluid">
+  <h1 class="withsubhead">Browse Gear.</h1>
+  <h3>Try out gear from people like you.</h3>
+</div>
 
 <div class="row-fluid">
   <div class="span4 well">
@@ -14,32 +16,37 @@
       <% end %>
   </div>
   <div class="span8">
-      <% if signed_in? %>
-        <%= link_to "Post a New Item", new_item_url, class: "btn btn-success" %>
-      <% end %>
+
       <ul>
         <% @items.each do |item| %>
-          <li>
-            <h3><%= item.name %></h3>
-            <% if item.image_content_type.present?  %>
-              <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
-            <% else %>
-              <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>
-            <% end %>
-            <p><b>Description:</b> <%= item.description %></p>
-            <p><b>Daily Price:</b> $<%= item.daily_price %></p>
-            <p><b>Weekly Price:</b> $<%= item.weekly_price %></p>
-            <p><b>Monthly Price:</b> $<%= item.monthly_price %></p>
-            <p><b>Category:</b> <%= item.category.name %></p>
-            <p>
-              <% if signed_in? && item.user_id == current_user.id %>
+          <li class="item-list">
+            <div class="row">
+              <div class="span4">
+                <% if item.image_content_type.present?  %>
+                <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
+                <% else %>
+                <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>
+                <% end %>
+              </div>
+              <div class="span8">
+                <h3><%= item.name %></h3>
+                <p><%= item.description %></p>
+                <p><b>Daily Price:</b> $<%= item.daily_price %></p>
+                <p><b>Weekly Price:</b> $<%= item.weekly_price %></p>
+                <p><b>Monthly Price:</b> $<%= item.monthly_price %></p>
+                <p><b>Category:</b> <%= item.category.name %></p>
+                <p>
+                <% if signed_in? && item.user_id == current_user.id %>
                 <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
                 <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
                 <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
                 <% end %>
             </p>
+              </div>
+            </div>
+           
           </li>
-          <hr>
+          
         <% end %>
         </ul>
     </div>
