@@ -8,32 +8,4 @@
   <% end %>
 <% end %>
 
-<%= form_for @item, :html => { :multipart => true } do |f| %>
-
-  <%= f.label :category_id, "Select a Category" %>
-  <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => "[Select One]"}) %>
-
-  <%= f.label :name, "Item Title:" %>
-  <%= f.text_field :name %>
-
-  <%= f.label :photo_url, "Photo URL:" %>
-  <%= f.text_field :photo_url %>
-
-  <div>
-    <%= f.file_field :image %>
-  </div>
-
-  <%= f.label :description, "Description:" %>
-  <%= f.text_area :description %>
-
-  <%= f.label :daily_price, "Daily Price:" %>
-  <%= f.number_field :daily_price, placeholder: "Enter a value" %>
-
-  <%= f.label :weekly_price, "Weekly Price:" %>
-  <%= f.number_field :weekly_price, placeholder: "Enter a value" %>
-
-  <%= f.label :monthly_price, "Monthly Price:" %>
-  <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
-
-  <br><%= f.submit class: "btn" %>
-<% end %>
+<%= render 'form' %>
