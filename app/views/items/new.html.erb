@@ -11,7 +11,7 @@
 <%= form_for @item, :html => { :multipart => true } do |f| %>
 
   <%= f.label :category_id, "Select a Category" %>
-  <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => true}) %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => "[Select One]"}) %>
 
   <%= f.label :name, "Item Title:" %>
   <%= f.text_field :name %>
@@ -34,8 +34,6 @@
 
   <%= f.label :monthly_price, "Monthly Price:" %>
   <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
-
-
 
   <br><%= f.submit "Add Item", class: "btn" %>
 <% end %>
