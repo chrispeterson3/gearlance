@@ -66,7 +66,8 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by_id(session[:user_id])
     @user.destroy
+    reset_session
 
-    redirect_to users_url
+    redirect_to items_url
   end
 end
