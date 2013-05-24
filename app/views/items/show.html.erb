@@ -1,6 +1,9 @@
 <h1><%= @item.name %></h1>
 
-<%= link_to raw("&laquo; Back"), items_url, class: "btn" %> &nbsp; | &nbsp; <%= link_to "Edit", edit_item_url, class: "btn" %><br><br>
+<%= link_to raw("&laquo; Back"), items_url, class: "btn" %> &nbsp;
+  <% if signed_in? && @item.user_id == current_user.id %> | &nbsp;
+    <%= link_to "Edit", edit_item_url, class: "btn" %>
+  <% end %><br><br>
 
 <p>
   <b>Photo:</b>

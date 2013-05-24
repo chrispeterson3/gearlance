@@ -18,9 +18,11 @@
       <p><b>Monthly Price:</b> <%= item.monthly_price %></p>
       <p><b>Category:</b> <%= item.category.name %></p>
       <p>
-        <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-        <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-        <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+      <% if signed_in? && item.user_id == current_user.id %>
+          <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
+          <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
+          <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+        <% end %>
       </p>
     </li>
     <hr>
