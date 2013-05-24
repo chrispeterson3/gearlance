@@ -3,7 +3,8 @@
 <%= link_to raw("&laquo; Back"), item_url(@item.id), class: "btn" %><br><br>
 
 <%= form_for @item, :html => { :multipart => true } do |f| %>
-
+  
+  <%= f.label :category_id, "Select a Category" %>
   <%= f.collection_select(:category_id, Category.all, :id, :name) %>
 
   <%= f.label :name, "item Title:" %>
@@ -28,8 +29,5 @@
   <%= f.label :monthly_price, "Monthly Price:" %>
   <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
 
-
-
-  <%= f.submit "Update Item" %>
-
+  <br><%= f.submit class: "btn" %>
 <% end %>
