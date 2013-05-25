@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+      @user = User.find_by_email(params[:email])
   end
 
   def create
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_url(session[:user_id]), notice: "Successfully logged in!"
     else
-      redirect_to new_session_url, notice: "Sign In unsuccessfull..why?"
+      redirect_to new_session_url, notice: "Your email or password is incorrect."
     end
   end
 
