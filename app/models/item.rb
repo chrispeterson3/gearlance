@@ -12,5 +12,5 @@ class Item < ActiveRecord::Base
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/pdf']
 
-  validates :category_id, :user_id, :name, :photo_url, :description, :daily_price, :weekly_price, :monthly_price, presence: true
+  validates :category_id, :user_id, :name, :description, :daily_price, :weekly_price, :monthly_price, presence: true
 end

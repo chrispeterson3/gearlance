@@ -2,6 +2,8 @@
 
 <% if request.env["HTTP_REFERER"] == category_url(@item.category.slug) %>
   <%= link_to raw("&laquo; Back"), categories_url, class: "btn" %> &nbsp;
+<% elsif request.env["HTTP_REFERER"] == user_url(@item.user_id) %>
+  <%= link_to raw("&laquo; Back"), user_url(@item.user_id), class: "btn" %> &nbsp;
 <% else %>
   <%= link_to raw("&laquo; Back"), items_url, class: "btn" %> &nbsp;
 <% end %>

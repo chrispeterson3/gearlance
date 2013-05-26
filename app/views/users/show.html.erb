@@ -60,15 +60,19 @@
           <td>$<%= item.weekly_price %></td>
           <td>$<%= item.monthly_price %></td>
           <td><%= link_to 'Show', item, class: 'btn btn-primary' %></td>
-          <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
-          <td><%= link_to '86 for life', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+          <% if @user.id == session[:user_id] %>
+            <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
+            <td><%= link_to '86 for life', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
-<% else %>
+<% elsif @user.id == session[:user_id] %>
   <h3>List some gear!</h3>
-  <%= link_to "List my gear!", new_item_url, class: "btn" %> 
+  <%= link_to "List my gear!", new_item_url, class: "btn" %>
+<% else %>
+
 <% end %>
 
 
