@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522212127) do
+ActiveRecord::Schema.define(:version => 20130526164044) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130522212127) do
     t.string  "country"
     t.string  "password_digest"
     t.integer "item_id"
+    t.boolean "admin"
   end
 
 end
