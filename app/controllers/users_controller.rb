@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-
-  # before_filter :authorized_to_view_user, only: [:show]
-  # before_filter :no_one_authorized, only: [:index]
+  before_filter :authorized_to_view_user, only: [:show]
+  before_filter :is_admin, only: [:index]
 
   def authorized_to_view_user
     if !signed_in?
@@ -13,9 +12,11 @@ class UsersController < ApplicationController
     end
   end
 
-  # def no_one_authorized
-  #  redirect_to :status => 404 # Double check this. This might now be how to lock down the /users route
-  # end
+  def is_admin
+    if !signed_in? || signed_in? && current_user.admin != true
+      redirect_to items_url
+    end
+  end
 
   # Create #####################
 
