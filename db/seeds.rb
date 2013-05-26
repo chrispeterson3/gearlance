@@ -12,7 +12,8 @@ u.email = "user@user.com"
 u.first_name = "User"
 u.last_name = "User"
 u.password = "user"
-u.password_digest = "user"
+u.password_confirmation = "user"
+u.admin = true
 u.save
 
 Category.destroy_all
