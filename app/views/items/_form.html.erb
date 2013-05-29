@@ -1,5 +1,5 @@
 <%= form_for @item, :html => { :multipart => true } do |f| %>
-  
+
   <%= f.label :category_id, "Select a Category" %>
   <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "[Select One]") %>
   <% if @item.errors[:category_id].any? %>
@@ -12,14 +12,6 @@
   <%= f.text_field :name %>
   <% if @item.errors[:name].any? %>
     <% @item.errors[:name].each do |error| %>
-      <%= error.capitalize %><br>
-    <% end %>
-  <% end %>
-
-  <%= f.label :photo_url, "Photo URL:" %>
-  <%= f.text_field :photo_url %>
-  <% if @item.errors[:photo_url].any? %>
-    <% @item.errors[:photo_url].each do |error| %>
       <%= error.capitalize %><br>
     <% end %>
   <% end %>
