@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
   def create
     if signed_in?
       @reservation = Reservation.new(params[:reservation])
-
+      @item = @reservation.item
       @reservation.save
       UserMailer.reservation_request(@reservation).deliver
       UserMailer.reservation_notice(@reservation).deliver
