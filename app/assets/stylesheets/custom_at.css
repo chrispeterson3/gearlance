@@ -13,6 +13,24 @@
   background: yellow;
 }
 
+.control-label {
+float: left;
+width: 120px;
+padding-top: 5px;
+margin-right: 20px;
+text-align: right;
+}
+
+.controls {
+margin-left: 150px;
+}
+
+/*Upload User Profile controls*/
+
+.span4.center p{
+  margin-left: 85px;
+}
+
 .upload {
   margin: 30px 60px;
   width: 50%;
