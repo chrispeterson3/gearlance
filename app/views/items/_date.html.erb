@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -33,7 +33,7 @@
 
   <%= form_for Reservation.new do |r| %>
 
-    <%= r.hidden_field :user_id, value: @user.id %>
+    <%= r.hidden_field :user_id, value: session[:user_id] %>
     <%= r.hidden_field :item_id, value: @item.id %>
 
     <%= r.label :from %>
