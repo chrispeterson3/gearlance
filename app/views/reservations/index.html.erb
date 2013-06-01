@@ -1,11 +1,9 @@
 <h1>Reservations</h1>
 
 <% @reservations.each do |r| %>
- <p><b><%= User.find_by_id(r.user_id).first_name.capitalize %> <%= User.find_by_id(r.user_id).last_name.capitalize %></b><br>
-  Reservations-<br>
-  Date: <%= r.start_date %> - <%= r.end_date %><br>
-  Items: <%= Item.find_by_id(r.item_id).name %><br>
-  <%= image_tag Item.find_by_id(r.item_id).photo_url, width: 200 %>
- </p>
+ <p><%= r.user.first_name %> <%= r.user.last_name %></p>
+ <p>From: <%= r.start_date %><br> To: <%= r.end_date %></p>
+ <h3>The Gear: <%= r.item.name %></h3>
+ <%= image_tag r.item.photo_url, width: 200 %>
  <br><hr>
 <% end %>
