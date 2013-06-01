@@ -1,1 +1,5 @@
 <h1>Reservations</h1>
+
+<% @reservations.each do |r| %>
+  <%= link_to r.id, reservation_url(r.id) %>
+<% end %>

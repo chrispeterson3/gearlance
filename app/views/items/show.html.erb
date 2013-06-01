@@ -27,3 +27,6 @@
 <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
 <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
 <p><b>Category:</b> <%= @item.category.name %></p>
+<% @user = User.find_by_id(session[:user_id]) %>
+
+<%= render 'date' %>
