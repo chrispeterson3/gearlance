@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
     @item.user_id = session[:user_id]
 
     if @item.save
-      redirect_to items_url, notice: "You added an item!"
+      redirect_to user_url(session[:user_id]), notice: "You added an item!"
     else
       render "new"
     end

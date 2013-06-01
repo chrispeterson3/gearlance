@@ -1,3 +1,16 @@
-Hey NAME, THISNAME wants to rent your GEAR
+<%= @reservation.item.user.first_name %>, <%= @reservation.user.first_name %> <%= @reservation.user.last_name %>  made a reservation!
+===========================
+
+Your day is about to get much better!
+
+Here is the rundown on what they reserved:
+
+Gear: <%= @reservation.item.name %>
+
+Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %>
+
+Please send an invoice to <%= @reservation.user.first_name %>'s email address: <%= @reservation.user.email %>
 
 Thank you and have a great day!
+
+- Gearlance
