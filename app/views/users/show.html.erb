@@ -46,7 +46,7 @@
 
     <tbody>
         <tr>
-          <td>          </td>
+          <%= @user.reservations.each do |r| %>
           <td></td>
           <td></td>
           <td></td>
@@ -54,7 +54,8 @@
           <td></td>
           <td></td>
           <td></td>
-
+          <td></td>
+          <% end %>
             <td></td>
             <td></td>
         </tr>
