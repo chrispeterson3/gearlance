@@ -1,44 +1,16 @@
-<!DOCTYPE html>
+<%= form_for Reservation.new do |r| %>
 
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>jQuery UI Datepicker - Select a Date Range</title>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css" />
-  <script>
-  $(function() {
-    $( "#reservation_start_date , #reservation_end_date" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: false,
-      numberOfMonths: 1,
-      onClose: function(selectedDate) {
-        selectedDate = $(this).datepicker('getDate');
-      }
-    });
-  });
-  </script>
-</head>
-<body>
+  <%= r.hidden_field :user_id, value: session[:user_id] %>
+  <%= r.hidden_field :item_id, value: @item.id %>
 
-  <%= form_for Reservation.new do |r| %>
+  <%= r.label :from %>
+  <%= r.text_field :start_date, value: "yyyy/mm/dd" %>
 
-    <%= r.hidden_field :user_id, value: session[:user_id] %>
-    <%= r.hidden_field :item_id, value: @item.id %>
+  <%= r.label :to %>
+  <%= r.text_field :end_date, value: "yyyy/mm/dd" %>
 
-    <%= r.label :from %>
-    <%= r.text_field :start_date %>
+<p>
+  <%= r.submit "Book It", class: "btn btn-primary" %>
+</p>
 
-    <%= r.label :to %>
-    <%= r.text_field :end_date %>
-
-  <p>
-    <%= r.submit "Book It", class: "btn btn-primary" %>
-  </p>
-
-  <% end %>
-
-</body>
-</html>
+<% end %>
