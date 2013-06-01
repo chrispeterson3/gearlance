@@ -28,7 +28,6 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      UserMailer.welcome_email(@user).deliver
       session[:user_id] = @user.id
       redirect_to user_url(session[:user_id]), notice: "Thank you for signing up!"
     else
