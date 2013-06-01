@@ -1,11 +1,15 @@
+
 <h1>Reservations</h1>
 
 <% @reservations.each do |r| %>
- <p><b><%= User.find_by_id(r.user_id).first_name.capitalize %> <%= User.find_by_id(r.user_id).last_name.capitalize %></b><br>
-  Reservations-<br>
-  Date: <%= r.start_date %> - <%= r.end_date %><br>
-  Items: <%= Item.find_by_id(r.item_id).name %><br>
-  <%= image_tag Item.find_by_id(r.item_id).photo_url, width: 200 %>
+ <p><b><%= r.user.first_name.capitalize %> <%= r.user.last_name.capitalize %></b><br>
+  Reservation #: <%= link_to r.id, reservation_url(r.id) %><br>
+  From: <%= r.start_date.strftime("%A %b %d, %Y") %><br>
+  To: <%= r.end_date.strftime("%A %b %d, %Y") %><br>
+  Rental Period: <%= r.rental_period %> days<br>
+  Rental Estimate: $<%= (r.item.daily_price * (r.rental_period%30)) %><br>
+  Item: <%= r.item.name %><br>
+  <%= image_tag r.item.photo_url, width: 200 %>
  </p>
  <br><hr>
 <% end %>

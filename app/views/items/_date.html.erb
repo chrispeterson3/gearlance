@@ -4,10 +4,10 @@
   <%= r.hidden_field :item_id, value: @item.id %>
 
   <%= r.label :from %>
-  <%= r.text_field :start_date, value: "yyyy/mm/dd" %>
+  <%= r.text_field :start_date, :placeholder => "yyyy/mm/dd"  %>
 
   <%= r.label :to %>
-  <%= r.text_field :end_date, value: "yyyy/mm/dd" %>
+  <%= r.text_field :end_date, :placeholder => "yyyy/mm/dd" %>
 
 <p>
   <%= r.submit "Book It", class: "btn btn-primary" %>
