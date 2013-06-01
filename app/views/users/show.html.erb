@@ -29,18 +29,19 @@
   <li><b>Country:</b> <%= @user.country %></li>
 </ul>
 
-
+<% if @user.reservations.present? %>
 <h3>My Reservations</h3>
   <table>
     <thead>
       <tr>
-        <th>Image</th>
+        <th>#</th>
         <th>Category</th>
         <th>Name</th>
         <th>Description</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Rental Days</th>
+        <th>Estimate</th>
         <th></th>
         <th></th>
         <th></th>
@@ -49,21 +50,26 @@
 
     <tbody>
         <tr>
-          <%= @user.reservations.each do |r| %>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <% @user.reservations.each do |r| %>
+          <td><%= r.id %></td>
+          <td><%= r.item.category.name %></td>
+          <td><%= r.item.name %></td>
+          <td><%= r.item.description %></td>
+          <td><%= r.start_date.strftime("%A %b %d, %Y") %></td>
+          <td><%= r.end_date.strftime("%A %b %d, %Y") %></td>
+          <td><%= r.rental_period %></td>
+          <td><%=  %></td>
+
+          <td><%= link_to 'Show', reservation_url(r.id), class: 'btn btn-primary' %></td>
+          <% if @user.id == session[:user_id] %>
+            <td><%= link_to 'Edit', edit_reservation_url(r.id), class: 'btn btn-primary' %></td>
+            <td><%= link_to '86 for life', reservation_url(r.id), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
           <% end %>
-            <td></td>
-            <td></td>
+          <% end %>
         </tr>
     </tbody>
   </table>
+<% end %>
 
 <% if @user.items.count > 0 %>
 <h3>My Gear</h3>

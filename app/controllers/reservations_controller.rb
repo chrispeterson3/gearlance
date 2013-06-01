@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
   def create
     if signed_in?
       @reservation = Reservation.new(params[:reservation])
-      
+
       @reservation.save
       UserMailer.reservation_request(@reservation).deliver
 
@@ -22,6 +22,13 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find_by_id(params[:id])
+  end
+
+  def destroy
+    reservation = Reservation.find_by_id(params[:id])
+    reservation.destroy
+
+    redirect_to user_url(params[:user_id])
   end
 
 end
