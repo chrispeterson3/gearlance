@@ -1,73 +1,75 @@
-<div class="well">
+
   <div>
+<div class="span6 well center">
+<h1 class="center">Join Gearlance!</h1>
 
-<h1>Join Gearlance!</h1>
+<div class="row">
+  <div class="span3">
+      <ul class="thumbnails">
+        <li class="span3">
+          <div class="thumbnail">
+            <img src="../../assets/images/default-profile.jpg" alt="">
+            <h3>Thumbnail label</h3>
+            <p>Thumbnail caption...</p>
+            <p><a href="#" class="btn center">Upload your photo</a></p>
+          </div>
+        </li>
+      </ul>
 
-<% if notice %>
-  <p><%= notice %></p>
-<% end %>
 
-<%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <% if @user.errors[:email].any? %>
-    <% @user.errors[:email].each do |error| %>
-      <%= error.capitalize %><br>
+  </div><!-- span -->
+
+  <div class="span3">
+    <% if notice %>
+      <p><%= notice %></p>
     <% end %>
-  <% end %>
 
-  <%= f.label :first_name, "First Name" %>
-  <%= f.text_field :first_name %>
-  <% if @user.errors[:first_name].any? %>
-    <% @user.errors[:first_name].each do |error| %>
-      <%= error.capitalize %><br>
+    <%= form_for @user do |f| %>
+
+      <%= f.text_field :email, placeholder: "Email" %>
+      <% if @user.errors[:email].any? %>
+        <% @user.errors[:email].each do |error| %>
+          <%= error.capitalize %><br>
+        <% end %>
+      <% end %>
+
+
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <% if @user.errors[:first_name].any? %>
+        <% @user.errors[:first_name].each do |error| %>
+          <%= error.capitalize %><br>
+        <% end %>
+      <% end %>
+
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <% if @user.errors[:last_name].any? %>
+        <% @user.errors[:last_name].each do |error| %>
+          <%= error.capitalize %><br>
+        <% end %>
+      <% end %>
+
+      <%= f.password_field :password, placeholder: "Password"%>
+      <% if @user.errors[:password].any? %>
+        <% @user.errors[:password].each do |error| %>
+          <%= error.capitalize %><br>
+        <% end %>
+      <% end %>
+
+      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+      <% if @user.errors[:password_confirmation].any? %>
+        <% @user.errors[:password_confirmation].each do |error| %>
+          <%= error.capitalize %><br>
+        <% end %>
+      <% end %>
+
+      <br><%= f.submit "Sign Up!", class: "btn btn-success" %>
     <% end %>
-  <% end %>
 
-  <%= f.label :last_name, "Last Name" %>
-  <%= f.text_field :last_name %>
-  <% if @user.errors[:last_name].any? %>
-    <% @user.errors[:last_name].each do |error| %>
-      <%= error.capitalize %><br>
-    <% end %>
-  <% end %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <% if @user.errors[:password].any? %>
-    <% @user.errors[:password].each do |error| %>
-      <%= error.capitalize %><br>
-    <% end %>
-  <% end %>
+    </div> <!-- span -->
 
 
-
-<div class="control-group">
-    <label class="control-label" for="inputEmail">Password</label>
-    <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Password">
-    </div>
-  </div>
-  <%= f.password_field :password %>
-
-  <% if @user.errors[:password].any? %>
-    <% @user.errors[:password].each do |error| %>
-      <%= error.capitalize %><br>
-    <% end %>
-  <% end %>
-
-
-
-  <%= f.label :password_confirmation, "Password Confirmation" %>
-  <%= f.password_field :password_confirmation %>
-  <% if @user.errors[:password_confirmation].any? %>
-    <% @user.errors[:password_confirmation].each do |error| %>
-      <%= error.capitalize %><br>
-    <% end %>
-  <% end %>
-
-  <br><%= f.submit "Sign Up!", class: "btn btn-success" %>
-<% end %>
+</div> <!-- row -->
+</div>
 </div>
 
-</div>
+
