@@ -1,0 +1,12 @@
+<%= @reservation.user.first_name %> <%= @reservation.user.last_name %><br>
+<h1>Reservation # <%= @reservation.id %></h1>
+
+
+Item: <%= @reservation.item.name %><br>
+
+
+  <% if @reservation.item.image_content_type.present?  %>
+    <%= image_tag @reservation.item.image.url(:small) %>
+  <% else %>
+    <%= image_tag @reservation.item.photo_url, width: 300 %>
+  <% end %>

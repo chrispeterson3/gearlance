@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 
 <div class="row">
   <div class="span8">
     <% if request.env["HTTP_REFERER"] == category_url(@item.category.slug) %>
       <%= link_to raw("&laquo; Back"), categories_url, class: "btn" %> &nbsp;
+    <% elsif request.env["HTTP_REFERER"] == user_url(@item.user_id) %>
+      <%= link_to raw("&laquo; Back"), user_url(@item.user_id), class: "btn" %> &nbsp;
     <% else %>
       <%= link_to raw("&laquo; Back"), items_url, class: "btn" %> &nbsp;
     <% end %>
@@ -20,6 +23,7 @@
         <%= image_tag @item.photo_url, width: 300 %>
       <% end %>
     </p>
+
     <h3>Description</h3>
     <p>Bacon ipsum dolor sit amet salami andouille shank meatloaf spare ribs leberkas brisket, tail short ribs jowl chicken flank tenderloin pork. Pig beef ribs shankle swine ground round corned beef pancetta. Beef ribs corned beef sirloin ball tip, pork loin ribeye beef biltong chuck shoulder turkey brisket prosciutto flank. Biltong flank shankle, cow leberkas pig spare ribs jowl sirloin tri-tip salami fatback sausage pork loin corned beef. Andouille ham hock sirloin beef turkey. Ground round pork chop sausage venison doner short ribs hamburger shankle cow meatloaf pork. Fatback pork chop swine tenderloin hamburger beef ribeye.</p>
 
@@ -91,3 +95,5 @@
 
   </div><!-- span -->
 </div> <!-- row -->
+
+<%= render 'date' %>

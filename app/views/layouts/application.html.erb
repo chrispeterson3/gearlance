@@ -15,7 +15,36 @@
 
       ga('create', 'UA-41014222-1', 'gearlance.com');
       ga('send', 'pageview');
-    </script>   
+    </script>
+
+      <!-- Date Picker JS -->
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+     <script>
+  $(function() {
+    $( "#from" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+  </script>
+
+  <!-- end date picker JS -->
 </head>
 
 <body>
@@ -34,14 +63,14 @@
               <div class="nav-collapse">
                 <ul class="nav pull-right">
                   <li><%= link_to "Browse", items_url %></li>
-                  <li><%= link_to "List Your Gear", new_item_url %></li>               
-                  <% if signed_in? %> 
+                  <li><%= link_to "List Your Gear", new_item_url %></li>
+                  <% if signed_in? %>
                   <li><%= link_to "My Profile", user_url(session[:user_id]) %></li>
                   <li><%= link_to "Log Out", session_url, method: "delete" %></li>
                   <% else %>
                   <li><%= link_to "Sign Up", new_user_url %></li>
                   <li><%= link_to "Log In", new_session_url %></li>
-                  <% end %> 
+                  <% end %>
                 </ul>
               </div><!-- /.nav-collapse -->
         </div>
@@ -51,7 +80,7 @@
     </header>
 
   <%= yield %>
-  
+
  <!-- Footer ================================================== -->
       <hr>
       <footer id="footer">
@@ -61,7 +90,7 @@
           <a href="#">FAQ</a>
           <a href="https://twitter.com/gearlance" target="new_window">Twitter</a>
           <a href="#">Facebook</a>
-        </div>   
+        </div>
       </footer>
 
   </div><!-- /primary container -->

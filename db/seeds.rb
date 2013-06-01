@@ -38,9 +38,9 @@ items = [
   { category_id: Category.find_by_name("Camera").id, name: "Fake Lens", photo_url: "http://2.bp.blogspot.com/-MwIlpDCqbX0/TmIjim9nYjI/AAAAAAAAACo/PDIpIiFqzEM/s1600/camera-lens-icon.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 },
   { category_id: Category.find_by_name("Lights").id, name: "Canon 85mm Lens", photo_url: "http://ec1.images-amazon.com/images/I/41FER7HPR7L.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 },
   { category_id: Category.find_by_name("Lights").id, name: "Canon 35mm Lens", photo_url: "http://images04.olx.in/ui/13/04/88/1360851377_482469688_1-Pictures-of--Canon-DSLR-Lens-18-55mm.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 },
-  { category_id: Category.find_by_name("Lens").id, name: "EOS Rebel T2i", photo_url: "http://www.2dayblog.com/images/2010/february/t2i_1.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 },
+  { category_id: Category.find_by_name("Lens").id, name: "EOS Rebel T2i", photo_url: "http://www.dansdata.com/images/d60/lenses500.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 },
   { category_id: Category.find_by_name("Lens").id, name: "Lomokino Super 35mm", photo_url: "http://www.ubergizmo.com/wp-content/uploads/2011/11/17-LomoKino-Super-35.jpg", description: "Super cool description of item goes here.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 },
-  { category_id: Category.find_by_name("Lens").id, name: "Zoidberg", photo_url: "http://www.8daysageek.com/wp-content/uploads/2011/11/zoidberg.png", description: "This is NOT a piece of equipment.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 }
+  { category_id: Category.find_by_name("Other").id, name: "Zoidberg", photo_url: "http://www.8daysageek.com/wp-content/uploads/2011/11/zoidberg.png", description: "This is NOT a piece of equipment.", daily_price: 10, weekly_price: 40, monthly_price: 100, user_id: 1 }
 ]
 
 items.shuffle.each do |item|

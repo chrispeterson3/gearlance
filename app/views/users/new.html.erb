@@ -1,3 +1,6 @@
+<div class="well">
+  <div>
+
 <h1>Join Gearlance!</h1>
 
 <% if notice %>
@@ -37,6 +40,24 @@
     <% end %>
   <% end %>
 
+
+
+<div class="control-group">
+    <label class="control-label" for="inputEmail">Password</label>
+    <div class="controls">
+      <input type="text" id="inputEmail" placeholder="Password">
+    </div>
+  </div>
+  <%= f.password_field :password %>
+
+  <% if @user.errors[:password].any? %>
+    <% @user.errors[:password].each do |error| %>
+      <%= error.capitalize %><br>
+    <% end %>
+  <% end %>
+
+
+
   <%= f.label :password_confirmation, "Password Confirmation" %>
   <%= f.password_field :password_confirmation %>
   <% if @user.errors[:password_confirmation].any? %>
@@ -45,5 +66,8 @@
     <% end %>
   <% end %>
 
-  <br><%= f.submit "Sign Up!", class: "btn" %>
+  <br><%= f.submit "Sign Up!", class: "btn btn-success" %>
 <% end %>
+</div>
+
+</div>
