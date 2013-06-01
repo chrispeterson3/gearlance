@@ -58,7 +58,7 @@
           <td><%= r.start_date.strftime("%A %b %d, %Y") %></td>
           <td><%= r.end_date.strftime("%A %b %d, %Y") %></td>
           <td><%= r.rental_period %></td>
-          <td><%=  %></td>
+          <td></td>
 
           <td><%= link_to 'Show', reservation_url(r.id), class: 'btn btn-primary' %></td>
           <% if @user.id == session[:user_id] %>
