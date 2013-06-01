@@ -11,7 +11,7 @@ u = User.new
 u.email = "gearlanceapp@gmail.com"
 u.first_name = "Gear"
 u.last_name = "Lance"
-u.password = "user"
+u.password = "gearlance"
 u.password_confirmation = "gearlance"
 u.admin = true
 u.save

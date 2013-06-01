@@ -13,6 +13,7 @@ class ReservationsController < ApplicationController
       
       @reservation.save
       UserMailer.reservation_request(@reservation).deliver
+      UserMailer.reservation_notice(@reservation).deliver
 
       redirect_to reservations_url
     else
