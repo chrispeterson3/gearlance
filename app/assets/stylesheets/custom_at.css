@@ -1,0 +1,14 @@
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+     /*text-align: center;*/
+}
+
+.btncenter {
+  text-align: center;
+}
+
+.show {
+  background: yellow;
+}

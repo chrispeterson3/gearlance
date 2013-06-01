@@ -13,6 +13,7 @@
  *= require 'bootstrap-responsive'
  *= require 'jquery.bxslider'
  *= require 'custom'
+ *= require 'custom_at'
  *= require_tree .
  */
 

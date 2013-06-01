@@ -38,9 +38,10 @@ h5 {
 }
 
 .item-list {
-	border: 1px solid gray;
+	border: 1px solid #ecf0f1;
 	border-radius: 5px;
 	list-style: none;
+	margin-bottom: 10px;
 	padding: 5px 20px;
 }
 
@@ -60,9 +61,14 @@ h5 {
 
 .browse h3 {
 	margin: 0;
+	line-height: 28px;
 }
 
 .browse p {
+	margin: 0;
+}
+
+ul.browse {
 	margin: 0;
 }
 
@@ -72,6 +78,14 @@ h5 {
 
 div .row.browse {
 	margin-left: 0;
+}
+
+.browse-image {
+	height: 140px;
+}
+
+.browse-buttons {
+	margin: 10px 0;
 }
 
 /* Hiding number spinners from type number input */

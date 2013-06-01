@@ -27,7 +27,6 @@
 </ul>
 
 
-<% if @user.items.count > 0 %>
 <h3>My Reservations</h3>
   <table>
     <thead>
@@ -46,30 +45,21 @@
     </thead>
 
     <tbody>
-      <% @user.items.each do |item| %>
         <tr>
-          <td><% if item.image_content_type.present?  %>
-            <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
-          <% else %>
-            <%= link_to image_tag(item.photo_url), item_url(item.id) %>
-          <% end %>
-          </td>
-          <td><%= item.category.name %></td>
-          <td><%= item.name %></td>
-          <td><%= item.description %></td>
+          <td>          </td>
           <td></td>
           <td></td>
           <td></td>
-          <td><%= link_to 'Show', item, class: 'btn btn-primary' %></td>
-          <% if @user.id == session[:user_id] %>
-            <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
-            <td><%= link_to '86 for life', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
-          <% end %>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+            <td></td>
+            <td></td>
         </tr>
-      <% end %>
     </tbody>
   </table>
-<% end %>
 
 <% if @user.items.count > 0 %>
 <h3>My Gear</h3>

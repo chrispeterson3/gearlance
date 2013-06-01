@@ -1,8 +1,14 @@
-<%= @reservation.user.first_name %> <%= @reservation.user.last_name %><br>
-<h1>Reservation # <%= @reservation.id %></h1>
+<h1><%= @reservation.user.first_name %> <%= @reservation.user.last_name %></h1>
+<h2>Reservation # <%= @reservation.id %></h2>
 
 
 Item: <%= @reservation.item.name %><br>
+
+From: <%= @reservation.start_date.strftime("%A %b %d, %Y") %><br>
+To: <%= @reservation.end_date.strftime("%A %b %d, %Y") %><br>
+Rental Period: <%= @reservation.rental_period %> days<br>
+Rental Estimate: $<%= (@reservation.item.daily_price * (@reservation.rental_period%30)) %><br>
+
 
 
   <% if @reservation.item.image_content_type.present?  %>
