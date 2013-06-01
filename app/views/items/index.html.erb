@@ -21,12 +21,12 @@
       <ul>
         <% @items.each do |item| %>
           <li class="item-list">
-            <div class="row">
+            <div class="row browse">
               <div class="span4">
                 <% if item.image_content_type.present?  %>
                 <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
                 <% else %>
-                <%= link_to image_tag(item.photo_url, width: 160), item_url(item.id) %>
+                <%= link_to image_tag(item.photo_url), item_url(item.id) %>
                 <% end %>
               </div>
               <div class="span8 browse">
