@@ -10,7 +10,10 @@ class ReservationsController < ApplicationController
   def create
     if signed_in?
       @reservation = Reservation.new(params[:reservation])
+      
       @reservation.save
+      UserMailer.reservation_email(@reservation).deliver
+
       redirect_to reservations_url
     else
       redirect_to new_session_url, notice: "You need to be signed in to reserve gear!"
