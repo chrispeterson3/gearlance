@@ -27,9 +27,10 @@ class ReservationsController < ApplicationController
 
   def destroy
     reservation = Reservation.find_by_id(params[:id])
+    id = reservation.user_id
     reservation.destroy
 
-    redirect_to user_url(params[:user_id])
+    redirect_to user_url(id)
   end
 
 end

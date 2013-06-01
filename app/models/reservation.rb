@@ -8,12 +8,15 @@ class Reservation < ActiveRecord::Base
     (end_date - start_date).to_i
   end
 
-  # def estimate
-  #   months = rental_period/30
-  #   weeks = ((rental_period%30)/7)
-  #   days = ((rental_period%30)%7)
-  #   return ((daily_price * days) + (weekly_price * weeks) + (monthly_price * months))
-  # end
+  def estimate
+    months = rental_period/30
+    weeks = ((rental_period%30)/7)
+    days = ((rental_period%30)%7)
+    daily_price = 10
+    weekly_price = 20
+    monthly_price = 30
+    return ((daily_price * days) + (weekly_price * weeks) + (monthly_price * months))
+  end
 
 
 end
