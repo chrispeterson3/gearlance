@@ -2,14 +2,14 @@
   <div>
 <div class="span6 center">
 <h1 class="text-center">Join Gearlance!</h1>
-
+<%= form_for @user do |f| %>
 <div class="row">
   <div class="span3">
       <ul class="thumbnails">
         <li class="span3">
           <div class="thumbnail">
             <img src="/assets/default-profile.jpg" alt="">
-            <div><%= file_field_tag :image, class: "btn upload" %>
+            <div><%= f.file_field :avatar, class: "btn upload" %>
           </div>
         </li>
       </ul>
@@ -22,7 +22,7 @@
       <p><%= notice %></p>
     <% end %>
 
-    <%= form_for @user do |f| %>
+    
 
       <%= f.text_field :email, placeholder: "Email" %>
       <% if @user.errors[:email].any? %>
