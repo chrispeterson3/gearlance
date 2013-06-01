@@ -29,7 +29,7 @@
   <% end %>
 
   <%= f.label :daily_price, "Daily Price:" %>
-  <%= f.number_field :daily_price, placeholder: "Enter a value" %>
+  <%= f.number_field :daily_price, placeholder: "$0.00" %>
   <% if @item.errors[:daily_price].any? %>
     <% @item.errors[:daily_price].each do |error| %>
       <%= error.capitalize %><br>
@@ -37,7 +37,7 @@
   <% end %>
 
   <%= f.label :weekly_price, "Weekly Price:" %>
-  <%= f.number_field :weekly_price, placeholder: "Enter a value" %>
+  <%= f.number_field :weekly_price, placeholder: "$0.00" %>
   <% if @item.errors[:weekly_price].any? %>
     <% @item.errors[:weekly_price].each do |error| %>
       <%= error.capitalize %><br>
@@ -45,7 +45,7 @@
   <% end %>
 
   <%= f.label :monthly_price, "Monthly Price:" %>
-  <%= f.number_field :monthly_price, placeholder: "Enter a value" %>
+  <%= f.number_field :monthly_price, placeholder: "$0.00" %>
   <% if @item.errors[:monthly_price].any? %>
     <% @item.errors[:monthly_price].each do |error| %>
       <%= error.capitalize %><br>
