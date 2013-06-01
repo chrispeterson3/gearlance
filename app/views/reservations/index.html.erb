@@ -1,5 +1,11 @@
 <h1>Reservations</h1>
 
 <% @reservations.each do |r| %>
-  <%= link_to r.id, reservation_url(r.id) %>
+ <p><b><%= User.find_by_id(r.user_id).first_name.capitalize %> <%= User.find_by_id(r.user_id).last_name.capitalize %></b><br>
+  Reservations-<br>
+  Date: <%= r.start_date %> - <%= r.end_date %><br>
+  Items: <%= Item.find_by_id(r.item_id).name %><br>
+  <%= image_tag Item.find_by_id(r.item_id).photo_url, width: 200 %>
+ </p>
+ <br><hr>
 <% end %>
