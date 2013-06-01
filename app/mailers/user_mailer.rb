@@ -10,6 +10,6 @@ class UserMailer < ActionMailer::Base
   def reservation_request(reservation)
     @reservation = reservation
     @url = "http://localhost:3000/session/new"
-    mail(to: user.email, subject: "Someone wants to rent your gear!")
+    mail(to: reservation.user.email, subject: "Someone wants to rent your gear!")
   end
 end
