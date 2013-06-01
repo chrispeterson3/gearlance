@@ -18,7 +18,7 @@
   </div>
   <div class="span8">
 
-      <ul>
+      <ul class="browse">
         <% @items.each do |item| %>
           <li class="item-list">
             <div class="row browse">
@@ -26,27 +26,23 @@
                 <% if item.image_content_type.present?  %>
                 <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
                 <% else %>
-                <%= link_to image_tag(item.photo_url), item_url(item.id) %>
+                <%= link_to image_tag(item.photo_url, class: "browse-image"), item_url(item.id) %>
                 <% end %>
               </div>
               <div class="span8 browse">
                 <h3><%= link_to item.name, item_url(item.id) %></h3>
                 <p><%= item.description %></p>
                 
-                <p><b>Daily Price:</b> $<%= item.daily_price %></p>
-                <p><b>Weekly Price:</b> $<%= item.weekly_price %></p>
-                <p><b>Monthly Price:</b> $<%= item.monthly_price %></p>
-                
-                
-                <p>
-                <% if signed_in? && item.user_id == current_user.id %>
-                  <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-                  <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-                  <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
-                <% else %>
-                  <%= link_to "Reserve", item_url(item.id), class: "btn btn-primary" %>
-                <% end %>
-            </p>
+                <p><b>Daily:</b> $<%= item.daily_price %> | <b>Weekly:</b> $<%= item.weekly_price %> | <b>Monthly:</b> $<%= item.monthly_price %></p>
+                <div class="browse-buttons">
+                  <% if signed_in? && item.user_id == current_user.id %>
+                    <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
+                    <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
+                    <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+                  <% else %>
+                    <%= link_to "Reserve", item_url(item.id), class: "btn btn-primary" %>
+                  <% end %>
+                </p>
               </div>
             </div>
            
