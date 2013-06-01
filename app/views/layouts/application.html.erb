@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,35 +17,6 @@
       ga('create', 'UA-41014222-1', 'gearlance.com');
       ga('send', 'pageview');
     </script>
-
-      <!-- Date Picker JS -->
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
-     <script>
-  $(function() {
-    $( "#from" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#to" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-    $( "#to" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
-      }
-    });
-  });
-  </script>
-
-  <!-- end date picker JS -->
 </head>
 
 <body>
@@ -81,7 +53,7 @@
 
   <%= yield %>
 
- <!-- Footer ================================================== -->
+<!-- Footer ================================================== -->
       <hr>
       <footer id="footer">
         <p class="pull-right"><a href="#top">Back to top</a></p>
