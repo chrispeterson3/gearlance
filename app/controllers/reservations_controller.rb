@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(params[:reservation])
       
       @reservation.save
-      UserMailer.reservation_email(@reservation).deliver
+      UserMailer.reservation_request(@reservation).deliver
 
       redirect_to reservations_url
     else
