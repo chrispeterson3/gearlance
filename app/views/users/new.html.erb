@@ -11,9 +11,9 @@
           <div class="thumbnail">
             <img src="/assets/default-profile.jpg" alt="">
             <div class="fileinputs">
-            <input type="file" class="file" />
+              <%= f.file_field :avatar, class: "btn file" %>
             <div class="fakefile">
-              <%= f.file_field :avatar, class: "btn upload" %>
+              <input type="file" class="upload" />
               <img src="/assets/upload-photo.png" />
             </div>
 
