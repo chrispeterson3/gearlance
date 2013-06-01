@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.email = @user.email.downcase
 
     if @user.save
       UserMailer.welcome_email(@user).deliver

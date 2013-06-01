@@ -1,8 +1,9 @@
 
   <div>
 <div class="span6 center">
-<h1 class="text-center">Join Gearlance</h1>
 
+<h1 class="text-center">Join Gearlance!</h1>
+<%= form_for @user do |f| %>
 <div class="row">
   <div class="span3">
       <ul class="thumbnails">
@@ -12,9 +13,10 @@
             <div class="fileinputs">
             <input type="file" class="file" />
             <div class="fakefile">
-              <%= file_field_tag :image, title: "Upload your photo", class: "upload" %>
+              <%= f.file_field :avatar, class: "btn upload" %>
               <img src="/assets/upload-photo.png" />
             </div>
+
           </div>
         </li>
       </ul>
@@ -26,7 +28,7 @@
       <p><%= notice %></p>
     <% end %>
 
-    <%= form_for @user do |f| %>
+
 
       <%= f.text_field :email, placeholder: "Email" %>
       <% if @user.errors[:email].any? %>
