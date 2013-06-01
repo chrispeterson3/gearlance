@@ -8,7 +8,7 @@
     <% end %>
   <% end %>
 
-  <%= f.label :name, "item Title:" %>
+  <%= f.label :name, "Item Title:" %>
   <%= f.text_field :name %>
   <% if @item.errors[:name].any? %>
     <% @item.errors[:name].each do |error| %>
