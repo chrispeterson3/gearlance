@@ -80,6 +80,7 @@ div .row.browse {
 	margin-left: 0;
 }
 
+<<<<<<< HEAD
 .browse-image {
 	height: 140px;
 }
@@ -88,13 +89,9 @@ div .row.browse {
 	margin: 10px 0;
 }
 
-<<<<<<< HEAD
-
-=======
 /* Hiding number spinners from type number input */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
 }
->>>>>>> 0186741b587bd7002a748770f8bb462d37990480
