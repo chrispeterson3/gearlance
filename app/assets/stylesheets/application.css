@@ -11,10 +11,9 @@
  *= require_self
  *= require 'bootstrap.min'
  *= require 'bootstrap-responsive'
+ *= require 'jquery.bxslider'
  *= require 'custom'
  *= require 'custom_at'
- *= require 'jquery.bxslider'
  *= require_tree .
-
  */
 

@@ -4,4 +4,9 @@ class Reservation < ActiveRecord::Base
   belongs_to :item
   belongs_to :user
 
+  def rental_period
+    (end_date - start_date).to_i
+  end
+
+
 end
