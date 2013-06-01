@@ -7,7 +7,7 @@
   <%= link_to "Delete my profile", user_url(@user.id), method: :delete, confirm: "Sure?" %>
   <h1>
     <% if @user.avatar.present? %>
-      <%= image_tag @user.avatar %><br>
+      <%= image_tag @user.avatar, width:250 %><br>
     <% else %>
       <%= gravatar_for @user, 250 %><br>
     <% end %>
