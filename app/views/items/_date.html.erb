@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css" />
   <script>
   $(function() {
-    $( "#from" ).datepicker({
+    $( "#reservation_start_date" ).datepicker({
       defaultDate: "+1w",
       changeMonth: false,
       numberOfMonths: 1,
@@ -18,7 +18,7 @@
         $( "#to" ).datepicker( "option", "minDate", selectedDate );
       }
     });
-    $( "#to" ).datepicker({
+    $( "#reservation_end_date" ).datepicker({
       defaultDate: "+1w",
       changeMonth: false,
       numberOfMonths: 1,
@@ -37,10 +37,10 @@
     <%= r.hidden_field :item_id, value: @item.id %>
 
     <%= r.label :from %>
-    <input type="text" id="from" name="from" />
+    <%= r.text_field :start_date %>
 
     <%= r.label :to %>
-    <input type="text" id="to" name="to" />
+    <%= r.text_field :end_date %>
 
   <p>
     <%= r.submit "Book It" %>
