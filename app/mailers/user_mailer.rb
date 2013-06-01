@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
   def welcome_email(user)
     @user = user
     @url = "http://localhost:3000/session/new"
-    mail(to: user.email, subject: "Welcome to Gearlance!")
+    mail(:to => user.email, :subject => "Welcome to Gearlance!")
   end
 end
