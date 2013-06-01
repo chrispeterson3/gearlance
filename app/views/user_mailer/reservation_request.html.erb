@@ -4,10 +4,19 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Thank you for reserving this item<%= @reservation.user.first_name %>!</h1>
-    <p>
-      An email has been sent to THE OWNER.<br/>
-    </p>
+    <h1><%= @reservation.user.first_name %>, you've made a reservation!</h1>
+    <h3>Your day is about to get much better!</h3> 
+    <p>Here is the rundown on what you reserved:</p>
+
+    <ul>
+      <li>Gear: <%= @reservation.item.name %></li>
+      <li>Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %></li>
+    </ul>
+
+    <p><b><%= @reservation.item.user.first_name %></b> was notified and will get an invoice to you shortly.</p>
+
     <p>Thank you and have a great day!</p>
+
+    <p><em>- Gearlance</em></p>
   </body>
 </html>

@@ -1,5 +1,14 @@
-Thank you for reserving this item <%= @reservation.user.first_name %>!
+<%= @reservation.user.first_name %>, you've made a reservation!
+====================================
 
-An email has been sent to THE OWNER.
+Your day is about to get much better!
+Here is the rundown on what you reserved:
+
+Gear: <%= @reservation.item.name %>
+Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %>
+
+<%= @reservation.item.user.first_name %> was notified and will get an invoice to you shortly.
 
 Thank you and have a great day!
+
+- Gearlance
