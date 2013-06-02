@@ -1,53 +1,47 @@
 
-  <div>
 <div class="span6 center">
 
-<h1 class="text-center">Join Gearlance!</h1>
-<%= form_for @user do |f| %>
-<div class="row">
-  <div class="span3">
-      <ul class="thumbnails">
-        <li class="span3">
-          <div class="thumbnail">
-            <img src="/assets/default-profile.jpg" alt="">
-            <div class="fileinputs">
-              <%= f.file_field :avatar, class: "btn file" %>
-              <div class="fakefile">
-                <input type="file" class="upload" />
-                <img src="/assets/upload-photo.png" />
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-  </div>
+  <h1 class="text-center">Join Gearlance!</h1>
 
-  <div class="span3">
-    <%= f.error_messages %>
-    
-    <%= f.text_field :email, placeholder: "Email" %>
+  <%= form_for @user do |f| %>
 
+    <div class="row">
+      <div class="span3">
+        <ul class="thumbnails">
+          <li class="span3">
+            <div class="thumbnail">
+              <img src="/assets/default-profile.jpg" alt="">
+              <div class="fileinputs">
+                <%= f.file_field :avatar, class: "btn file" %>
+                <div class="fakefile">
+                  <input type="file" class="upload" />
+                  <img src="/assets/upload-photo.png" />
+                </div><!-- end fakefile -->
+              </div><!-- end fileinputs -->
+            </div><!-- end thumbnail -->
+          </li>
+        </ul>
+      </div><!-- end span3 -->
 
-    <%= f.text_field :first_name, placeholder: "First Name" %>
+      <div class="span3">
+        <%= f.error_messages %>
 
+        <%= f.text_field :email, placeholder: "Email" %>
 
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+        <%= f.text_field :first_name, placeholder: "First Name" %>
 
+        <%= f.text_field :last_name, placeholder: "Last Name" %>
 
-    <%= f.password_field :password, placeholder: "Password"%>
+        <%= f.password_field :password, placeholder: "Password"%>
 
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
 
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+        <br><%= f.submit "Sign Up", class: "btn btn-success" %>
+      </div> <!-- end span3 -->
+   <% end %>
 
+  </div> <!-- row -->
+</div><!-- end center -->
 
-    <br><%= f.submit "Sign Up", class: "btn btn-success" %>
-<% end %>
-
-  </div> <!-- span -->
-
-
-</div> <!-- row -->
-</div>
-</div>
 
 

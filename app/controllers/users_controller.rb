@@ -18,8 +18,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # Create #####################
-
   def new
     @user = User.new
   end
@@ -37,8 +35,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # Read #################
-
   def index
     @user = User.all
   end
@@ -46,8 +42,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
   end
-
-  # Update #################
 
   def edit
     @user = User.find_by_id(session[:user_id])
@@ -63,8 +57,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
-  # Destroy ###############
 
   def destroy
     @user = User.find_by_id(session[:user_id])
