@@ -4,6 +4,8 @@ class Reservation < ActiveRecord::Base
   belongs_to :item
   belongs_to :user
 
+  validates :start_date, :end_date, presence: true
+
   def rental_period
     (end_date - start_date).to_i
   end
