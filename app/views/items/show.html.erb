@@ -1,4 +1,5 @@
 <div class="row">
+
   <div class="span8">
     <% if request.env["HTTP_REFERER"] == category_url(@item.category.slug) %>
       <%= link_to raw("&laquo; Back"), categories_url, class: "btn" %> &nbsp;
@@ -10,10 +11,11 @@
 
     <% if signed_in? && @item.user_id == current_user.id %> | &nbsp;
       <%= link_to "Edit", edit_item_url, class: "btn" %>
-    <% end %><br><br>
+    <% end %>
 
     <h1><%= @item.name %></h1>
     <p><b>Category:</b> <%= @item.category.name %></p>
+
     <p>
       <% if @item.image_content_type.present?  %>
         <%= image_tag @item.image.url(:small) %>
@@ -24,69 +26,65 @@
 
     <h3>Description</h3>
     <p><%= @item.description %></p>
-    <p>Bacon ipsum dolor sit amet salami andouille shank meatloaf spare ribs leberkas brisket, tail short ribs jowl chicken flank tenderloin pork. Pig beef ribs shankle swine ground round corned beef pancetta. Beef ribs corned beef sirloin ball tip, pork loin ribeye beef biltong chuck shoulder turkey brisket prosciutto flank. Biltong flank shankle, cow leberkas pig spare ribs jowl sirloin tri-tip salami fatback sausage pork loin corned beef. Andouille ham hock sirloin beef turkey. Ground round pork chop sausage venison doner short ribs hamburger shankle cow meatloaf pork. Fatback pork chop swine tenderloin hamburger beef ribeye.</p>
 
     <h3>Reviews</h3>
     <p>Bacon ipsum dolor sit amet salami andouille shank meatloaf spare ribs leberkas brisket, tail short ribs jowl chicken flank tenderloin pork. Pig beef ribs shankle swine ground round corned beef pancetta. Beef ribs corned beef sirloin ball tip, pork loin ribeye beef biltong chuck shoulder turkey brisket prosciutto flank. Biltong flank shankle, cow leberkas pig spare ribs jowl sirloin tri-tip salami fatback sausage pork loin corned beef. Andouille ham hock sirloin beef turkey. Ground round pork chop sausage venison doner short ribs hamburger shankle cow meatloaf pork. Fatback pork chop swine tenderloin hamburger beef ribeye.</p>
+  </div><!-- span8 -->
 
-
-
-
-  </div><!-- span -->
   <div class="span4">
-    <form class="form-horizontal well">
-      <fieldset>
-        <legend>Rent this gear</legend>
-        <p><b>Daily Price:</b> $<%= @item.daily_price %></p>
-        <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
-        <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
-        <label for="from">From</label>
-        <input type="text" id="from" name="from" />
-        <label for="to">to</label>
-        <input type="text" id="to" name="to" />
-      </fieldset>
+
+    <div class="form-horizontal well">
+      <legend>Rent this gear</legend>
+      <p><b>Daily Price:</b> $<%= @item.daily_price %></p>
+      <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
+      <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
 
       <!-- Button to trigger modal -->
       <a href="#myModal" role="button" class="btn btn-success" data-toggle="modal" style="margin-top: 10px;">Send Rental Request</a>
 
       <!-- Modal -->
       <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel">Send Request</h3>
-        </div>
+        </div><!-- end modal-header -->
+
         <div class="modal-body">
           <p>Hey <%= @item.user.first_name %>,</p>
           <p>I'm interested in renting your <%= @item.name %></p>
-          <p><%= render 'date' %></p>
-          <p>Does that work for you?</p>
-          <textarea rows="3" placeholder="Say something nice..."></textarea>
 
-        </div>
+          <%= render 'date' %>
+
+        </div><!-- end modal-body -->
+
         <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-          <button class="btn btn-success">Send Request</button>
-        </div>
-      </div>
-    </form>
+        </div><!-- end modal-footer -->
+
+      </div><!-- end myModal -->
+
+    </div><!-- end form-horizontal -->
+
+
     <div class="well">
-      <legend>About Me</legend>
+      <legend>About the Renter</legend>
       <div class="row">
         <div class="span2">
-        <img src="http://www.women2.com/wp-content/uploads/125x125_Audrey_Tan.jpg">
-        </div>
-        <h4>Audrey Tan</h4>
-        <h5>Chicago, IL</h5>
-      </div>
+          <% if @item.user.avatar.present? %>
+            <%= image_tag @item.user.avatar, width:125 %><br>
+          <% else %>
+            <%= gravatar_for @item.user, 125 %><br>
+          <% end %>
+        </div><!-- end span2 -->
+        <h4><%= @item.user.first_name %> <%= @item.user.last_name %></h4>
+        <h5><%= @item.user.city %>, <%= @item.user.state %></h5>
+      </div><!-- end row -->
       </br>
 
-      <p>Bacon ipsum dolor sit amet tenderloin swine meatball, jerky bacon pork ribeye spare ribs leberkas salami turducken chicken ham. Strip steak venison pancetta shoulder. Tail swine pork chop, cow ham brisket venison bacon jerky pastrami doner jowl ground round. Short loin sirloin pancetta bresaola ham strip steak.</p>
-
-
+      <p>ADD USER BIO TO USERS. Bacon ipsum dolor sit amet tenderloin swine meatball, jerky bacon pork ribeye spare ribs leberkas salami turducken chicken ham. Strip steak venison pancetta shoulder. Tail swine pork chop, cow ham brisket venison bacon jerky pastrami doner jowl ground round. Short loin sirloin pancetta bresaola ham strip steak.</p>
 
     </div><!-- well -->
 
-  </div><!-- span -->
+  </div><!-- span4 -->
 </div> <!-- row -->
-
-<%= render 'date' %>
