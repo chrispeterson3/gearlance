@@ -3,7 +3,30 @@
   <%= @user.errors.full_messages %>
 <% end %>
 
+<div class="row">
+
 <%= form_for @user do |f| %>
+
+  <div class="span3 offset1">
+      <ul class="thumbnails">
+        <li class="span3">
+          <div class="thumbnail">
+            <img src="/assets/default-profile.jpg" alt="">
+            <div class="fileinputs">
+              <%= f.file_field :avatar, class: "btn file" %>
+              <div class="fakefile">
+                <input type="file" class="upload" />
+                <img src="/assets/upload-photo.png" />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+
+  <div class="span3 well">
+
+<legend>Account</legend>
 
   <%= f.label :first_name, "First Name" %>
   <%= f.text_field :first_name %>
@@ -20,16 +43,23 @@
   <%= f.label :password_confirmation, "Password Confirmation" %>
   <%= f.password_field :password_confirmation %>
 
+  </div>
+
+  <div class="span3 well">
+<!--
   <%= f.label :avatar, "Avatar Photo" %>
-  <%= f.text_field :avatar %>
+  <%= f.text_field :avatar %> -->
+
+<legend>Contact</legend>
 
   <%= f.label :phone, "Phone" %>
   <%= f.text_field :phone %>
+  <i class="icon-search"></i>
 
   <%= f.label :address_1, "Address" %>
   <%= f.text_field :address_1 %>
 
-  <%= f.label :address_2, "Address" %>
+  <%= f.label :address_2, "Address 2" %>
   <%= f.text_field :address_2 %>
 
   <%= f.label :city, "City" %>
@@ -44,6 +74,8 @@
   <%= f.label :country, "Country" %>
   <%= f.text_field :country %>
 
-  <br><%= f.submit "Update Profile", class: "btn" %>
+  <br><%= f.submit "Update Profile", class: "btn btn-success" %>
 <% end %>
+</div>
+</div>
 
