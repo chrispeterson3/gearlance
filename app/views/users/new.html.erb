@@ -23,52 +23,26 @@
   </div>
 
   <div class="span3">
-    <% if notice %>
-      <p><%= notice %></p>
-    <% end %>
+    <%= f.error_messages %>
+    <%= f.text_field :email, placeholder: "Email" %>
 
 
-
-      <%= f.text_field :email, placeholder: "Email" %>
-      <% if @user.errors[:email].any? %>
-        <% @user.errors[:email].each do |error| %>
-          <%= error.capitalize %><br>
-        <% end %>
-      <% end %>
+    <%= f.text_field :first_name, placeholder: "First Name" %>
 
 
-      <%= f.text_field :first_name, placeholder: "First Name" %>
-      <% if @user.errors[:first_name].any? %>
-        <% @user.errors[:first_name].each do |error| %>
-          <%= error.capitalize %><br>
-        <% end %>
-      <% end %>
+    <%= f.text_field :last_name, placeholder: "Last Name" %>
 
-      <%= f.text_field :last_name, placeholder: "Last Name" %>
-      <% if @user.errors[:last_name].any? %>
-        <% @user.errors[:last_name].each do |error| %>
-          <%= error.capitalize %><br>
-        <% end %>
-      <% end %>
 
-      <%= f.password_field :password, placeholder: "Password"%>
-      <% if @user.errors[:password].any? %>
-        <% @user.errors[:password].each do |error| %>
-          <%= error.capitalize %><br>
-        <% end %>
-      <% end %>
+    <%= f.password_field :password, placeholder: "Password"%>
 
-      <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
-      <% if @user.errors[:password_confirmation].any? %>
-        <% @user.errors[:password_confirmation].each do |error| %>
-          <%= error.capitalize %><br>
-        <% end %>
-      <% end %>
 
-      <br><%= f.submit "Sign Up", class: "btn btn-success" %>
-    <% end %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
 
-    </div> <!-- span -->
+
+    <br><%= f.submit "Sign Up", class: "btn btn-success" %>
+<% end %>
+
+  </div> <!-- span -->
 
 
 </div> <!-- row -->
