@@ -23,7 +23,7 @@ class ReservationsController < ApplicationController
           UserMailer.reservation_request(@reservation).deliver
           UserMailer.reservation_notice(@reservation).deliver
 
-          redirect_to user_url(session[:user_id]), notice: "Thanks for making your reservation!"
+          redirect_to reservation_url(@reservation[:id]), notice: "You've made a reservation!"
         else
           redirect_to item_url(params[:reservation][:item_id]), notice: "There were erros when making your reservation. Make sure your dates are correct!"
         end
