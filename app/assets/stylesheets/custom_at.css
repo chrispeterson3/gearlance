@@ -25,6 +25,14 @@ text-align: right;
 margin-left: 150px;
 }
 
+.dl-horizontal dt {
+width: 50px;
+}
+
+.dl-horizontal dd {
+margin-left: 70px;
+}
+
 
 /*Upload User Profile controls*/
 
