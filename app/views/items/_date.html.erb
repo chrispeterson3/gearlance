@@ -9,8 +9,13 @@
   <%= r.label :to %>
   <%= r.text_field :end_date, :placeholder => "yyyy/mm/dd" %>
 
-<p>
-  <%= r.submit "Book It", class: "btn btn-primary" %>
-</p>
+  <br><br>
+  <p>Does that work for you?</p>
+  <%= r.text_area :comments, placeholder: "Say something nice...", rows: 3 %>
+
+  <br><br>
+  <p>
+    <%= r.submit "Send Request", class: "btn btn-success" %>
+  </p>
 
 <% end %>
