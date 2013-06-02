@@ -25,6 +25,7 @@ text-align: right;
 margin-left: 150px;
 }
 
+
 /*Upload User Profile controls*/
 
 .span4.center p {
@@ -56,7 +57,7 @@ border: none;
 }
 /* "x::-webkit-file-upload-button" forces the rules to only apply to browsers that support this pseudo-element */
 x::-webkit-file-upload-button, input[type=file]:after {
-content: ' Upload your photo ';
+content: ' Upload a photo ';
 display: inline-block;
 left: 100%;
 margin-left:-310px;
