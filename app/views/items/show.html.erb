@@ -31,7 +31,6 @@
 
 
 
-
   </div><!-- span -->
   <div class="span4">
     <form class="form-horizontal well">
@@ -40,11 +39,11 @@
         <p><b>Daily Price:</b> $<%= @item.daily_price %></p>
         <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
         <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
-        <label for="from">From</label>
+<!--         <label for="from">From</label>
         <input type="text" id="from" name="from" />
         <label for="to">to</label>
         <input type="text" id="to" name="to" />
-      </fieldset>
+ -->      </fieldset>
 
       <!-- Button to trigger modal -->
       <a href="#myModal" role="button" class="btn btn-success" data-toggle="modal" style="margin-top: 10px;">Send Rental Request</a>
@@ -58,17 +57,31 @@
         <div class="modal-body">
           <p>Hey <%= @item.user.first_name %>,</p>
           <p>I'm interested in renting your <%= @item.name %></p>
-          <p><%= render 'date' %></p>
+
+            <%= form_for Reservation.new do |r| %>
+
+              <%= r.hidden_field :user_id, value: session[:user_id] %>
+              <%= r.hidden_field :item_id, value: @item.id %>
+
+              <%= r.label :from %>
+              <%= r.text_field :start_date, :placeholder => "yyyy/mm/dd"  %>
+
+              <%= r.label :to %>
+              <%= r.text_field :end_date, :placeholder => "yyyy/mm/dd" %>
+
           <p>Does that work for you?</p>
           <textarea rows="3" placeholder="Say something nice..."></textarea>
 
         </div>
-        <div class="modal-footer">
+          <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-          <button class="btn btn-success">Send Request</button>
-        </div>
+          <%= r.submit "Send Request", class: "btn btn-success" %>
+          </div>
+          <% end %>
       </div>
     </form>
+
+
     <div class="well">
       <legend>About Me</legend>
       <div class="row">
@@ -81,8 +94,6 @@
       </br>
 
       <p>Bacon ipsum dolor sit amet tenderloin swine meatball, jerky bacon pork ribeye spare ribs leberkas salami turducken chicken ham. Strip steak venison pancetta shoulder. Tail swine pork chop, cow ham brisket venison bacon jerky pastrami doner jowl ground round. Short loin sirloin pancetta bresaola ham strip steak.</p>
-
-
 
     </div><!-- well -->
 
