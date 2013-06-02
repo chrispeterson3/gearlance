@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
       UserMailer.reservation_request(@reservation).deliver
       UserMailer.reservation_notice(@reservation).deliver
 
-      redirect_to reservations_url
+      redirect_to user_url(session[:user_id]), notice: "Thanks for making your reservation!"
     else
       redirect_to new_session_url, notice: "You need to be signed in to reserve gear!"
     end
