@@ -88,6 +88,16 @@ div .row.browse {
 	margin: 10px 0;
 }
 
+
+.crop {
+	height: 300px;
+	overflow: hidden;
+	width: 300px;
+}
+.crop img {
+	width: 300px;
+}
+
 /* Hiding number spinners from type number input */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
