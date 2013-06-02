@@ -1,23 +1,44 @@
+
+<div class="row">
+  <div class="span12">
+      <h1 class="pull-right">
+    Welcome back, <%= @user.first_name %>
+  </h1>
+
+  </div>
+</div>
+
+<div class="row">
+<div class="span3">
+
 <% if notice %>
   <p><%= notice %></p>
 <% end %>
 
 <% if @user.id == session[:user_id] %>
-  <%= link_to "Edit my profile", edit_user_url(@user.id) %>
-  <%= link_to "Delete my profile", user_url(@user.id), method: :delete, confirm: "Sure?" %>
-  <h1>
     <% if @user.avatar.present? %>
-      <%= image_tag @user.avatar, width:250 %><br>
-    <% else %>
-      <%= gravatar_for @user, 250 %><br>
-    <% end %>
-    Welcome back, <%= @user.first_name %>
-  </h1>
-<% else %>
-  <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-<% end %>
+    <%= image_tag @user.avatar, width:250, class: "thumbnail" %><br>
+      <% else %>
+        <%= gravatar_for @user, 250 %><br>
+      <% end %>
+  <% else %>
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  <% end %>
 
-<ul>
+<div class="well">
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd><%= @user.first_name %> <%= @user.last_name %></dd>
+  <dt>Email</dt>
+  <dd><%= @user.email %><dd>
+  <dt>Phone</dt>
+  <dd><%= @user.phone %></dd>
+</dl>
+<%= link_to "Edit my profile", edit_user_url(@user.id) %>
+</div>
+</div>
+
+<!-- <ul>
   <li><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></li>
   <li><b>Email:</b> <%= @user.email %></li>
   <li><b>Phone:</b> <%= @user.phone %></li>
@@ -28,10 +49,15 @@
   <li><b>Zip:</b> <%= @user.zip %></li>
   <li><b>Country:</b> <%= @user.country %></li>
 </ul>
+  <%= link_to "Edit my profile", edit_user_url(@user.id) %>
+  <%= link_to "Delete my profile", user_url(@user.id), method: :delete, confirm: "Sure?" %> -->
 
+
+
+<div class="span9">
 <% if @user.reservations.present? %>
 <h3>My Reservations</h3>
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>#</th>
@@ -63,7 +89,7 @@
           <td><%= link_to 'Show', reservation_url(r.id), class: 'btn btn-primary' %></td>
           <% if @user.id == session[:user_id] %>
             <td><%= link_to 'Edit', edit_reservation_url(r.id), class: 'btn btn-primary' %></td>
-            <td><%= link_to '86 for life', reservation_url(r.id), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+            <td><%= link_to 'Cancel', reservation_url(r.id), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this reservation?" } %></td>
           <% end %>
         <% end %><br>
       </tr>
@@ -71,15 +97,16 @@
   </table>
 <% end %>
 
+
 <% if @user.items.count > 0 %>
 <h3>My Gear</h3>
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>Image</th>
         <th>Category</th>
         <th>Name</th>
-        <th>Description</th>
+        <!-- <th>Description</th> -->
         <th>Daily Price</th>
         <th>Weekly Price</th>
         <th>Monthly Price</th>
@@ -100,14 +127,14 @@
           </td>
           <td><%= item.category.name %></td>
           <td><%= item.name %></td>
-          <td><%= item.description %></td>
+          <!-- <td><%= item.description %></td> -->
           <td>$<%= item.daily_price %></td>
           <td>$<%= item.weekly_price %></td>
           <td>$<%= item.monthly_price %></td>
           <td><%= link_to 'Show', item, class: 'btn btn-primary' %></td>
           <% if @user.id == session[:user_id] %>
             <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
-            <td><%= link_to '86 for life', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+            <td><%= link_to 'Delete', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
           <% end %>
         </tr>
       <% end %>
@@ -119,5 +146,11 @@
 <% else %>
 
 <% end %>
+</div><!-- span -->
+
+
+</div><!-- row -->
+
+
 
 
