@@ -29,8 +29,10 @@ class ReservationsController < ApplicationController
         end
 
       else
-        redirect_to new_session_url, notice: "You need to be signed in to reserve gear!"
-      end
+        redirect_to new_session_url, notice: "<p>You need to be logged in to make a new reservation.</p>
+       <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
+       ".html_safe
+     end
   end
 
   def show
