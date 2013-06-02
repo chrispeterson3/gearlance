@@ -13,8 +13,8 @@
     <% end %><br><br>
 
     <h1><%= @item.name %></h1>
+    <p><b>Category:</b> <%= @item.category.name %></p>
     <p>
-      <b>Photo:</b>
       <% if @item.image_content_type.present?  %>
         <%= image_tag @item.image.url(:small) %>
       <% else %>
@@ -23,6 +23,7 @@
     </p>
 
     <h3>Description</h3>
+    <p><%= @item.description %></p>
     <p>Bacon ipsum dolor sit amet salami andouille shank meatloaf spare ribs leberkas brisket, tail short ribs jowl chicken flank tenderloin pork. Pig beef ribs shankle swine ground round corned beef pancetta. Beef ribs corned beef sirloin ball tip, pork loin ribeye beef biltong chuck shoulder turkey brisket prosciutto flank. Biltong flank shankle, cow leberkas pig spare ribs jowl sirloin tri-tip salami fatback sausage pork loin corned beef. Andouille ham hock sirloin beef turkey. Ground round pork chop sausage venison doner short ribs hamburger shankle cow meatloaf pork. Fatback pork chop swine tenderloin hamburger beef ribeye.</p>
 
     <h3>Reviews</h3>
@@ -30,11 +31,7 @@
 
 
 
-    <p><b>Description:</b> <%= @item.description %></p>
-    <p><b>Daily Price:</b> $<%= @item.daily_price %></p>
-    <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
-    <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
-    <p><b>Category:</b> <%= @item.category.name %></p>
+
   </div><!-- span -->
   <div class="span4">
     <form class="form-horizontal well">
@@ -43,7 +40,6 @@
         <p><b>Daily Price:</b> $<%= @item.daily_price %></p>
         <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
         <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
-        <p><b>Category:</b> <%= @item.category.name %></p>
         <label for="from">From</label>
         <input type="text" id="from" name="from" />
         <label for="to">to</label>
@@ -60,10 +56,9 @@
           <h3 id="myModalLabel">Send Request</h3>
         </div>
         <div class="modal-body">
-          <p>Hey Audrey,</p>
-          <p>I'm interested in renting your EOS Rebel T2i</p>
-          <p>from June 3</p>
-          <p>to June 6</p>
+          <p>Hey <%= @item.user.first_name %>,</p>
+          <p>I'm interested in renting your <%= @item.name %></p>
+          <p><%= render 'date' %></p>
           <p>Does that work for you?</p>
           <textarea rows="3" placeholder="Say something nice..."></textarea>
 
