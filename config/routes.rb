@@ -4,7 +4,7 @@ Gearlance::Application.routes.draw do
   resources :categories
   resources :items
   resources :users
-  resources :reservations
+  resources :reservations, except: [:new]
   resource :session
 
   match "/faq" => "pages#faq"

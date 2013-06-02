@@ -1,10 +1,18 @@
 class ReservationsController < ApplicationController
-  def index
-    @reservations = Reservation.all
+  before_filter :authorize_user, only: [:index]
+
+  def authorize_user
+    if !signed_in?
+      redirect_to new_session_url,
+      notice: "
+      <p>Log In to view your Reservations</p>
+      <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
+      ".html_safe
+    end
   end
 
-  def new
-
+  def index
+    @reservations = Reservation.where(:user_id => session[:user_id])
   end
 
   def create
