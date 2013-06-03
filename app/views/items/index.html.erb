@@ -39,7 +39,7 @@
                   <% if signed_in? && item.user_id == current_user.id %>
                     <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
                     <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-                    <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+                    <%= link_to "Delete", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
                   <% else %>
                     <%= link_to "Reserve", item_url(item.id), class: "btn btn-primary" %>
                   <% end %>
