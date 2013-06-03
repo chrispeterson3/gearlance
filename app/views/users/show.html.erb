@@ -1,15 +1,31 @@
 
-<div class="row">
-  <div class="span12">
-      <h2 class="pull-right">
-    Welcome back, <%= @user.first_name %>
-  </h2>
 
-  </div>
+<div class="row">
+  <ul class="nav nav-pills span5">
+   <li class="active">
+    <a href="#">Dashboard</a>
+  </li>
+  <li><%= link_to "Reservations", reservations_url %></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+        Account
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Notifications</a></li>
+      <li><a href="#">Payout Preferences</a></li>
+      <li><a href="#">Transaction History</a></li>
+      <li><a href="#">Referrals</a></li>
+    </ul>
+  </li>
+</ul>
 </div>
 
+
 <div class="row">
-<div class="span3">
+<div class="span3 well">
 
 <% if @user.id == session[:user_id] %>
     <% if @user.avatar.present? %>
@@ -18,18 +34,19 @@
         <%= gravatar_for @user, 260 %><br>
       <% end %>
   <% else %>
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <!-- <h1><%= @user.first_name %> <%= @user.last_name %></h1> -->
   <% end %>
 
-<div class="well">
-<dl class="dl-horizontal">
+<div class="text-center">
+  <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+<!-- <dl class="dl-horizontal">
   <dt>Name</dt>
   <dd><%= @user.first_name %> <%= @user.last_name %></dd>
   <dt>Email</dt>
   <dd><%= @user.email %><dd>
   <dt>Phone</dt>
   <dd><%= @user.phone %></dd>
-</dl>
+</dl> -->
 <%= link_to "Edit my profile", edit_user_url(@user.id) %>
 </div>
 </div>
@@ -50,36 +67,13 @@
 
 
 
-<div class="span9">
-
-<ul class="nav nav-tabs">
-   <li class="active">
-    <a href="#">Dashboard</a>
-  </li>
-  <li><a href="#">Reservations</a></li>
-  <li class="dropdown">
-    <a class="dropdown-toggle"
-       data-toggle="dropdown"
-       href="#">
-        Account
-        <b class="caret"></b>
-      </a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Notifications</a></li>
-      <li><a href="#">Payout Preferences</a></li>
-      <li><a href="#">Transaction History</a></li>
-      <li><a href="#">Referrals</a></li>
-    </ul>
-  </li>
-</ul>
-
-
+<div class="span8 item-list">
 <legend>Your Gear</legend>
 <% if @user.items.count > 0 %>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Image</th>
+        <th>Item</th>
         <th>Category</th>
         <th>Name</th>
         <!-- <th>Description</th> -->
@@ -116,15 +110,16 @@
       <% end %>
     </tbody>
   </table>
+  <%= link_to "List more gear", new_item_url %>
 <% elsif @user.id == session[:user_id] %>
-  <h4>You have no gear listed.</h4>
-  <%= link_to "List your gear", new_item_url, class: "btn" %>
+  <h4>You're not listing any gear.  Bummer.</h4>
+  <%= link_to "List your gear", new_item_url, class: "btn btn-primary", style: "margin: 15px 0" %>
 <% else %>
 
 <% end %>
 
 
-
+<!--
 <legend>Your Reservations</legend>
 <% if @user.reservations.present? %>
   <table class="table table-hover">
@@ -170,7 +165,7 @@
   <%= link_to "Browse Gear", new_item_url, class: "btn" %>
 <% else %>
 
-<% end %>
+<% end %> -->
 
 </div><!-- span -->
 

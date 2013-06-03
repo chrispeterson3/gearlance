@@ -1,10 +1,81 @@
 
-<h1>Reservations</h1>
+<div class="row">
+<ul class="nav nav-pills span7">
+  <li><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
+  <li class="active"><%= link_to "Reservations", reservations_url %></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle"
+       data-toggle="dropdown"
+       href="#">
+        Account
+        <b class="caret"></b>
+      </a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Notifications</a></li>
+      <li><a href="#">Payout Preferences</a></li>
+      <li><a href="#">Transaction History</a></li>
+      <li><a href="#">Referrals</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
 
+<div class="row">
+<div class="span12">
 <% if @reservations.present? %>
-  <% @reservations.each do |r| %>
+<% @reservations.each do |r| %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Item</th>
+        <th></th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Rental Days</th>
+        <th>Estimate</th>
+        <th>Owner</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
-   <p><b><%= r.user.first_name.capitalize %> <%= r.user.last_name.capitalize %></b><br>
+    <tbody>
+
+      <tr>
+        <td><%= link_to r.id, reservation_url(r.id) %></td>
+        <td><%= image_tag r.item.photo_url, width: 100 %></td>
+        <td><%= r.item.name %></td>
+        <td><%= r.item.category.name %></td>
+        <td><%= r.item.description %></td>
+        <td><%= r.start_date.strftime("%A %b %d, %Y") %></td>
+        <td><%= r.end_date.strftime("%A %b %d, %Y") %></td>
+        <td><%= r.rental_period %></td>
+        <td>$ <%= r.estimate %></td>
+        <td>[INSERT GEAR OWNER HERE]</td>
+
+        <td><%= link_to "View", reservation_url(r.id), class: "btn btn-success" %></td>
+        <td><%= link_to 'Edit', edit_reservation_url(r.id), class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Cancel', reservation_url(r.id), class: 'btn', method: 'delete', data: { confirm: "Do you really want to delete this reservation?" } %></td>
+
+<!-- NEED TO ADD LOGIC ABOUT USER SESSION (AT)-->
+        <%# if @user.id == session[:user_id] %>
+          <td><%#= link_to 'Edit', edit_reservation_url(r.id), class: 'btn btn-primary' %></td>
+          <td><%#= link_to 'Cancel', reservation_url(r.id), class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this reservation?" } %></td>
+        <%# end %>
+      <%# end %><br>
+      </tr>
+
+
+
+
+    </tbody>
+  </table>
+
+   <!-- <p><b><%= r.user.first_name.capitalize %> <%= r.user.last_name.capitalize %></b><br>
     Reservation #: <%= link_to r.id, reservation_url(r.id) %><br>
     From: <%= r.start_date.strftime("%A %b %d, %Y") %><br>
     To: <%= r.end_date.strftime("%A %b %d, %Y") %><br>
@@ -12,9 +83,13 @@
     Rental Estimate: $<%= (r.item.daily_price * (r.rental_period%30)) %><br>
     The Gear: <%= r.item.name %><br>
     <%= image_tag r.item.photo_url, width: 200 %>
-   </p>
-   <br><hr>
+   </p> -->
+   <!-- <br><hr> -->
   <% end %>
 <% else %>
-  <h3>No reservations! Browse some gear and make some rentals.</h3>
+  <h3>You have no reservations.</h3>
+  <%= link_to "Browse Gear", items_url, class: "btn" %>
 <% end %>
+</div>
+</div>
+

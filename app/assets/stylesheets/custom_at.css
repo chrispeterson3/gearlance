@@ -1,3 +1,9 @@
+
+.nav-pills>li>a {
+  font-size: 25px;
+  padding: 15px;
+}
+
 .center {
      float: none;
      margin-left: auto;
