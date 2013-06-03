@@ -8,4 +8,5 @@ Gearlance::Application.routes.draw do
   resource :session
 
   match "/faq" => "pages#faq"
+  match "/about" => "pages#about"
 end

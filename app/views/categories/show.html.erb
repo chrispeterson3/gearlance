@@ -1,30 +1,56 @@
-<h3>Category: <%= @category.slug.capitalize %></h3>
+<div class="row-fluid">
+  <h1 class="withsubhead">Browse Gear.</h1>
+  <h3>Try out gear from people like you.</h3>
+</div>
 
-<ul>
-  <% @items.all.each do |item| %>
-    <li>
-      <h3><%= item.name %></h3>
-
-      <% if item.image_content_type.present?  %>
-        <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
-      <% else %>
-        <%= link_to image_tag(item.photo_url, width: 175), item_url(item.id) %>
-      <% end %>
-
-
-      <p><b>Description:</b> <%= item.description %></p>
-      <p><b>Daily Price:</b> <%= item.daily_price %></p>
-      <p><b>Weekly Price:</b> <%= item.weekly_price %></p>
-      <p><b>Monthly Price:</b> <%= item.monthly_price %></p>
-      <p><b>Category:</b> <%= item.category.name %></p>
-      <p>
-      <% if signed_in? && item.user_id == current_user.id %>
-          <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-          <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
-          <%= link_to "86 This", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+<div class="row-fluid">
+  <div class="span4 well">
+      <%= notice %>
+      <ul class="nav nav-list">  <!-- Categories list -->
+        <li class="nav-header">Categories</li>
+        <% @categories.each do |category| %>
+          <li class="<% if category.id == @itemId %> active <% end %>">
+            <%= link_to category.slug.capitalize, category_url(category.slug) %>
+          </li>
         <% end %>
-      </p>
-    </li>
-    <hr>
-  <% end %>
-</ul>
+      </ul>
+      
+  </div>
+  
+  <div class="span8">
+
+      <ul class="browse">  <!-- Items list -->
+        <% @items.each do |item| %>
+          <li class="item-list">
+            <div class="row browse">
+              <div class="span4">
+                <% if item.image_content_type.present?  %>
+                <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
+                <% else %>
+                <%= link_to image_tag(item.photo_url, class: "browse-image"), item_url(item.id) %>
+                <% end %>
+              </div>
+              <div class="span8 browse">
+                <h3><%= link_to item.name, item_url(item.id) %></h3>
+                <p><%= item.description %></p>
+                
+                <p><b>Daily:</b> $<%= item.daily_price %> | <b>Weekly:</b> $<%= item.weekly_price %> | <b>Monthly:</b> $<%= item.monthly_price %></p>
+                <div class="browse-buttons">
+                  <% if signed_in? && item.user_id == current_user.id %>
+                    <%= link_to "View", item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
+                    <%= link_to "Edit", edit_item_url(item.id), class: "btn" %> &nbsp;|&nbsp;
+                    <%= link_to "Delete", item_url(item.id), method: :delete, confirm: "You sure?", class: "btn btn-danger" %>
+                  <% else %>
+                    <%= link_to "Reserve", item_url(item.id), class: "btn btn-primary" %>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+           
+          </li>
+          
+        <% end %>
+        </ul>
+    </div>
+
+</div>
