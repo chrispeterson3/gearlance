@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 gem 'paperclip'
 gem 'nested_form'
 gem 'kaminari'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
