@@ -9,7 +9,7 @@
       <ul class="nav nav-list">  <!-- Categories list -->
         <li class="nav-header">Categories</li>
         <% @categories.each do |category| %>
-          <li class="<% if category.id == @itemId %> active <% end %>">
+          <li class="<% if category.id == @item.category_id %>active<% end %>">
             <%= link_to category.slug.capitalize, category_url(category.slug) %>
           </li>
         <% end %>
