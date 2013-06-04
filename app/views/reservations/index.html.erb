@@ -55,7 +55,7 @@
         <td><%= r.end_date.strftime("%A %b %d, %Y") %></td>
         <td><%= r.rental_period %></td>
         <td>$ <%= r.estimate %></td>
-        <td>[INSERT GEAR OWNER HERE]</td>
+        <td><%= r.item.user.first_name %> <%= r.item.user.last_name %></td>
 
         <td><%= link_to "View", reservation_url(r.id), class: "btn btn-success" %></td>
         <td><%= link_to 'Edit', edit_reservation_url(r.id), class: 'btn btn-primary' %></td>
