@@ -5,16 +5,18 @@
   <p><%= notice %></p>
 <% end %>
 
-<form action="" method="POST">
-  <script
-    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-    data-key="pk_test_GZvVc4qX0wRlpH3Mhi3QGOh9"
-    data-amount="2000"
-    data-name="Demo Site"
-    data-description="2 widgets ($20.00)"
-    data-image="/128x128.png">
-  </script>
-</form>
+<%= form_tag charges_path do %>
+  <article>
+    <label class="amount">
+      <span>Amount: $<%= (@reservation.estimate) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="<%= (@reservation.estimate) * 100 %>"></script>
+<% end %>
 
 Item: <%= @reservation.item.name %><br>
 
