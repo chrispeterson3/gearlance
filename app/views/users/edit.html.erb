@@ -11,8 +11,11 @@
       <ul class="thumbnails">
         <li class="span3">
           <div class="thumbnail">
-            <%= image_tag @user.avatar %>
-<!--             <img src="/assets/default-profile.jpg" alt=""> -->
+            <% if @user.avatar.present? %>
+              <%= image_tag @user.avatar, width:260, class: "thumbnail" %><br>
+            <% else %>
+              <%= gravatar_for @user, 260 %><br>
+            <% end %>
             <div class="fileinputs">
               <%= f.file_field :avatar, class: "btn file" %>
               <div class="fakefile">
