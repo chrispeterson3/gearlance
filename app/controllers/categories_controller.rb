@@ -9,4 +9,4 @@ class CategoriesController < ApplicationController
     @items = Item.where(:category_id => @category.id)
     @item = Item.find_by_category_id(@category)
   end
-end 
+end

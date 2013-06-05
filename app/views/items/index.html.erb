@@ -32,7 +32,7 @@
               </div>
               <div class="span8 browse">
                 <h3><%= link_to item.name, item_url(item.id) %></h3>
-                <p><%= item.description %></p>
+                <p><%= item.description[0..160] %>...</p>
 
                 <p><b>Daily:</b> $<%= item.daily_price %> | <b>Weekly:</b> $<%= item.weekly_price %> | <b>Monthly:</b> $<%= item.monthly_price %></p>
                 <div class="browse-buttons">
