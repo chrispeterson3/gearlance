@@ -15,6 +15,7 @@ u.city = "Chicago"
 u.state = "IL"
 u.password = "gearlance"
 u.password_confirmation = "gearlance"
+u.user_bio = "Bacon ipsum dolor sit amet tenderloin swine meatball, jerky bacon pork ribeye spare ribs leberkas salami turducken chicken ham. Strip steak venison pancetta shoulder. Tail swine pork chop, cow ham brisket venison bacon jerky pastrami doner jowl ground round. Short loin sirloin pancetta bresaola ham strip steak"
 u.admin = true
 u.save
 

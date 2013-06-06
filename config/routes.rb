@@ -1,4 +1,7 @@
 Gearlance::Application.routes.draw do
+  resources :tests
+
+
   root :to => "items#featured"
   
   resources :categories
