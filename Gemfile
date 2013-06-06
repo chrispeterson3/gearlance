@@ -6,6 +6,7 @@ gem 'nested_form'
 gem 'kaminari'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'therubyracer'
+gem "dynamic_form"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
