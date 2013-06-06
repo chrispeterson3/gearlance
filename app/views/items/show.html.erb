@@ -86,7 +86,11 @@
       </br>
 
       <p>
-        <%= @item.user.user_bio %>
+        <% if @item.user.user_bio.present? %>
+          <%= @item.user.user_bio %>
+        <% else %>
+          Don't be shy... Let others see your good side. <%= link_to "Update Your Profile", edit_user_url(@item.user.id) %>
+        <% end %>
       </p>
 
     </div><!-- well -->
