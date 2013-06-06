@@ -78,6 +78,9 @@
   <%= f.label :country, "Country" %>
   <%= f.text_field :country %>
 
+  <%= f.label :user_bio, "Say something nice about yourself" %>
+  <%= f.text_area :user_bio, rows: "5" %>
+
   <br><%= f.submit "Update Profile", class: "btn btn-success" %>
 <% end %>
 </div>

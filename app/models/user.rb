@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :avatar, :phone, :address_1, :address_2, :city, :state, :zip, :country
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :avatar, :phone, :address_1, :address_2, :city, :state, :zip, :country, :user_bio
   has_attached_file :avatar, :styles => { small: '150x150>' }
 
   has_secure_password
