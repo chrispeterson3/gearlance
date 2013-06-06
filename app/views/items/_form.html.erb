@@ -8,28 +8,48 @@
 </div>
 
 <div class="span3">
-  <%#= f.error_messages %>
+  <% if @item.errors.any? %>
+    <p>Oh no! Let's refactor that Item.</p>
+  <% end %>
 
   <%= f.label :category_id, "Select a Category" %>
   <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "[Select One]") %>
+  <% if @item.errors[:category_id].any? %>
+    required
+  <% end %>
 
   <%= f.label :name, "Item Title" %>
   <%= f.text_field :name %>
+  <% if @item.errors[:name].any? %>
+    required
+  <% end %>
 
   <%= f.label :description, "Description" %>
   <%= f.text_area :description, rows: "7" %>
+  <% if @item.errors[:description].any? %>
+    required
+  <% end %>
 
 </div>
 
 <div class="span3">
   <%= f.label :daily_price, "Daily Price" %>
   <%= f.number_field :daily_price, placeholder: "$0.00" %>
+  <% if @item.errors[:daily_price].any? %>
+    required
+  <% end %>
 
   <%= f.label :weekly_price, "Weekly Price" %>
   <%= f.number_field :weekly_price, placeholder: "$0.00" %>
+  <% if @item.errors[:weekly_price].any? %>
+    required
+  <% end %>
 
   <%= f.label :monthly_price, "Monthly Price" %>
   <%= f.number_field :monthly_price, placeholder: "$0.00" %>
+  <% if @item.errors[:monthly_price].any? %>
+    required
+  <% end %>
 
   <br><%= f.submit class: "btn btn-success" %>
 <% end %>
