@@ -11,7 +11,8 @@ class User < ActiveRecord::Base
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
-  validates :email, :first_name, :last_name, presence: true
+  validates :email, :first_name, :last_name, :password, presence: true
   validates :email, uniqueness: true
+  validates :password, length: { within: 4..15 }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 end

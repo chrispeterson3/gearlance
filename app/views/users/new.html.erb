@@ -24,15 +24,31 @@
       </div><!-- end span3 -->
 
       <div class="span3">
-        <%#= f.error_messages %>
 
         <%= f.text_field :email, placeholder: "Email" %>
+        <% if @user.errors[:email].any? %>
+          Email <%= @user.errors[:email][0] %>
+        <% end %>
 
         <%= f.text_field :first_name, placeholder: "First Name" %>
+        <% if @user.errors[:first_name].any? %>
+          We need a first name
+        <% end %>
 
         <%= f.text_field :last_name, placeholder: "Last Name" %>
+        <% if @user.errors[:last_name].any? %>
+          We need a last name for that first name
+        <% end %>
 
         <%= f.password_field :password, placeholder: "Password"%>
+        <% if @user.errors[:password].any? %>
+          <% if @user.errors[:password][0].present? %>
+            Password <%= @user.errors[:password][0] %><br>
+          <% end %>
+          <% if @user.errors[:password][1].present? %>
+            Password <%= @user.errors[:password][1] %>
+          <% end %>
+        <% end %>
 
         <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
 
