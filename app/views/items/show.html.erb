@@ -17,10 +17,14 @@
     <p><b>Category:</b> <%= @item.category.name %></p>
 
     <p>
+      <% if @item.image_content_type.present? || @item.photo_url.present? %>
       <% if @item.image_content_type.present?  %>
         <%= image_tag @item.image.url(:small) %>
       <% else %>
         <%= image_tag @item.photo_url, width: 300 %>
+      <% end %>
+      <% else %>
+      <img src="http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png">
       <% end %>
     </p>
 
@@ -88,7 +92,8 @@
       <p>
         <% if @item.user.user_bio.present? %>
           <%= @item.user.user_bio %>
-        <% else %>
+        <% end %>
+        <% if signed_in? && @item.user_id == current_user.id %>
           Don't be shy... Let others see your good side. <%= link_to "Update Your Profile", edit_user_url(@item.user.id) %>
         <% end %>
       </p>
