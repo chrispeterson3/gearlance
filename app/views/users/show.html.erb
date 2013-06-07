@@ -88,7 +88,7 @@
 
     <tbody>
       <% @user.items.each do |item| %>
-        <tr>
+        <tr id="row_<%= item.id %>">
           <td><% if item.image_content_type.present? || item.photo_url.present? %>
                 <% if item.image_content_type.present?  %>
                 <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
@@ -96,7 +96,7 @@
                 <%= link_to image_tag(item.photo_url), item_url(item.id) %>
               <% end %>
             <% else %>
-             <img src="http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png">
+             <%= link_to image_tag "http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png" %>
           <% end %>
           </td>
           <td><%= item.category.name %></td>
@@ -108,7 +108,7 @@
           <td><%= link_to 'Show', item, class: 'btn btn-primary' %></td>
           <% if @user.id == session[:user_id] %>
             <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
-            <td><%= link_to 'Delete', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" } %></td>
+            <td><%= link_to 'Delete', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" }, remote: true %></td>
           <% end %>
         </tr>
       <% end %>

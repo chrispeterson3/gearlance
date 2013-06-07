@@ -31,7 +31,7 @@
                   <%= link_to image_tag(item.photo_url, class: "browse-image"), item_url(item.id) %>
                   <% end %>
                 <% else %>
-                  <img src="http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png">
+                  <%= link_to image_tag "http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png" %>
                 <% end %>
               </div>
               <div class="span8 browse">

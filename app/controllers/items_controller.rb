@@ -62,10 +62,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    i = Item.find_by_id(params[:id])
-    id = i.user.id
-    i.destroy
+    @item = Item.find_by_id(params[:id])
+    id = @item.user.id
+    @item.destroy
 
-    redirect_to user_url(id)
+    respond_to do |format|
+      format.js
+      format.html { redirect_to user_url(id) }
+    end
   end
 end

@@ -18,13 +18,13 @@
 
     <p>
       <% if @item.image_content_type.present? || @item.photo_url.present? %>
-      <% if @item.image_content_type.present?  %>
-        <%= image_tag @item.image.url(:small) %>
+        <% if @item.image_content_type.present?  %>
+          <%= image_tag @item.image.url(:small) %>
+        <% else %>
+          <%= image_tag @item.photo_url, width: 300 %>
+        <% end %>
       <% else %>
-        <%= image_tag @item.photo_url, width: 300 %>
-      <% end %>
-      <% else %>
-      <img src="http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png">
+        <%= link_to image_tag "http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png" %>
       <% end %>
     </p>
 
