@@ -1,6 +1,6 @@
 
-<div class="row">
-<ul class="nav nav-pills span7">
+<div class="row-fluid">
+<ul class="nav nav-pills span12">
   <li><%= link_to "Dashboard", user_url(session[:user_id]) %></li>
   <li class="active"><%= link_to "Reservations", reservations_url %></li>
   <li class="dropdown">
@@ -20,7 +20,7 @@
 </ul>
 </div>
 
-<div class="row">
+<div class="row-fluid">
 <div class="span12">
 <% if @reservations.present? %>
 <% @reservations.each do |r| %>
