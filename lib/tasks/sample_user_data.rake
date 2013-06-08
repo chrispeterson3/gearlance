@@ -6,15 +6,15 @@ namespace :db do
 end
 
 def make_users
-  admin = User.create!(first_name:     "Example First Name",
-                       last_name: "Example Last Name",
-                       address_1: "Example Address 1",
-                       city: "Example City",
-                       state: "Example State",
-                       zip: "Example Zip",
-                       email:    "example@railstutorial.org",
-                       password: "foobar",
-                       password_confirmation: "foobar")
+  admin = User.create!(first_name:     "David",
+                       last_name: "Chung",
+                       address_1: "123 Main Street",
+                       city: "Chicago",
+                       state: "IL",
+                       zip: "60647",
+                       email:    "Dave@Chung.net",
+                       password: "gearlance",
+                       password_confirmation: "gearlance")
   admin.toggle!(:admin)
   10.times do |n|
     first_name  = Faker::Name.first_name
