@@ -8,8 +8,9 @@ Gearlance::Application.routes.draw do
   resources :items
   resources :users
   resources :reservations, except: [:new]
-  resource :session
-  resource :charges
+  resource :session, except: [:edit]
+
+  resources :charges
 
   match "/faq" => "pages#faq"
   match "/about" => "pages#about"
