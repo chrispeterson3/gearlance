@@ -90,11 +90,14 @@
       </br>
 
       <p>
-        <% if @item.user.user_bio.present? %>
-          <%= @item.user.user_bio %>
-        <% end %>
         <% if signed_in? && @item.user_id == current_user.id %>
-          Don't be shy... Let others see your good side. <%= link_to "Update Your Profile", edit_user_url(@item.user.id) %>
+          <% if @item.user.user_bio.present? %>
+              <%= @item.user.user_bio %>
+          <% else %>
+              Don't be shy... Let others see your good side. <%= link_to "Update Your Profile", edit_user_url(@item.user.id) %>
+          <% end %>
+          <% else %>
+            <%= @item.user.user_bio %>
         <% end %>
       </p>
 
