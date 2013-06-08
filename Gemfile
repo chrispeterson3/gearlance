@@ -7,6 +7,7 @@ gem 'kaminari'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'therubyracer'
 gem "dynamic_form"
+gem 'faker'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
