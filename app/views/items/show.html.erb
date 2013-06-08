@@ -84,17 +84,20 @@
             <%= gravatar_for @item.user, 125 %><br>
           <% end %>
         </div><!-- end span2 -->
-        <h4><%= @item.user.first_name %> <%= @item.user.last_name %></h4>
+        <h4><%= link_to "#{@item.user.first_name} #{@item.user.last_name}", user_url(@item.user.id) %></h4>
         <h5><%= @item.user.city %>, <%= @item.user.state %></h5>
       </div><!-- end row -->
       </br>
 
       <p>
-        <% if @item.user.user_bio.present? %>
-          <%= @item.user.user_bio %>
-        <% end %>
         <% if signed_in? && @item.user_id == current_user.id %>
-          Don't be shy... Let others see your good side. <%= link_to "Update Your Profile", edit_user_url(@item.user.id) %>
+          <% if @item.user.user_bio.present? %>
+              <%= @item.user.user_bio %>
+          <% else %>
+              Don't be shy... Let others see your good side. <%= link_to "Update Your Profile", edit_user_url(@item.user.id) %>
+          <% end %>
+          <% else %>
+            <%= @item.user.user_bio %>
         <% end %>
       </p>
 
