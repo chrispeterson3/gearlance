@@ -108,7 +108,7 @@
           <td><%= link_to 'Show', item, class: 'btn btn-primary' %></td>
           <% if @user.id == session[:user_id] %>
             <td><%= link_to 'Edit', edit_item_url(item), class: 'btn btn-primary' %></td>
-            <td><%= link_to 'Delete', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to delete this item?" }, remote: true %></td>
+            <td><%= link_to 'Delete', item, class: 'btn btn-danger', method: 'delete', data: { confirm: "Do you really want to remove your #{item.name} and miss out on the opportunity to earn extra income?" }, remote: true %></td>
           <% end %>
         </tr>
       <% end %>

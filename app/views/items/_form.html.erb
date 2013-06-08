@@ -2,6 +2,18 @@
 <div class="row">
 <div class="span4">
   <div>
+
+    <% if @item.image_content_type.present? || @item.photo_url.present? %>
+      <% if @item.image_content_type.present?  %>
+      <%= link_to image_tag(@item.image.url(:small)), item_url(@item.id) %>
+      <% else %>
+      <%= link_to image_tag(@item.photo_url, class: "browse-image"), item_url(@item.id) %>
+      <% end %>
+    <% else %>
+      <%= link_to image_tag "http://www.clker.com/cliparts/J/P/C/M/k/d/teal-camera-md.png" %>
+    <% end %>
+
+
     <%= f.file_field :image %>
   </div>
 
