@@ -17,9 +17,51 @@
       ga('create', 'UA-41014222-1', 'gearlance.com');
       ga('send', 'pageview');
     </script>
+  <script>
+    $(document).ready(function() {
+      function modal() {
+        $("#modal_overlay, #modal").fadeIn(300);
+        $("body").css("overflow", "hidden");
+        $(".close").click(function() {
+          $("body").css("overflow", "auto");
+          $("#modal_overlay, #modal").fadeOut(400);
+        });
+      }
+      function GetCookie(name) {
+        var arg = name + "=";
+        var alen = arg.length;
+        var clen = document.cookie.length;
+        var i = 0;
+        while (i < clen) {
+          var j = i + alen;
+          if (document.cookie.substring(i,j) == arg)
+            return "here";
+          i = document.cookie.indexOf(" ",i) + 1;
+          if (i == 0) break;
+        }
+        return null;
+      }
+      var visit = GetCookie("FirstTime");
+      if (visit == null){
+         modal();
+         var expire = new Date();
+         expire = new Date(expire.getTime() + 7776000000);
+         document.cookie = "FirstTime = here; expires = " + expire;
+      }
+    });
+ </script>
 </head>
 
 <body>
+  <div id="modal_overlay"></div><!-- end modal_overlay -->
+  <div id="modal">
+    <div id="m_message">
+      Hey! Infomration Modal.
+      <span class="close">Close</span>
+    </div><!-- end m_message -->
+  </div><!-- first time modal -->
+  
+
   <div class="container"><!-- primary container -->
     <header class="row">
       <div class="span12">
