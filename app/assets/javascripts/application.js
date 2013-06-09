@@ -16,6 +16,7 @@
 
 $(document).ready(function() {
  $("#reservation_start_date, #reservation_end_date").datepicker({
-  dateFormat: "yy-mm-dd"
+  dateFormat: "yy-mm-dd",
+  minDate: 0
  }); 
 });
