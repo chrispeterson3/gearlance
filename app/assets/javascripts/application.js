@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+ $("#reservation_start_date, #reservation_end_date").datepicker({
+  dateFormat: "yy-mm-dd",
+  minDate: 0
+ }); 
+});
