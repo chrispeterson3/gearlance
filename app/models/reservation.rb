@@ -5,6 +5,13 @@ class Reservation < ActiveRecord::Base
   belongs_to :user
 
   validates :start_date, :end_date, presence: true
+  validate :date_is_not_negative
+
+  def date_is_not_negative
+    if end_date < start_date
+      errors.add(:start_date, "End date can't precede start date")
+    end
+  end
 
   def rental_period
     (end_date - start_date).to_i
