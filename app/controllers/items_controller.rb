@@ -4,10 +4,7 @@ class ItemsController < ApplicationController
   def authorize_user
     if !signed_in?
       redirect_to new_session_url,
-      notice: "
-      <p>You need to be logged in to add a new item.</p>
-      <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
-      ".html_safe
+      notice: "You need to be logged in to add a new item."
     end
   end
 

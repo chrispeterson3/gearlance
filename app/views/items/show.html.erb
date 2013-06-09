@@ -47,6 +47,8 @@
       <!-- Button to trigger modal -->
       <% if signed_in? && @item.user_id != current_user.id %>
         <a href="#myModal" role="button" class="btn btn-success" data-toggle="modal" style="margin-top: 10px;">Send Rental Request</a>
+        <% else %>
+        <%= link_to "Log In To Rent", new_session_url, class: "btn btn-success" %>
       <% end %>
 
       <!-- Modal -->
