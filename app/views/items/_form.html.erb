@@ -30,6 +30,9 @@
     required
   <% end %>
 
+  <%= f.label :subcategory_id, "More specifically?" %>
+  <%= f.collection_select :subcategory_id, Subcategory.all, :id, :subname, prompt: "[Select One]" %>
+
   <%= f.label :name, "Item Title" %>
   <%= f.text_field :name %>
   <% if @item.errors[:name].any? %>

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gearlance</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag    "application", "http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.css", :media => "all" %>
+    <%= javascript_include_tag "application", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" %>
     <%= csrf_meta_tags %>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -56,11 +56,12 @@
   <div id="modal_overlay"></div><!-- end modal_overlay -->
   <div id="modal">
     <div id="m_message">
-      Hey! Infomration Modal.
+      Hey! Information Modal.
+
       <span class="close">Close</span>
     </div><!-- end m_message -->
   </div><!-- first time modal -->
-  
+
 
   <div class="container"><!-- primary container -->
     <header class="row">

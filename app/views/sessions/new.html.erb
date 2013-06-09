@@ -1,12 +1,13 @@
 <h1 class="text-center">Log In</h1>
 
-
     <div class="row">
       <div class="span4 center">
 
         <% if notice %>
-          <p><%= notice %></p><br>
+          <h4 class="text-center"><%= notice %></h4><br>
         <% end %>
+
+    <p class="text-center">Not a member yet? <%= link_to "Sign Up!", new_user_url %></p>
 
     <%= form_tag session_url, method: "post" do %>
 

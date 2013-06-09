@@ -4,10 +4,7 @@ class ItemsController < ApplicationController
   def authorize_user
     if !signed_in?
       redirect_to new_session_url,
-      notice: "
-      <p>You need to be logged in to add a new item.</p>
-      <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
-      ".html_safe
+      notice: "You need to be logged in to add a new item."
     end
   end
 
@@ -17,6 +14,7 @@ class ItemsController < ApplicationController
 
   def new
     @categories = Category.all
+    @subcategories = Subcategory.all
     @item = Item.new
   end
 
@@ -26,6 +24,13 @@ class ItemsController < ApplicationController
       c = Category.create(name: name.singularize, slug: name.downcase.pluralize)
       params[:item][:category_id] = c.id
     end
+
+    if params[:subcategory_subname].present? # pull out params() to a variable and work with it
+      subname = params[:subcategory_subname]
+      sc = Subcategory.create(subname: subname.singularize, slug: subname.downcase.pluralize)
+      params[:item][:subcategory_id] = sc.id
+    end
+
 
     @item = Item.new(params[:item])
     @item.user_id = session[:user_id]

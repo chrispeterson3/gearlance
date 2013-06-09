@@ -1,11 +1,12 @@
 class Item < ActiveRecord::Base
-  attr_accessible :category_id, :user_id, :name, :photo_url, :description, :daily_price, :weekly_price, :monthly_price, :category_slug, :image
+  attr_accessible :category_id, :user_id, :name, :photo_url, :description, :daily_price, :weekly_price, :monthly_price, :category_slug, :image, :subcategory_id
   attr_accessible :reservations_attributes
   has_attached_file :image, :styles => { small: '150x150>' }
                     # :url => "/assets/items/:id/:style/:basename.:extension",
                     # :path => ":rails_root/public/assets/items/:id/:style/:basename.:extension"
 
   belongs_to :category
+  belongs_to :subcategory
   belongs_to :user
   has_many :reservations
 

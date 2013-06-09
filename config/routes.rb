@@ -1,9 +1,12 @@
 Gearlance::Application.routes.draw do
+  resources :subcategories
+
+
   resources :tests
 
 
-  root :to => "items#featured"
-  
+  root :to => "items#featured", as: "featured"
+
   resources :categories
   resources :items
   resources :users

@@ -77,6 +77,7 @@
       <tr>
         <th>Item</th>
         <th>Category</th>
+        <th>Type</th>
         <th>Name</th>
         <!-- <th>Description</th> -->
         <th>Daily Price</th>
@@ -102,6 +103,7 @@
           <% end %>
           </td>
           <td><%= item.category.name %></td>
+          <td><%= item.subcategory.subname %></td>
           <td><%= item.name %></td>
           <!-- <td><%= item.description %></td> -->
           <td>$<%= item.daily_price %></td>
