@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 
   def new
     @categories = Category.all
+    @subcategories = Subcategory.all
     @item = Item.new
   end
 
@@ -23,6 +24,13 @@ class ItemsController < ApplicationController
       c = Category.create(name: name.singularize, slug: name.downcase.pluralize)
       params[:item][:category_id] = c.id
     end
+
+    if params[:subcategory_subname].present? # pull out params() to a variable and work with it
+      subname = params[:subcategory_subname]
+      sc = Subcategory.create(subname: subname.singularize, slug: subname.downcase.pluralize)
+      params[:item][:subcategory_id] = sc.id
+    end
+
 
     @item = Item.new(params[:item])
     @item.user_id = session[:user_id]

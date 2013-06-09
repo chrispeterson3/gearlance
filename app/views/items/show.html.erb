@@ -14,7 +14,7 @@
     <% end %>
 
     <h1><%= @item.name %></h1>
-    <p><b>Category:</b> <%= @item.category.name %></p>
+    <p><b>Category:</b> <%= @item.category.name %> - <%= @item.subcategory.subname %></p>
 
     <p>
       <% if @item.image_content_type.present? || @item.photo_url.present? %>
@@ -45,7 +45,8 @@
       <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
 
       <!-- Button to trigger modal -->
-      <% if signed_in? && @item.user_id != current_user.id %>
+      <% if signed_in? && @item.user_id == current_user.id %>
+        <% elsif signed_in? && @item.user_id != current_user.id %>
         <a href="#myModal" role="button" class="btn btn-success" data-toggle="modal" style="margin-top: 10px;">Send Rental Request</a>
         <% else %>
         <%= link_to "Log In To Rent", new_session_url, class: "btn btn-success" %>
