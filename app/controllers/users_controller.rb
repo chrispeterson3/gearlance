@@ -5,10 +5,7 @@ class UsersController < ApplicationController
   def authorized_to_view_user
     if !signed_in?
       redirect_to new_session_url,
-      notice: "
-      <p>You need to be logged in to view this user.</p>
-      <p>Not a member yet? <a href='#{new_user_url}'>Sign Up!</a></p>
-      ".html_safe
+      notice: "You need to be logged in to view this user."
     end
   end
 
