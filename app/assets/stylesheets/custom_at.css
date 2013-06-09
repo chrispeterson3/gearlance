@@ -252,3 +252,40 @@ http://ryanfait.com/
 
 */
 
+.carousel-indicators {
+  margin: 80px auto 60px;
+  position: static;
+  height: 46px;
+}
+
+
+.carousel-indicators li {
+  width: 235px;
+  padding: 25px;
+  text-indent: 0px;
+  text-align: center;
+  height: 1rem;
+  line-height: 1;
+  background-color: rgb(237, 237, 237);
+}
+
+.carousel-control.right {
+  right: 110px;
+}
+
+.carousel-control {
+  left: 84px;
+  top: 50%;
+  width: 45px;
+  height: 110px;
+  font-size: 150px;
+  font-weight: 100;
+  line-height: 57px;
+  color: #222;
+  background: #fff;
+}
+
+.carousel-control:hover, .carousel-control:focus {
+  color: #1abc9c;
+}
+
