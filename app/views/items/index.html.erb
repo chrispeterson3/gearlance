@@ -16,7 +16,7 @@
             <% if category.subcategories.present? %>
               <ul class="sub_categories">
                 <% category.subcategories.each do |subcat| %>
-                   <li><%= link_to subcat.subname, subcat.subname %></li>
+                   <li><%= link_to subcat.subname, category_url("#{category.slug}/#{subcat.subname}") %></li>
                 <% end %>
               </ul>
             <% end %>
