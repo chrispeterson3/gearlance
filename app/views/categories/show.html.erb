@@ -11,6 +11,11 @@
         <% @categories.each do |category| %>
           <li class="<% if category.id == @item.category_id %>active<% end %>">
             <%= link_to category.slug.capitalize, category_url(category.slug) %>
+            <% if category.subcategories.present? %>
+              <% category.subcategories.each do |subcat| %>
+                 &nbsp;  &nbsp; - <%= subcat[:subname] %><br>
+              <% end %>
+            <% end %>
           </li>
         <% end %>
       </ul>

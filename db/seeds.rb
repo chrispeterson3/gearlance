@@ -39,37 +39,38 @@ end
 
 Subcategory.destroy_all
 subcategories = [
-  { subname: "Canon Mount" },
-  { subname: "Nikon Mount" },
-  { subname: "Micro 4/3" },
-  { subname: "Other - Lens" },
-  { subname: "DSLR" },
-  { subname: "Micro 4/3" },
-  { subname: "Compact" },
-  { subname: "Other - Camera" },
-  { subname: "Cameras" },
-  { subname: "Monitors" },
-  { subname: "Accesories" },
-  { subname: "Other - Video" },
-  { subname: "Strobe" },
-  { subname: "Continuous" },
-  { subname: "Accessories" },
-  { subname: "Other - Lighting" },
-  { subname: "Microphones" },
-  { subname: "Headphones" },
-  { subname: "Monitors" },
-  { subname: "Processing" },
-  { subname: "Other - Audio" },
-  { subname: "Guitar Pedals" },
-  { subname: "Amps" },
-  { subname: "Instruments" },
-  { subname: "Other - Music" },
+  { subname: "Canon Mount", category_id: 2 },
+  { subname: "Nikon Mount", category_id: 2 },
+  { subname: "Micro 4/3", category_id:2 },
+  { subname: "Other - Lens", category_id: 2 },
+  { subname: "DSLR", category_id: 1 },
+  { subname: "Micro 4/3", category_id: 1 },
+  { subname: "Compact", category_id: 1 },
+  { subname: "Other - Camera", category_id: 1 },
+  { subname: "Cameras", category_id: 3 },
+  { subname: "Monitors", category_id: 3 },
+  { subname: "Accesories", category_id: 3 },
+  { subname: "Other - Video", category_id: 3 },
+  { subname: "Strobe", category_id: 4 },
+  { subname: "Continuous", category_id: 4 },
+  { subname: "Accessories", category_id: 4 },
+  { subname: "Other - Lighting", category_id: 4 },
+  { subname: "Microphones", category_id: 5 },
+  { subname: "Headphones", category_id: 5 },
+  { subname: "Monitors", category_id: 5 },
+  { subname: "Processing", category_id: 5 },
+  { subname: "Other - Audio", category_id: 5 },
+  { subname: "Guitar Pedals", category_id: 6 },
+  { subname: "Amps", category_id: 6 },
+  { subname: "Instruments", category_id: 6 },
+  { subname: "Other - Music", category_id: 6 },
   { subname: "Other - Other"}
 ]
 
 subcategories.each do |subcategory|
   sc = Subcategory.new
   sc.subname = subcategory[:subname]
+  sc.category_id = subcategory[:category_id]
   sc.save
 end
 
