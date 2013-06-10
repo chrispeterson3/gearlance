@@ -15,8 +15,17 @@
 //= require_tree .
 
 $(document).ready(function() {
+  
  $("#reservation_start_date, #reservation_end_date").datepicker({
   dateFormat: "yy-mm-dd",
   minDate: 0
- }); 
+ });
+
+ $(".nav-list li").hover(function() {
+  $("#sub_categories", this).slideDown(200); },
+  function() {
+    $("#sub_categories", this).slideUp(200);
+  }
+ );
+
 });

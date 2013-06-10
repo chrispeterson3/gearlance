@@ -135,3 +135,8 @@ input[type=number]::-webkit-outer-spin-button {
   -moz-border-radius:5px;
   -webkit-border-radius:5px;
 }
+
+/* Sub Categories */
+#sub_categories {
+  display:none;
+}

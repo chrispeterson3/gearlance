@@ -12,9 +12,11 @@
           <li class="<% if category.id == @item.category_id %>active<% end %>">
             <%= link_to category.slug.capitalize, category_url(category.slug) %>
             <% if category.subcategories.present? %>
-              <% category.subcategories.each do |subcat| %>
-                 &nbsp;  &nbsp; - <%= subcat[:subname] %><br>
-              <% end %>
+              <ul id="sub_categories">
+                <% category.subcategories.each do |subcat| %>
+                   <li><%= link_to subcat.subname, subcat.subname %></li>
+                <% end %>
+              </ul>
             <% end %>
           </li>
         <% end %>
@@ -30,7 +32,7 @@
             <div class="row browse">
               <div class="span4">
                 <% if item.image_content_type.present? || item.photo_url.present? %>
-                  <% if item.image_content_type.present?  %>
+                  <% if item.image_content_type.present? %>
                   <%= link_to image_tag(item.image.url(:small)), item_url(item.id) %>
                   <% else %>
                   <%= link_to image_tag(item.photo_url, class: "browse-image"), item_url(item.id) %>
