@@ -8,10 +8,19 @@
 
       <%= notice %>
 
-      <ul class="nav nav-list">
+      <ul class="nav nav-list">  <!-- Categories list -->
         <li class="nav-header">Categories</li>
         <% @categories.each do |category| %>
-          <li><%= link_to category.slug.capitalize, category_url(category.slug) %></li>
+          <li>
+            <%= link_to category.slug.capitalize, category_url(category.slug) %>
+            <% if category.subcategories.present? %>
+              <ul class="sub_categories">
+                <% category.subcategories.each do |subcat| %>
+                   <li><%= link_to subcat.subname, subcat.subname %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          </li>
         <% end %>
       </ul>
 

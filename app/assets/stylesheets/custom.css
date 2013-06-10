@@ -137,6 +137,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 /* Sub Categories */
-#sub_categories {
+.sub_categories {
   display:none;
 }
