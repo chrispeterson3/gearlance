@@ -3,6 +3,8 @@ class SubcategoriesController < ApplicationController
   # GET /subcategories.json
   def index
     @subcategories = Subcategory.all
+    @categories = Category.all
+    @items = Item.where(Subcategory.find_by_subname(params[:sub_category]).id)
 
     respond_to do |format|
       format.html # index.html.erb
