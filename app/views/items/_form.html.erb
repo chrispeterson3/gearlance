@@ -31,7 +31,7 @@
   <% end %>
 
   <%= f.label :subcategory_id, "More specifically?" %>
-  <%= f.collection_select :subcategory_id, Subcategory.all, :id, :subname, prompt: "[Select One]" %>
+  <%= f.grouped_collection_select :subcategory_id, Category.all, :subcategories, :name, :id, :subname, prompt: "[Select One]" %>
 
   <%= f.label :name, "Item Title" %>
   <%= f.text_field :name %>
@@ -70,3 +70,30 @@
 <% end %>
 </div>
 </div>
+
+
+<script>
+  $(document).ready(function(){
+    var subcategory = $('#item_subcategory_id').html();
+    console.log(subcategory)
+  $('#item_category_id').change(function(){
+    var selected_category = $('#item_category_id :checked').text();
+
+    var filtered_subcategories = $(subcategory).filter('optgroup[label="' + selected_category + '"]').html();
+    console.log(filtered_subcategories);
+    $('#item_subcategory_id').html(filtered_subcategories);
+    $('#item_subcategory_id').prepend('Select One');
+    })
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
