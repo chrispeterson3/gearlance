@@ -41,10 +41,10 @@ Subcategory.destroy_all
 subcategories = [
   { subname: "Canon Mount", category_id: 2 },
   { subname: "Nikon Mount", category_id: 2 },
-  { subname: "Micro 4/3", category_id:2 },
+  { subname: "Micro 4-3", category_id:2 },
   { subname: "Other - Lens", category_id: 2 },
   { subname: "DSLR", category_id: 1 },
-  { subname: "Micro 4/3", category_id: 1 },
+  { subname: "Micro 4-3", category_id: 1 },
   { subname: "Compact", category_id: 1 },
   { subname: "Other - Camera", category_id: 1 },
   { subname: "Cameras", category_id: 3 },
