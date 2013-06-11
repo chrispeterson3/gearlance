@@ -124,8 +124,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #m_message {
-  width:450px;
-  height:300px;
+  width:600px;
+  height:410px;
   background:#fff;
   margin:8% auto 0 auto;
   padding:20px;
