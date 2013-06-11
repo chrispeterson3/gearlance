@@ -9,7 +9,7 @@ Gear: <%= @reservation.item.name %>
 
 Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %>
 
-Please log-in to confirm this reservation so you can get paid!
+Please confirm by sending <%= @reservation.user.first_name %> an invoice to <%= @reservation.user.email %>
 
 Thank you and have a great day!
 

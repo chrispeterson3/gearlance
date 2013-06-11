@@ -13,7 +13,7 @@
       <li>Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %></li>
     </ul>
 
-    <h3>Please log-in to confirm this reservation so you can get paid!</h3>
+    <h3>Please confirm by sending <%= @reservation.user.first_name %> an invoice to <%= @reservation.user.email %></h3>
 
     <p>Thank you and have a great day!</p>
 
