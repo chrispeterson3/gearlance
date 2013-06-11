@@ -81,8 +81,7 @@
 
     var filtered_subcategories = $(subcategory).filter('optgroup[label="' + selected_category + '"]').html();
     console.log(filtered_subcategories);
-    $('#item_subcategory_id').html(filtered_subcategories);
-    $('#item_subcategory_id').prepend('Select One');
+    $('#item_subcategory_id').html(filtered_subcategories).prepend('option[value="Select One"]').html;
     })
   });
 </script>
