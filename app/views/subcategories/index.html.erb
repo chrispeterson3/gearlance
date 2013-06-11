@@ -27,8 +27,10 @@
   </div>
 
   <div class="span8">
-
-      <ul class="browse">
+    <% if @items.count == 0 %>
+      We're sorry.  Currently there are no <%= @subcat.subname.pluralize %> available for rent.
+    <% end %>
+    <ul class="browse">
         <% @items.each do |item| %>
           <li class="item-list">
             <div class="row browse">

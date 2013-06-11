@@ -4,7 +4,8 @@ class SubcategoriesController < ApplicationController
   def index
     @subcategories = Subcategory.all
     @categories = Category.all
-    @items = Item.where(Subcategory.find_by_subname(params[:sub_category]).id)
+    @subcat = Subcategory.find_by_subname(params[:sub_category])
+    @items = Item.where(:subcategory_id => @subcat.id)
 
     respond_to do |format|
       format.html # index.html.erb
