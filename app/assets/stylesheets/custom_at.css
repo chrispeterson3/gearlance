@@ -14,8 +14,10 @@ li.center {
   margin: 5px;
 }
 
-a.thumbnail.row2 {
-  height: 260px;
+.shadow {
+  -moz-box-shadow:    2px 3px 2px 0px #ccc;
+  -webkit-box-shadow: 2px 3px 2px 0px #ccc;
+  box-shadow:         2px 3px 2px 0px #ccc;
 }
 
 .headline {
@@ -27,9 +29,8 @@ a.thumbnail.row2 {
   padding: 20px 30px;
 }
 
-
 a.thumbnail {
-  height: 220px;
+  height: 230px;
   width: 230px;
 }
 
@@ -203,7 +204,10 @@ input.file {
 
 .back ul {
   list-style: none;
-  /*margin-left: 15px;*/
+}
+
+.back ul li {
+  padding: 8px;
 }
 
 .front {
@@ -219,13 +223,11 @@ input.file {
 /*end Transforms*/
 
 .divide {
-  border-top: 1px solid #ccc;
-  padding-top: 30px;
-  margin-top: 40px;
+  margin-top: 5rem;
 }
 
 .top-margin {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 /*sticky footer*/
@@ -252,6 +254,25 @@ http://ryanfait.com/
 
 */
 
+.hero {
+  position: relative;
+}
+
+.hero-image {
+  background: url(blue-water.jpg);
+  width: 1170px;
+  height: 596px;
+  margin-top: -48px;
+}
+
+.headliner {
+  position: absolute;
+  right: 0;
+  top: 40%;
+  color: white;
+  padding-right: 3rem;
+}
+
 .carousel-indicators {
   margin: 80px auto 60px;
   position: static;
@@ -266,16 +287,21 @@ http://ryanfait.com/
   text-align: center;
   height: 1rem;
   line-height: 1;
-  background-color: rgb(237, 237, 237);
+  font-size: 1rem;
+  background-color: #ecf0f1;
+  border-radius: 0px;
+  -webkit-transition: background .2s linear;
+  -moz-transition: background .2s linear;
+  -o-transition: background .2s linear;
 }
 
 .carousel-control.right {
-  right: 110px;
+  right: 15px;
 }
 
 .carousel-control {
-  left: 84px;
-  top: 50%;
+  left: -11px;
+  top: 60%;
   width: 45px;
   height: 110px;
   font-size: 150px;
@@ -287,5 +313,33 @@ http://ryanfait.com/
 
 .carousel-control:hover, .carousel-control:focus {
   color: #1abc9c;
+}
+
+.camera, .calendar, .people{
+  background: url(sprites.png) no-repeat;
+  margin-left: 25px;
+  margin-bottom: 2rem;
+}
+
+.camera{
+  background-position: 0 0;
+  width: 222px;
+  height: 170px;
+}
+
+.calendar{
+  background-position: -222px 0;
+  width: 222px;
+  height: 170px;
+}
+
+.people{
+  background-position: -444px 0;
+  width: 222px;
+  height: 170px;
+}
+
+.gallery-info {
+  height: 295px;
 }
 
