@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1><%= @reservation.user.first_name %>,</h1>
+    <h3>Your payment has been received.</h3> 
+    <p><%= @reservation.item.user.first_name %> has been notified and will ship you your item!</p>
+
+    <ul>
+      <li>Gear: <%= @reservation.item.name %></li>
+      <li>Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %></li>
+    </ul>
+
+    <p>Thank you and have a great day!</p>
+
+    <p><em>- Gearlance</em></p>
+  </body>
+</html>

@@ -21,7 +21,10 @@ class ChargesController < ApplicationController
         :description => "Item Owner: #{reservation.user.first_name} #{reservation.user.last_name} - #{reservation.user.email}, Item: #{reservation.item.name}"
       )
       
-      set_item_reservation = Item.find(reservation)
+      UserMailer.payment_received(reservation).deliver
+      UserMailer.payment_processed(reservation).deliver
+
+      set_item_reservation = Item.find_by_id(reservation.item.id)
       set_item_reservation.reserved = true
       set_item_reservation.save
 

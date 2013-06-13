@@ -16,4 +16,14 @@ class UserMailer < ActionMailer::Base
     @reservation = reservation
     mail(to: reservation.item.user.email, subject: "Someone wants to rent your gear!")
   end
+
+  def payment_received(reservation)
+    @reservation = reservation
+    mail(to: reservation.item.user.email, subject: "You've been paid!")
+  end
+
+  def payment_processed(reservation)
+    @reservation = reservation
+    mail(to: reservation.user.email, subject: "Your paymnet has been received!")
+  end
 end
