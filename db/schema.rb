@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609002228) do
+ActiveRecord::Schema.define(:version => 20130613000324) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20130609002228) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "subcategory_id"
+    t.boolean  "reserved"
   end
 
   create_table "reservations", :force => true do |t|

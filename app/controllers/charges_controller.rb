@@ -20,6 +20,11 @@ class ChargesController < ApplicationController
         :card => token,
         :description => "Item Owner: #{reservation.user.first_name} #{reservation.user.last_name} - #{reservation.user.email}, Item: #{reservation.item.name}"
       )
+      
+      reserve_item = Item.find(reservation)
+      reserve_item.reserved = true
+      reserve_item.save
+
       redirect_to reservation, notice: "Your payment has been successfully processed!"
     rescue Stripe::CardError => e
       # The card has been declined
