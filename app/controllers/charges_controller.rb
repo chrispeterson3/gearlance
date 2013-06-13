@@ -21,9 +21,9 @@ class ChargesController < ApplicationController
         :description => "Item Owner: #{reservation.user.first_name} #{reservation.user.last_name} - #{reservation.user.email}, Item: #{reservation.item.name}"
       )
       
-      reserve_item = Item.find(reservation)
-      reserve_item.reserved = true
-      reserve_item.save
+      set_item_reservation = Item.find(reservation)
+      set_item_reservation.reserved = true
+      set_item_reservation.save
 
       redirect_to reservation, notice: "Your payment has been successfully processed!"
     rescue Stripe::CardError => e
