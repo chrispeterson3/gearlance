@@ -5,22 +5,27 @@
   <p><%= notice %></p>
 <% end %>
 
-<%= form_tag reservation_charges_path(@reservation) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: $<%= (@reservation.estimate) %></span>
-    </label>
-  </article>
+<% if @reservation.item.reserved != true %>
+  <%= form_tag reservation_charges_path(@reservation) do %>
+    <article>
+      <label class="amount">
+        <span>Amount: $<%= (@reservation.estimate) %></span>
+      </label>
+    </article>
 
-    <script
-      src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
-      data-key="pk_test_GZvVc4qX0wRlpH3Mhi3QGOh9"
-      data-amount="<%= (@reservation.estimate) * 100 %>"
-      data-name="Demo Site"
-      data-description="2 widgets $<%= (@reservation.estimate) %>"
-      data-image="/128x128.png">
-    </script>
+      <script
+        src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+        data-key="pk_test_GZvVc4qX0wRlpH3Mhi3QGOh9"
+        data-amount="<%= (@reservation.estimate) * 100 %>"
+        data-name="Demo Site"
+        data-description="2 widgets $<%= (@reservation.estimate) %>"
+        data-image="/128x128.png">
+      </script>
+  <% end %>
+<% else %>
+  <p>You have paid for your reservation and your item will be released to you!</p>
 <% end %>
+
 
 Item: <%= @reservation.item.name %><br>
 
@@ -31,10 +36,10 @@ Rental Estimate: $<%= (@reservation.estimate) %><br>
 
 
 
-  <% if @reservation.item.image_content_type.present?  %>
-    <%= image_tag @reservation.item.image.url(:small) %>
-  <% else %>
-    <%= image_tag @reservation.item.photo_url, width: 300 %>
-  <% end %>
+<% if @reservation.item.image_content_type.present?  %>
+  <%= image_tag @reservation.item.image.url(:small) %>
+<% else %>
+  <%= image_tag @reservation.item.photo_url, width: 300 %>
+<% end %>
 
 
