@@ -43,6 +43,13 @@
       <p><b>Daily Price:</b> $<%= @item.daily_price %></p>
       <p><b>Weekly Price:</b> $<%= @item.weekly_price %></p>
       <p><b>Monthly Price:</b> $<%= @item.monthly_price %></p>
+      <% if @item.reserved == true %>
+        <p>* This item has been reserved for:<br>
+          <% @item.reservations.each do |reservation| %>
+            <%= reservation.start_date.strftime("%-m/%-d/%Y") %> - <%= reservation.end_date.strftime("%-m/%-d/%Y") %><br>
+          <% end %>
+        </p>
+      <% end %>
 
       <!-- Button to trigger modal -->
       <% if signed_in? && @item.user_id == current_user.id %>
