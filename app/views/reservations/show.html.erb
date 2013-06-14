@@ -1,11 +1,6 @@
 <h1><%= @reservation.user.first_name %> <%= @reservation.user.last_name %></h1>
 <h2>Reservation # <%= @reservation.id %></h2>
 
-  <%= link_to "Write a Review", new_review_url(:item_name => @reservation.item.name, :reservation_id => @reservation.id) %>
-
-
-
-
 <% if notice %>
   <p><%= notice %></p>
 <% end %>
@@ -30,6 +25,7 @@
   <p>You have paid for your reservation and your requested item will be released to you!</p>
 <% end %>
 
+<%= link_to "Write a Review", new_review_url(:item_name => @reservation.item.name, :reservation_id => @reservation.id) %><br>
 
 Item: <%= @reservation.item.name %><br>
 

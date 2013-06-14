@@ -17,6 +17,7 @@
   <%= f.hidden_field :user_id, value: @review.reservation.item.user_id %>
   <%= f.hidden_field :item_id, value: @review.reservation.item.id %>
   <%= f.hidden_field :reservation_id, value: @review.reservation.id %>
+  <%= f.hidden_field :reviewer_id, value: current_user[:id] %>
 
   <div class="field">
     <%= f.label :item_name, "Item you're reviewing:" %><br />

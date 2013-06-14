@@ -18,4 +18,25 @@ class Item < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/jpg', 'image/png', 'image/pdf']
 
   validates :category_id, :user_id, :name, :description, :daily_price, :weekly_price, :monthly_price, presence: true
+
+  def item_average_rating
+    ratings = []
+
+    self.reviews.each do |user|
+      ratings << user.rating
+    end
+
+    sum = 0.0
+    ratings.each do |rating|
+      sum += rating
+    end
+
+    if ratings.count == 0.0
+      0.0
+    else
+       (sum/(ratings.count)).round(1)
+    end
+  end
+
+
 end

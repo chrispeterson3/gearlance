@@ -24,15 +24,15 @@ class User < ActiveRecord::Base
       ratings << user.rating
     end
 
-    sum = 0
+    sum = 0.0
     ratings.each do |rating|
       sum += rating
     end
 
-    if ratings.count == 0
-      0
+    if ratings.count == 0.0
+      0.0
     else
-       (sum/(ratings.count))
+       (sum/(ratings.count)).round(1)
     end
   end
 

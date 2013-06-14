@@ -34,11 +34,11 @@
       <h3>Be the first to review this gear</h3>
       <p>No review, no worries.  This is still a great piece of gear and may have just been added to our database. You can also check to see what other gear <%= link_to @item.user.first_name, user_url(@item.user_id) %> has on the site and the rating for those.</p>
       <% else %>
-    <h3><%= @item.reviews.count %> Reviews from people like you</h3>
+    <h3><%= @item.reviews.count %> Reviews from people like you rank this gear:  <%= @item.item_average_rating %> out of 5.0</h3>
         <% @item.reviews.reverse.each do |reviews| %>
       <p> Rating: <%= reviews.rating %> on <%= reviews.created_at.strftime('%B %d, %Y') %><br>
           <%= reviews.review %><br>
-          <%= reviews.user.first_name %> <%= reviews.user.last_name %> <%= reviews.user.city %>, <%= reviews.user.state %><br>
+           <%= User.where(:id => reviews.reviewer_id)[0][:first_name] %> <%= User.where(:id => reviews.reviewer_id)[0][:last_name] %> <%= User.where(:id => reviews.reviewer_id)[0][:city] %>, <%= User.where(:id => reviews.reviewer_id)[0][:state] %><br>
         <% end %>
       </p>
       <% end %>
