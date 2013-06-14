@@ -87,7 +87,7 @@ end
 photos = [
   "http://stevegreentv.com/images/encore_good-2.jpg",
   "http://cbcdn2.gp-static.com/uploads/flipbook_photo/image/1/01.jpg",
-  "http://ep.yimg.com/ca/I/yhst-36953680823486_2261_21367563",
+  "http://image.made-in-china.com/2f0j00ICnTjFHkfLoP/LED-Camera-Light-ET-LBPS-1800-.jpg",
   "http://www.swim2000.com/images/product_gen/300x300/IC14.jpg",
   "http://www.42photo.com/images/products/prod_m/107138_m_IMG_272168.jpg",
   "http://img1.targetimg1.com/wcsstore/TargetSAS//img/p/14/44/14449457_130307103000.jpg",
@@ -95,7 +95,7 @@ photos = [
   "http://th03.deviantart.net/fs71/PRE/f/2012/365/8/e/1986_rca_pro_wonder_vhs_camcorder_by_tikikah_the_phoenix-d5pvh9r.jpg",
   "http://www.americanmusical.com/ItemImages/Large/CVT%204PLAYCLR.jpg",
   "http://www.dansdata.com/images/d60/lenses500.jpg",
-  "http://overstockdigital.com/ovcat/product_thumb.php?img=images/canon100-400.jpg&w=250&h=161",
+  "http://reviews.photographyreview.com/files/2009/01/essential_camera_gear-bag.jpg",
   "http://a.tgcdn.net/images/products/frontsquare/eba9_olloclip_iphone_camera_lens.jpg",
   "http://used.natcam.com/newused/images/8005/NIKON_AF_70-300MM_F4-5PT6_G.jpg"
 ]
