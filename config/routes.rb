@@ -1,4 +1,7 @@
 Gearlance::Application.routes.draw do
+  resources :reviews
+
+
   resources :subcategories
   get "/categories/:slug/:sub_category" => "subcategories#index"
 

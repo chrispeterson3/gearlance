@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :items
   has_many :reservations
+  has_many :reviews
 
   # validates_attachment_presence :image
   validates_attachment_size :avatar, :less_than => 5.megabytes
@@ -15,4 +16,25 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :password, length: { within: 4..15 }
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+
+  def average_rating
+    ratings = []
+
+    self.reviews.each do |user|
+      ratings << user.rating
+    end
+
+    sum = 0
+    ratings.each do |rating|
+      sum += rating
+    end
+
+    if ratings.count == 0
+      0
+    else
+       (sum/(ratings.count))
+    end
+  end
+
+
 end

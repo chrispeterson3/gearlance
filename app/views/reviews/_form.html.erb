@@ -1,0 +1,37 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+  Reservation # <%= @review.reservation_id %>
+  </p>
+
+  <%= f.hidden_field :user_id, value: @review.reservation.item.user_id %>
+  <%= f.hidden_field :item_id, value: @review.reservation.item.id %>
+  <%= f.hidden_field :reservation_id, value: @review.reservation.id %>
+
+  <div class="field">
+    <%= f.label :item_name, "Item you're reviewing:" %><br />
+    <%= f.text_field :item_name, value: @review.item_name %>
+  </div>
+
+    <div class="field">
+    <%= f.label :rating, "Enter a rating from 1 (bad) to 5 (great)" %><br />
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :review, "Say what you really think:" %><br />
+    <%= f.text_area :review, rows: 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

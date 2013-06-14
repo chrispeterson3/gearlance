@@ -30,9 +30,19 @@
 
     <h3>Description</h3>
     <p><%= @item.description %></p>
-
-    <h3>Reviews</h3>
-    <p>Bacon ipsum dolor sit amet salami andouille shank meatloaf spare ribs leberkas brisket, tail short ribs jowl chicken flank tenderloin pork. Pig beef ribs shankle swine ground round corned beef pancetta. Beef ribs corned beef sirloin ball tip, pork loin ribeye beef biltong chuck shoulder turkey brisket prosciutto flank. Biltong flank shankle, cow leberkas pig spare ribs jowl sirloin tri-tip salami fatback sausage pork loin corned beef. Andouille ham hock sirloin beef turkey. Ground round pork chop sausage venison doner short ribs hamburger shankle cow meatloaf pork. Fatback pork chop swine tenderloin hamburger beef ribeye.</p>
+    <p><% if @item.reviews.count == 0 %>
+      <h3>Be the first to review this gear</h3>
+      <p>No review, no worries.  This is still a great piece of gear and may have just been added to our database. You can also check to see what other gear <%= link_to @item.user.first_name, user_url(@item.user_id) %> has on the site and the rating for those.</p>
+      <% else %>
+    <h3><%= @item.reviews.count %> Reviews from people like you</h3>
+        <% @item.reviews.reverse.each do |reviews| %>
+      <p> Rating: <%= reviews.rating %> on <%= reviews.created_at.strftime('%B %d, %Y') %><br>
+          <%= reviews.review %><br>
+          <%= reviews.user.first_name %> <%= reviews.user.last_name %> <%= reviews.user.city %>, <%= reviews.user.state %><br>
+        <% end %>
+      </p>
+      <% end %>
+    </p>
   </div><!-- span8 -->
 
   <div class="span4">
