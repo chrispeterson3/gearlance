@@ -81,7 +81,7 @@ subcategories.each do |subcategory|
 end
 
 def random_number
-  rand(0..12)
+  rand(0..12).to_i
 end
 
 photos = [
