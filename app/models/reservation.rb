@@ -28,6 +28,4 @@ class Reservation < ActiveRecord::Base
 
     return ((daily_price * days) + (weekly_price * weeks) + (monthly_price * months))
   end
-
-
 end

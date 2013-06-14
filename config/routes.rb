@@ -1,7 +1,5 @@
 Gearlance::Application.routes.draw do
   resources :reviews
-
-
   resources :subcategories
   get "/categories/:slug/:sub_category" => "subcategories#index"
 
@@ -14,10 +12,10 @@ Gearlance::Application.routes.draw do
   resources :categories
   resources :items
   resources :users
-  resources :reservations, except: [:new]
+  resources :reservations, except: [:new] do
+    resources :charges
+  end
   resource :session, except: [:edit]
-
-  resources :charges
 
   match "/faq" => "pages#faq"
   match "/about" => "pages#about"

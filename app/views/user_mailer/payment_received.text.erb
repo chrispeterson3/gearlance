@@ -1,0 +1,14 @@
+<%= @reservation.item.user.first_name %>, a payment has been made for your item!
+===========================
+
+<%= @reservation.user.first_name %> has made a payment for your item. Please arrange the item shipment!
+
+Gear: <%= @reservation.item.name %>
+
+Dates: <%= @reservation.start_date.strftime("%A %b %d, %Y") %> - <%= @reservation.end_date.strftime("%A %b %d, %Y") %>
+
+Please confirm by sending <%= @reservation.user.first_name %> an invoice to <%= @reservation.user.email %>
+
+Thank you and have a great day!
+
+- Gearlance
